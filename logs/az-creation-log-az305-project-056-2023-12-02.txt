@@ -1,0 +1,275 @@
+********************************************************
+Creating Resource Group & Setting deployment user
+--------------------------------------------------------
+@{id=/subscriptions/c0de6865-a88e-448b-b905-781909aee251/resourceGroups/az305-project-056; location=eastus; managedBy=; name=az305-project-056; properties=; tags=; type=Microsoft.Resources/resourceGroups}
+@{id=; kind=; name=web; publishingPassword=; publishingPasswordHash=; publishingPasswordHashSalt=; publishingUserName=az305-project-056-benjammin-deploy-76; scmUri=; type=Microsoft.Web/publishingUsers/web}
+****************************
+Creating Machine Scale Sets
+----------------------------
+creating vnet & subnet
+vnet: tyrell-eastus-vnet-056, 10.10.0.0/16
+subnet: tyrell-eastus-subnet-056, 10.10.10.0/24
+appGW: tyrell-appgw-subnet-056, 10.10.230.0/24
+location: eastus
+@{newVNet=}
+----------------------------
+creating machine scale set
+machine set: tyrell-webapp-imgs-eastus-056
+service vnet: tyrell-eastus-vnet-056
+service sub: tyrell-eastus-subnet-056
+runtime: Ubuntu2204
+private IP: pip-tyrell-webapp-imgs-eastus-056
+appGW Name: tyrell-webapp-appgw-eastus-056
+{
+  "vmss": {
+    "doNotRunExtensionsOnOverprovisionedVMs": false,
+    "orchestrationMode": "Uniform",
+    "overprovision": true,
+    "provisioningState": "Succeeded",
+    "singlePlacementGroup": true,
+    "timeCreated": "2023-12-02T09:11:20.0381887+00:00",
+    "uniqueId": "de193256-6989-4415-8d47-ba243c71f336",
+    "upgradePolicy": {
+      "mode": "Automatic",
+      "rollingUpgradePolicy": {
+        "maxBatchInstancePercent": 20,
+        "maxSurge": false,
+        "maxUnhealthyInstancePercent": 20,
+        "maxUnhealthyUpgradedInstancePercent": 20,
+        "pauseTimeBetweenBatches": "PT0S",
+        "rollbackFailedInstancesOnPolicyBreach": false
+      }
+    },
+    "virtualMachineProfile": {
+      "networkProfile": {
+        "networkInterfaceConfigurations": [
+          {
+            "name": "tyrel8103Nic",
+            "properties": {
+              "disableTcpStateTracking": false,
+              "dnsSettings": {
+                "dnsServers": []
+              },
+              "enableAcceleratedNetworking": false,
+              "enableIPForwarding": false,
+              "ipConfigurations": [
+                {
+                  "name": "tyrel8103IPConfig",
+                  "properties": {
+                    "loadBalancerBackendAddressPools": [
+                      {
+                        "id": "/subscriptions/c0de6865-a88e-448b-b905-781909aee251/resourceGroups/az305-project-056/providers/Microsoft.Network/loadBalancers/tyrell-webapp-imgs-eastus-056LB/backendAddressPools/tyrell-webapp-imgs-eastus-056LBBEPool",
+                        "resourceGroup": "az305-project-056"
+                      }
+                    ],
+                    "privateIPAddressVersion": "IPv4",
+                    "subnet": {
+                      "id": "/subscriptions/c0de6865-a88e-448b-b905-781909aee251/resourceGroups/az305-project-056/providers/Microsoft.Network/virtualNetworks/tyrell-eastus-vnet-056/subnets/tyrell-eastus-subnet-056",
+                      "resourceGroup": "az305-project-056"
+                    }
+                  }
+                }
+              ],
+              "networkSecurityGroup": {
+                "id": "/subscriptions/c0de6865-a88e-448b-b905-781909aee251/resourceGroups/az305-project-056/providers/Microsoft.Network/networkSecurityGroups/tyrell-webapp-imgs-eastus-056NSG",
+                "resourceGroup": "az305-project-056"
+              },
+              "primary": true
+            }
+          }
+        ]
+      },
+      "osProfile": {
+        "adminUsername": "benjamin",
+        "allowExtensionOperations": true,
+        "computerNamePrefix": "tyrel8103",
+        "linuxConfiguration": {
+          "disablePasswordAuthentication": false,
+          "enableVMAgentPlatformUpdates": false,
+          "provisionVMAgent": true,
+          "ssh": {
+            "publicKeys": [
+              {
+                "keyData": "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDzFSaYwWa+4Axl8bitH3COCWRFnD4aAemcbgW9Jh0tgoeey9zhOw0P3Nfy/yW1hg8q9HkogbkRM71GpPFn8P0tVMUK1wfoSxHD0uEwFQQC8U3Mny3TRzAM6QcabVSoii9Cgaxf8xvDVRDtGvMBBpToyuU+QgPvfsB09cU1qhAVMkJlxhyHAgm2jDe/PspuCltRhJl0Hu4P8TFVBPyAGdqVDvcB9zjayZ8bKhimTdO+xRJE9FWO9dDzf+YCcLJJggagdJb4nqp7UZr5wSua/p4sMTd3e8u9segVn26gmp9QhWD41mkRGjNVK52QpnoWiGhQlFAs707ufO5KFwgd7SIz",
+                "path": "/home/benjamin/.ssh/authorized_keys"
+              }
+            ]
+          }
+        },
+        "requireGuestProvisionSignal": true,
+        "secrets": []
+      },
+      "storageProfile": {
+        "diskControllerType": "SCSI",
+        "imageReference": {
+          "offer": "0001-com-ubuntu-server-jammy",
+          "publisher": "Canonical",
+          "sku": "22_04-lts-gen2",
+          "version": "latest"
+        },
+        "osDisk": {
+          "caching": "ReadWrite",
+          "createOption": "FromImage",
+          "diskSizeGB": 30,
+          "managedDisk": {
+            "storageAccountType": "Premium_LRS"
+          },
+          "osType": "Linux"
+        }
+      },
+      "timeCreated": "2023-12-02T09:11:20.0381887+00:00"
+    }
+  }
+}
+****************************
+Creating Machine Scale Sets
+----------------------------
+creating vnet & subnet
+vnet: tyrell-eastus-vnet-056, 10.10.0.0/16
+subnet: tyrell-eastus-subnet-056, 10.10.10.0/24
+appGW: tyrell-appgw-subnet-056, 10.10.230.0/24
+location: eastus
+@{newVNet=}
+----------------------------
+creating machine scale set
+machine set: tyrell-webapp-reg-eastus-056
+service vnet: tyrell-eastus-vnet-056
+service sub: tyrell-eastus-subnet-056
+runtime: Ubuntu2204
+private IP: pip-tyrell-webapp-reg-eastus-056
+appGW Name: tyrell-webapp-appgw-eastus-056
+{
+  "vmss": {
+    "doNotRunExtensionsOnOverprovisionedVMs": false,
+    "orchestrationMode": "Uniform",
+    "overprovision": true,
+    "provisioningState": "Succeeded",
+    "singlePlacementGroup": true,
+    "timeCreated": "2023-12-02T09:12:52.4591291+00:00",
+    "uniqueId": "9f0c0c77-47f8-4754-9461-87fa8372f483",
+    "upgradePolicy": {
+      "mode": "Automatic",
+      "rollingUpgradePolicy": {
+        "maxBatchInstancePercent": 20,
+        "maxSurge": false,
+        "maxUnhealthyInstancePercent": 20,
+        "maxUnhealthyUpgradedInstancePercent": 20,
+        "pauseTimeBetweenBatches": "PT0S",
+        "rollbackFailedInstancesOnPolicyBreach": false
+      }
+    },
+    "virtualMachineProfile": {
+      "networkProfile": {
+        "networkInterfaceConfigurations": [
+          {
+            "name": "tyrelda7bNic",
+            "properties": {
+              "disableTcpStateTracking": false,
+              "dnsSettings": {
+                "dnsServers": []
+              },
+              "enableAcceleratedNetworking": false,
+              "enableIPForwarding": false,
+              "ipConfigurations": [
+                {
+                  "name": "tyrelda7bIPConfig",
+                  "properties": {
+                    "loadBalancerBackendAddressPools": [
+                      {
+                        "id": "/subscriptions/c0de6865-a88e-448b-b905-781909aee251/resourceGroups/az305-project-056/providers/Microsoft.Network/loadBalancers/tyrell-webapp-reg-eastus-056LB/backendAddressPools/tyrell-webapp-reg-eastus-056LBBEPool",
+                        "resourceGroup": "az305-project-056"
+                      }
+                    ],
+                    "privateIPAddressVersion": "IPv4",
+                    "subnet": {
+                      "id": "/subscriptions/c0de6865-a88e-448b-b905-781909aee251/resourceGroups/az305-project-056/providers/Microsoft.Network/virtualNetworks/tyrell-eastus-vnet-056/subnets/tyrell-eastus-subnet-056",
+                      "resourceGroup": "az305-project-056"
+                    }
+                  }
+                }
+              ],
+              "networkSecurityGroup": {
+                "id": "/subscriptions/c0de6865-a88e-448b-b905-781909aee251/resourceGroups/az305-project-056/providers/Microsoft.Network/networkSecurityGroups/tyrell-webapp-reg-eastus-056NSG",
+                "resourceGroup": "az305-project-056"
+              },
+              "primary": true
+            }
+          }
+        ]
+      },
+      "osProfile": {
+        "adminUsername": "benjamin",
+        "allowExtensionOperations": true,
+        "computerNamePrefix": "tyrelda7b",
+        "linuxConfiguration": {
+          "disablePasswordAuthentication": false,
+          "enableVMAgentPlatformUpdates": false,
+          "provisionVMAgent": true,
+          "ssh": {
+            "publicKeys": [
+              {
+                "keyData": "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDzFSaYwWa+4Axl8bitH3COCWRFnD4aAemcbgW9Jh0tgoeey9zhOw0P3Nfy/yW1hg8q9HkogbkRM71GpPFn8P0tVMUK1wfoSxHD0uEwFQQC8U3Mny3TRzAM6QcabVSoii9Cgaxf8xvDVRDtGvMBBpToyuU+QgPvfsB09cU1qhAVMkJlxhyHAgm2jDe/PspuCltRhJl0Hu4P8TFVBPyAGdqVDvcB9zjayZ8bKhimTdO+xRJE9FWO9dDzf+YCcLJJggagdJb4nqp7UZr5wSua/p4sMTd3e8u9segVn26gmp9QhWD41mkRGjNVK52QpnoWiGhQlFAs707ufO5KFwgd7SIz",
+                "path": "/home/benjamin/.ssh/authorized_keys"
+              }
+            ]
+          }
+        },
+        "requireGuestProvisionSignal": true,
+        "secrets": []
+      },
+      "storageProfile": {
+        "diskControllerType": "SCSI",
+        "imageReference": {
+          "offer": "0001-com-ubuntu-server-jammy",
+          "publisher": "Canonical",
+          "sku": "22_04-lts-gen2",
+          "version": "latest"
+        },
+        "osDisk": {
+          "caching": "ReadWrite",
+          "createOption": "FromImage",
+          "diskSizeGB": 30,
+          "managedDisk": {
+            "storageAccountType": "Premium_LRS"
+          },
+          "osType": "Linux"
+        }
+      },
+      "timeCreated": "2023-12-02T09:12:52.4591291+00:00"
+    }
+  }
+}
+****************************
+Creating Machine Scale Sets
+----------------------------
+creating vnet & subnet
+vnet: tyrell-aus-vnet-056, 10.20.0.0/16
+subnet: tyrell-aus-subnet-056, 10.20.10.0/24
+appGW: tyrell-appgw-subnet-056, 10.20.230.0/24
+location: australiasoutheast
+@{newVNet=}
+----------------------------
+creating machine scale set
+machine set: tyrell-webapp-imgs-aus-056
+service vnet: tyrell-aus-vnet-056
+service sub: tyrell-aus-subnet-056
+runtime: Ubuntu2204
+private IP: pip-tyrell-webapp-imgs-aus-056
+appGW Name: tyrell-webapp-appgw-aus-056
+****************************
+Creating Machine Scale Sets
+----------------------------
+creating vnet & subnet
+vnet: tyrell-aus-vnet-056, 10.20.0.0/16
+subnet: tyrell-aus-subnet-056, 10.20.10.0/24
+appGW: tyrell-appgw-subnet-056, 10.20.230.0/24
+location: australiasoutheast
+@{newVNet=}
+----------------------------
+creating machine scale set
+machine set: tyrell-webapp-reg-aus-056
+service vnet: tyrell-aus-vnet-056
+service sub: tyrell-aus-subnet-056
+runtime: Ubuntu2204
+private IP: pip-tyrell-webapp-reg-aus-056
+appGW Name: tyrell-webapp-appgw-aus-056

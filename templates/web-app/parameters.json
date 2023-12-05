@@ -1,0 +1,51 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "subscriptionId": {
+            "value": "951a0254-05ce-4ed4-b8fc-904d8a959c7f"
+        },
+        "name": {
+            "value": "bens-web-app-win-01"
+        },
+        "location": {
+            "value": "East US"
+        },
+        "hostingPlanName": {
+            "value": "ASP-bensrg-abf2"
+        },
+        "serverFarmResourceGroup": {
+            "value": "bens-rg"
+        },
+        "alwaysOn": {
+            "value": true
+        },
+        "ftpsState": {
+            "value": "FtpsOnly"
+        },
+        "sku": {
+            "value": "Standard"
+        },
+        "skuCode": {
+            "value": "S1"
+        },
+        "numberOfWorkers": {
+            "value": "1"
+        },
+        "workerSize": {
+            "value": "0"
+        },
+        "workerSizeId": {
+            "value": "0"
+        },
+        "currentStack": {
+            "value": "dotnet"
+        },
+        "phpVersion": {
+            "value": "OFF"
+        },
+        "netFrameworkVersion": {
+            "value": "v7.0"
+        }
+    }
+}

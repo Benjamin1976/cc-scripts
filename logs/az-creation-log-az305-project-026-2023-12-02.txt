@@ -1,0 +1,3195 @@
+********************************************************
+Creating Resource Group & Setting deployment user
+--------------------------------------------------------
+group exists: az305-project-026
+True
+deployment user exists: az305-project-016-benjammin-deploy-76
+@{id=; kind=; name=web; publishingPassword=; publishingPasswordHash=; publishingPasswordHashSalt=; publishingUserName=az305-project-016-benjammin-deploy-76; scmUri=; type=Microsoft.Web/publishingUsers/web}
+****************************
+Creating App Services
+----------------------------
+creating vnet & subnet
+vnet: tyrell-imgs-vnet-eastus-026, 10.0.0.0/16
+subnet: tyrell-imgs-subnet-eastus-026, 10.0.10.0/24
+location: eastus
+deployment user doesn't exist, creating
+@{newVNet=}
+----------------------------
+creating service plan
+service plan: tyrell-plan-imgs-eastus-026
+service loc: eastus
+deployment user doesn't exist, creating
+@{newVNet=}
+----------------------------
+creating app service
+service plan: tyrell-plan-imgs-eastus-026
+web app: tyrell-webapp-imgs-eastus-026
+service vnet: tyrell-imgs-vnet-eastus-026
+service sub: tyrell-imgs-subnet-eastus-026
+runtime: ASPNET:V4.8
+{
+  "availabilityState": "Normal",
+  "clientAffinityEnabled": true,
+  "clientCertEnabled": false,
+  "clientCertExclusionPaths": null,
+  "clientCertMode": "Required",
+  "cloningInfo": null,
+  "containerSize": 0,
+  "customDomainVerificationId": "7208DE66D90040EEFBA67AB6A0E2CC3A62EB32678EF869E33693407A53C493CE",
+  "dailyMemoryTimeQuota": 0,
+  "defaultHostName": "tyrell-webapp-imgs-eastus-026.azurewebsites.net",
+  "deploymentLocalGitUrl": "https://az305-project-016-benjammin-deploy-76@tyrell-webapp-imgs-eastus-026.scm.azurewebsites.net/tyrell-webapp-imgs-eastus-026.git",
+  "enabled": true,
+  "enabledHostNames": [
+    "tyrell-webapp-imgs-eastus-026.azurewebsites.net",
+    "tyrell-webapp-imgs-eastus-026.scm.azurewebsites.net"
+  ],
+  "extendedLocation": null,
+  "ftpPublishingUrl": "ftps://waws-prod-blu-409.ftp.azurewebsites.windows.net/site/wwwroot",
+  "hostNameSslStates": [
+    {
+      "certificateResourceId": null,
+      "hostType": "Standard",
+      "ipBasedSslResult": null,
+      "ipBasedSslState": "NotConfigured",
+      "name": "tyrell-webapp-imgs-eastus-026.azurewebsites.net",
+      "sslState": "Disabled",
+      "thumbprint": null,
+      "toUpdate": null,
+      "toUpdateIpBasedSsl": null,
+      "virtualIPv6": null,
+      "virtualIp": null
+    },
+    {
+      "certificateResourceId": null,
+      "hostType": "Repository",
+      "ipBasedSslResult": null,
+      "ipBasedSslState": "NotConfigured",
+      "name": "tyrell-webapp-imgs-eastus-026.scm.azurewebsites.net",
+      "sslState": "Disabled",
+      "thumbprint": null,
+      "toUpdate": null,
+      "toUpdateIpBasedSsl": null,
+      "virtualIPv6": null,
+      "virtualIp": null
+    }
+  ],
+  "hostNames": [
+    "tyrell-webapp-imgs-eastus-026.azurewebsites.net"
+  ],
+  "hostNamesDisabled": false,
+  "hostingEnvironmentProfile": null,
+  "httpsOnly": false,
+  "hyperV": false,
+  "id": "/subscriptions/c0de6865-a88e-448b-b905-781909aee251/resourceGroups/az305-project-026/providers/Microsoft.Web/sites/tyrell-webapp-imgs-eastus-026",
+  "identity": null,
+  "inProgressOperationId": null,
+  "isDefaultContainer": null,
+  "isXenon": false,
+  "keyVaultReferenceIdentity": "SystemAssigned",
+  "kind": "app",
+  "lastModifiedTimeUtc": "2023-12-02T03:29:56.666666",
+  "location": "East US",
+  "maxNumberOfWorkers": null,
+  "name": "tyrell-webapp-imgs-eastus-026",
+  "outboundIpAddresses": "20.231.254.168,20.231.254.207,20.231.255.29,20.231.255.39,20.231.255.98,20.231.255.137,20.119.8.35",
+  "possibleOutboundIpAddresses": "20.231.254.168,20.231.254.207,20.231.255.29,20.231.255.39,20.231.255.98,20.231.255.137,20.231.255.141,20.88.191.63,20.231.255.152,20.231.255.159,20.242.160.50,20.242.160.62,20.242.160.71,20.242.160.110,20.242.160.123,20.242.160.155,20.242.160.163,20.242.160.164,20.81.28.121,20.242.160.182,20.242.160.190,20.242.160.225,20.242.160.227,20.242.161.30,20.242.161.63,20.242.161.93,20.242.161.145,20.242.161.176,20.242.161.185,20.242.161.243,20.119.8.35",
+  "publicNetworkAccess": "Enabled",
+  "redundancyMode": "None",
+  "repositorySiteName": "tyrell-webapp-imgs-eastus-026",
+  "reserved": false,
+  "resourceGroup": "az305-project-026",
+  "scmSiteAlsoStopped": false,
+  "serverFarmId": "/subscriptions/c0de6865-a88e-448b-b905-781909aee251/resourceGroups/az305-project-026/providers/Microsoft.Web/serverfarms/tyrell-plan-imgs-eastus-026",
+  "siteConfig": {
+    "acrUseManagedIdentityCreds": false,
+    "acrUserManagedIdentityId": null,
+    "alwaysOn": false,
+    "antivirusScanEnabled": null,
+    "apiDefinition": null,
+    "apiManagementConfig": null,
+    "appCommandLine": null,
+    "appSettings": null,
+    "autoHealEnabled": null,
+    "autoHealRules": null,
+    "autoSwapSlotName": null,
+    "azureMonitorLogCategories": null,
+    "azureStorageAccounts": null,
+    "connectionStrings": null,
+    "cors": null,
+    "customAppPoolIdentityAdminState": null,
+    "customAppPoolIdentityTenantState": null,
+    "defaultDocuments": null,
+    "detailedErrorLoggingEnabled": null,
+    "documentRoot": null,
+    "elasticWebAppScaleLimit": 0,
+    "experiments": null,
+    "fileChangeAuditEnabled": null,
+    "ftpsState": null,
+    "functionAppScaleLimit": null,
+    "functionsRuntimeScaleMonitoringEnabled": null,
+    "handlerMappings": null,
+    "healthCheckPath": null,
+    "http20Enabled": false,
+    "http20ProxyFlag": null,
+    "httpLoggingEnabled": null,
+    "ipSecurityRestrictions": [
+      {
+        "action": "Allow",
+        "description": "Allow all access",
+        "headers": null,
+        "ipAddress": "Any",
+        "name": "Allow all",
+        "priority": 2147483647,
+        "subnetMask": null,
+        "subnetTrafficTag": null,
+        "tag": null,
+        "vnetSubnetResourceId": null,
+        "vnetTrafficTag": null
+      }
+    ],
+    "ipSecurityRestrictionsDefaultAction": null,
+    "javaContainer": null,
+    "javaContainerVersion": null,
+    "javaVersion": null,
+    "keyVaultReferenceIdentity": null,
+    "limits": null,
+    "linuxFxVersion": "",
+    "loadBalancing": null,
+    "localMySqlEnabled": null,
+    "logsDirectorySizeLimit": null,
+    "machineKey": null,
+    "managedPipelineMode": null,
+    "managedServiceIdentityId": null,
+    "metadata": null,
+    "minTlsCipherSuite": null,
+    "minTlsVersion": null,
+    "minimumElasticInstanceCount": 0,
+    "netFrameworkVersion": null,
+    "nodeVersion": null,
+    "numberOfWorkers": 1,
+    "phpVersion": null,
+    "powerShellVersion": null,
+    "preWarmedInstanceCount": null,
+    "publicNetworkAccess": null,
+    "publishingPassword": null,
+    "publishingUsername": null,
+    "push": null,
+    "pythonVersion": null,
+    "remoteDebuggingEnabled": null,
+    "remoteDebuggingVersion": null,
+    "requestTracingEnabled": null,
+    "requestTracingExpirationTime": null,
+    "routingRules": null,
+    "runtimeADUser": null,
+    "runtimeADUserPassword": null,
+    "scmIpSecurityRestrictions": [
+      {
+        "action": "Allow",
+        "description": "Allow all access",
+        "headers": null,
+        "ipAddress": "Any",
+        "name": "Allow all",
+        "priority": 2147483647,
+        "subnetMask": null,
+        "subnetTrafficTag": null,
+        "tag": null,
+        "vnetSubnetResourceId": null,
+        "vnetTrafficTag": null
+      }
+    ],
+    "scmIpSecurityRestrictionsDefaultAction": null,
+    "scmIpSecurityRestrictionsUseMain": null,
+    "scmMinTlsVersion": null,
+    "scmType": null,
+    "sitePort": null,
+    "sitePrivateLinkHostEnabled": null,
+    "storageType": null,
+    "supportedTlsCipherSuites": null,
+    "tracingOptions": null,
+    "use32BitWorkerProcess": null,
+    "virtualApplications": null,
+    "vnetName": null,
+    "vnetPrivatePortsCount": null,
+    "vnetRouteAllEnabled": null,
+    "webSocketsEnabled": null,
+    "websiteTimeZone": null,
+    "winAuthAdminState": null,
+    "winAuthTenantState": null,
+    "windowsConfiguredStacks": null,
+    "windowsFxVersion": null,
+    "xManagedServiceIdentityId": null
+  },
+  "slotSwapStatus": null,
+  "state": "Running",
+  "storageAccountRequired": false,
+  "suspendedTill": null,
+  "tags": null,
+  "targetSwapSlot": null,
+  "trafficManagerHostNames": null,
+  "type": "Microsoft.Web/sites",
+  "usageState": "Normal",
+  "virtualNetworkSubnetId": "/subscriptions/c0de6865-a88e-448b-b905-781909aee251/resourceGroups/az305-project-026/providers/Microsoft.Network/virtualNetworks/tyrell-imgs-vnet-eastus-026/subnets/tyrell-imgs-subnet-eastus-026",
+  "vnetContentShareEnabled": false,
+  "vnetImagePullEnabled": false,
+  "vnetRouteAllEnabled": true
+}
+----------------------------
+deploying code from git
+from: G:\coding\envs\ps-az-setup\sites\imgs-eastus
+alias: az-imgs-eastus-026
+to: https://benjammin-deploy-76@tyrell-webapp-imgs-eastus-026.scm.azurewebsites.net/tyrell-webapp-imgs-eastus-026.git
+{
+  "availabilityState": "Normal",
+  "clientAffinityEnabled": true,
+  "clientCertEnabled": false,
+  "clientCertExclusionPaths": null,
+  "clientCertMode": "Required",
+  "cloningInfo": null,
+  "containerSize": 0,
+  "customDomainVerificationId": "7208DE66D90040EEFBA67AB6A0E2CC3A62EB32678EF869E33693407A53C493CE",
+  "dailyMemoryTimeQuota": 0,
+  "defaultHostName": "tyrell-webapp-imgs-eastus-026.azurewebsites.net",
+  "deploymentLocalGitUrl": "https://az305-project-016-benjammin-deploy-76@tyrell-webapp-imgs-eastus-026.scm.azurewebsites.net/tyrell-webapp-imgs-eastus-026.git",
+  "enabled": true,
+  "enabledHostNames": [
+    "tyrell-webapp-imgs-eastus-026.azurewebsites.net",
+    "tyrell-webapp-imgs-eastus-026.scm.azurewebsites.net"
+  ],
+  "extendedLocation": null,
+  "ftpPublishingUrl": "ftps://waws-prod-blu-409.ftp.azurewebsites.windows.net/site/wwwroot",
+  "hostNameSslStates": [
+    {
+      "certificateResourceId": null,
+      "hostType": "Standard",
+      "ipBasedSslResult": null,
+      "ipBasedSslState": "NotConfigured",
+      "name": "tyrell-webapp-imgs-eastus-026.azurewebsites.net",
+      "sslState": "Disabled",
+      "thumbprint": null,
+      "toUpdate": null,
+      "toUpdateIpBasedSsl": null,
+      "virtualIPv6": null,
+      "virtualIp": null
+    },
+    {
+      "certificateResourceId": null,
+      "hostType": "Repository",
+      "ipBasedSslResult": null,
+      "ipBasedSslState": "NotConfigured",
+      "name": "tyrell-webapp-imgs-eastus-026.scm.azurewebsites.net",
+      "sslState": "Disabled",
+      "thumbprint": null,
+      "toUpdate": null,
+      "toUpdateIpBasedSsl": null,
+      "virtualIPv6": null,
+      "virtualIp": null
+    }
+  ],
+  "hostNames": [
+    "tyrell-webapp-imgs-eastus-026.azurewebsites.net"
+  ],
+  "hostNamesDisabled": false,
+  "hostingEnvironmentProfile": null,
+  "httpsOnly": false,
+  "hyperV": false,
+  "id": "/subscriptions/c0de6865-a88e-448b-b905-781909aee251/resourceGroups/az305-project-026/providers/Microsoft.Web/sites/tyrell-webapp-imgs-eastus-026",
+  "identity": null,
+  "inProgressOperationId": null,
+  "isDefaultContainer": null,
+  "isXenon": false,
+  "keyVaultReferenceIdentity": "SystemAssigned",
+  "kind": "app",
+  "lastModifiedTimeUtc": "2023-12-02T03:29:56.666666",
+  "location": "East US",
+  "maxNumberOfWorkers": null,
+  "name": "tyrell-webapp-imgs-eastus-026",
+  "outboundIpAddresses": "20.231.254.168,20.231.254.207,20.231.255.29,20.231.255.39,20.231.255.98,20.231.255.137,20.119.8.35",
+  "possibleOutboundIpAddresses": "20.231.254.168,20.231.254.207,20.231.255.29,20.231.255.39,20.231.255.98,20.231.255.137,20.231.255.141,20.88.191.63,20.231.255.152,20.231.255.159,20.242.160.50,20.242.160.62,20.242.160.71,20.242.160.110,20.242.160.123,20.242.160.155,20.242.160.163,20.242.160.164,20.81.28.121,20.242.160.182,20.242.160.190,20.242.160.225,20.242.160.227,20.242.161.30,20.242.161.63,20.242.161.93,20.242.161.145,20.242.161.176,20.242.161.185,20.242.161.243,20.119.8.35",
+  "publicNetworkAccess": "Enabled",
+  "redundancyMode": "None",
+  "repositorySiteName": "tyrell-webapp-imgs-eastus-026",
+  "reserved": false,
+  "resourceGroup": "az305-project-026",
+  "scmSiteAlsoStopped": false,
+  "serverFarmId": "/subscriptions/c0de6865-a88e-448b-b905-781909aee251/resourceGroups/az305-project-026/providers/Microsoft.Web/serverfarms/tyrell-plan-imgs-eastus-026",
+  "siteConfig": {
+    "acrUseManagedIdentityCreds": false,
+    "acrUserManagedIdentityId": null,
+    "alwaysOn": false,
+    "antivirusScanEnabled": null,
+    "apiDefinition": null,
+    "apiManagementConfig": null,
+    "appCommandLine": null,
+    "appSettings": null,
+    "autoHealEnabled": null,
+    "autoHealRules": null,
+    "autoSwapSlotName": null,
+    "azureMonitorLogCategories": null,
+    "azureStorageAccounts": null,
+    "connectionStrings": null,
+    "cors": null,
+    "customAppPoolIdentityAdminState": null,
+    "customAppPoolIdentityTenantState": null,
+    "defaultDocuments": null,
+    "detailedErrorLoggingEnabled": null,
+    "documentRoot": null,
+    "elasticWebAppScaleLimit": 0,
+    "experiments": null,
+    "fileChangeAuditEnabled": null,
+    "ftpsState": null,
+    "functionAppScaleLimit": null,
+    "functionsRuntimeScaleMonitoringEnabled": null,
+    "handlerMappings": null,
+    "healthCheckPath": null,
+    "http20Enabled": false,
+    "http20ProxyFlag": null,
+    "httpLoggingEnabled": null,
+    "ipSecurityRestrictions": [
+      {
+        "action": "Allow",
+        "description": "Allow all access",
+        "headers": null,
+        "ipAddress": "Any",
+        "name": "Allow all",
+        "priority": 2147483647,
+        "subnetMask": null,
+        "subnetTrafficTag": null,
+        "tag": null,
+        "vnetSubnetResourceId": null,
+        "vnetTrafficTag": null
+      }
+    ],
+    "ipSecurityRestrictionsDefaultAction": null,
+    "javaContainer": null,
+    "javaContainerVersion": null,
+    "javaVersion": null,
+    "keyVaultReferenceIdentity": null,
+    "limits": null,
+    "linuxFxVersion": "",
+    "loadBalancing": null,
+    "localMySqlEnabled": null,
+    "logsDirectorySizeLimit": null,
+    "machineKey": null,
+    "managedPipelineMode": null,
+    "managedServiceIdentityId": null,
+    "metadata": null,
+    "minTlsCipherSuite": null,
+    "minTlsVersion": null,
+    "minimumElasticInstanceCount": 0,
+    "netFrameworkVersion": null,
+    "nodeVersion": null,
+    "numberOfWorkers": 1,
+    "phpVersion": null,
+    "powerShellVersion": null,
+    "preWarmedInstanceCount": null,
+    "publicNetworkAccess": null,
+    "publishingPassword": null,
+    "publishingUsername": null,
+    "push": null,
+    "pythonVersion": null,
+    "remoteDebuggingEnabled": null,
+    "remoteDebuggingVersion": null,
+    "requestTracingEnabled": null,
+    "requestTracingExpirationTime": null,
+    "routingRules": null,
+    "runtimeADUser": null,
+    "runtimeADUserPassword": null,
+    "scmIpSecurityRestrictions": [
+      {
+        "action": "Allow",
+        "description": "Allow all access",
+        "headers": null,
+        "ipAddress": "Any",
+        "name": "Allow all",
+        "priority": 2147483647,
+        "subnetMask": null,
+        "subnetTrafficTag": null,
+        "tag": null,
+        "vnetSubnetResourceId": null,
+        "vnetTrafficTag": null
+      }
+    ],
+    "scmIpSecurityRestrictionsDefaultAction": null,
+    "scmIpSecurityRestrictionsUseMain": null,
+    "scmMinTlsVersion": null,
+    "scmType": null,
+    "sitePort": null,
+    "sitePrivateLinkHostEnabled": null,
+    "storageType": null,
+    "supportedTlsCipherSuites": null,
+    "tracingOptions": null,
+    "use32BitWorkerProcess": null,
+    "virtualApplications": null,
+    "vnetName": null,
+    "vnetPrivatePortsCount": null,
+    "vnetRouteAllEnabled": null,
+    "webSocketsEnabled": null,
+    "websiteTimeZone": null,
+    "winAuthAdminState": null,
+    "winAuthTenantState": null,
+    "windowsConfiguredStacks": null,
+    "windowsFxVersion": null,
+    "xManagedServiceIdentityId": null
+  },
+  "slotSwapStatus": null,
+  "state": "Running",
+  "storageAccountRequired": false,
+  "suspendedTill": null,
+  "tags": null,
+  "targetSwapSlot": null,
+  "trafficManagerHostNames": null,
+  "type": "Microsoft.Web/sites",
+  "usageState": "Normal",
+  "virtualNetworkSubnetId": "/subscriptions/c0de6865-a88e-448b-b905-781909aee251/resourceGroups/az305-project-026/providers/Microsoft.Network/virtualNetworks/tyrell-imgs-vnet-eastus-026/subnets/tyrell-imgs-subnet-eastus-026",
+  "vnetContentShareEnabled": false,
+  "vnetImagePullEnabled": false,
+  "vnetRouteAllEnabled": true
+}
+On branch master
+nothing to commit, working tree clean
+****************************
+Creating App Services
+----------------------------
+creating vnet & subnet
+vnet: tyrell-reg-vnet-eastus-026, 10.0.0.0/16
+subnet: tyrell-reg-subnet-eastus-026, 10.0.10.0/24
+location: eastus
+deployment user doesn't exist, creating
+@{newVNet=}
+----------------------------
+creating service plan
+service plan: tyrell-plan-reg-eastus-026
+service loc: eastus
+deployment user doesn't exist, creating
+@{newVNet=}
+----------------------------
+creating app service
+service plan: tyrell-plan-reg-eastus-026
+web app: tyrell-webapp-reg-eastus-026
+service vnet: tyrell-reg-vnet-eastus-026
+service sub: tyrell-reg-subnet-eastus-026
+runtime: ASPNET:V4.8
+{
+  "availabilityState": "Normal",
+  "clientAffinityEnabled": true,
+  "clientCertEnabled": false,
+  "clientCertExclusionPaths": null,
+  "clientCertMode": "Required",
+  "cloningInfo": null,
+  "containerSize": 0,
+  "customDomainVerificationId": "7208DE66D90040EEFBA67AB6A0E2CC3A62EB32678EF869E33693407A53C493CE",
+  "dailyMemoryTimeQuota": 0,
+  "defaultHostName": "tyrell-webapp-reg-eastus-026.azurewebsites.net",
+  "deploymentLocalGitUrl": "https://az305-project-016-benjammin-deploy-76@tyrell-webapp-reg-eastus-026.scm.azurewebsites.net/tyrell-webapp-reg-eastus-026.git",
+  "enabled": true,
+  "enabledHostNames": [
+    "tyrell-webapp-reg-eastus-026.azurewebsites.net",
+    "tyrell-webapp-reg-eastus-026.scm.azurewebsites.net"
+  ],
+  "extendedLocation": null,
+  "ftpPublishingUrl": "ftps://waws-prod-blu-409.ftp.azurewebsites.windows.net/site/wwwroot",
+  "hostNameSslStates": [
+    {
+      "certificateResourceId": null,
+      "hostType": "Standard",
+      "ipBasedSslResult": null,
+      "ipBasedSslState": "NotConfigured",
+      "name": "tyrell-webapp-reg-eastus-026.azurewebsites.net",
+      "sslState": "Disabled",
+      "thumbprint": null,
+      "toUpdate": null,
+      "toUpdateIpBasedSsl": null,
+      "virtualIPv6": null,
+      "virtualIp": null
+    },
+    {
+      "certificateResourceId": null,
+      "hostType": "Repository",
+      "ipBasedSslResult": null,
+      "ipBasedSslState": "NotConfigured",
+      "name": "tyrell-webapp-reg-eastus-026.scm.azurewebsites.net",
+      "sslState": "Disabled",
+      "thumbprint": null,
+      "toUpdate": null,
+      "toUpdateIpBasedSsl": null,
+      "virtualIPv6": null,
+      "virtualIp": null
+    }
+  ],
+  "hostNames": [
+    "tyrell-webapp-reg-eastus-026.azurewebsites.net"
+  ],
+  "hostNamesDisabled": false,
+  "hostingEnvironmentProfile": null,
+  "httpsOnly": false,
+  "hyperV": false,
+  "id": "/subscriptions/c0de6865-a88e-448b-b905-781909aee251/resourceGroups/az305-project-026/providers/Microsoft.Web/sites/tyrell-webapp-reg-eastus-026",
+  "identity": null,
+  "inProgressOperationId": null,
+  "isDefaultContainer": null,
+  "isXenon": false,
+  "keyVaultReferenceIdentity": "SystemAssigned",
+  "kind": "app",
+  "lastModifiedTimeUtc": "2023-12-02T03:31:20.150000",
+  "location": "East US",
+  "maxNumberOfWorkers": null,
+  "name": "tyrell-webapp-reg-eastus-026",
+  "outboundIpAddresses": "20.231.254.168,20.231.254.207,20.231.255.29,20.231.255.39,20.231.255.98,20.231.255.137,20.119.8.35",
+  "possibleOutboundIpAddresses": "20.231.254.168,20.231.254.207,20.231.255.29,20.231.255.39,20.231.255.98,20.231.255.137,20.231.255.141,20.88.191.63,20.231.255.152,20.231.255.159,20.242.160.50,20.242.160.62,20.242.160.71,20.242.160.110,20.242.160.123,20.242.160.155,20.242.160.163,20.242.160.164,20.81.28.121,20.242.160.182,20.242.160.190,20.242.160.225,20.242.160.227,20.242.161.30,20.242.161.63,20.242.161.93,20.242.161.145,20.242.161.176,20.242.161.185,20.242.161.243,20.119.8.35",
+  "publicNetworkAccess": "Enabled",
+  "redundancyMode": "None",
+  "repositorySiteName": "tyrell-webapp-reg-eastus-026",
+  "reserved": false,
+  "resourceGroup": "az305-project-026",
+  "scmSiteAlsoStopped": false,
+  "serverFarmId": "/subscriptions/c0de6865-a88e-448b-b905-781909aee251/resourceGroups/az305-project-026/providers/Microsoft.Web/serverfarms/tyrell-plan-reg-eastus-026",
+  "siteConfig": {
+    "acrUseManagedIdentityCreds": false,
+    "acrUserManagedIdentityId": null,
+    "alwaysOn": false,
+    "antivirusScanEnabled": null,
+    "apiDefinition": null,
+    "apiManagementConfig": null,
+    "appCommandLine": null,
+    "appSettings": null,
+    "autoHealEnabled": null,
+    "autoHealRules": null,
+    "autoSwapSlotName": null,
+    "azureMonitorLogCategories": null,
+    "azureStorageAccounts": null,
+    "connectionStrings": null,
+    "cors": null,
+    "customAppPoolIdentityAdminState": null,
+    "customAppPoolIdentityTenantState": null,
+    "defaultDocuments": null,
+    "detailedErrorLoggingEnabled": null,
+    "documentRoot": null,
+    "elasticWebAppScaleLimit": 0,
+    "experiments": null,
+    "fileChangeAuditEnabled": null,
+    "ftpsState": null,
+    "functionAppScaleLimit": null,
+    "functionsRuntimeScaleMonitoringEnabled": null,
+    "handlerMappings": null,
+    "healthCheckPath": null,
+    "http20Enabled": false,
+    "http20ProxyFlag": null,
+    "httpLoggingEnabled": null,
+    "ipSecurityRestrictions": [
+      {
+        "action": "Allow",
+        "description": "Allow all access",
+        "headers": null,
+        "ipAddress": "Any",
+        "name": "Allow all",
+        "priority": 2147483647,
+        "subnetMask": null,
+        "subnetTrafficTag": null,
+        "tag": null,
+        "vnetSubnetResourceId": null,
+        "vnetTrafficTag": null
+      }
+    ],
+    "ipSecurityRestrictionsDefaultAction": null,
+    "javaContainer": null,
+    "javaContainerVersion": null,
+    "javaVersion": null,
+    "keyVaultReferenceIdentity": null,
+    "limits": null,
+    "linuxFxVersion": "",
+    "loadBalancing": null,
+    "localMySqlEnabled": null,
+    "logsDirectorySizeLimit": null,
+    "machineKey": null,
+    "managedPipelineMode": null,
+    "managedServiceIdentityId": null,
+    "metadata": null,
+    "minTlsCipherSuite": null,
+    "minTlsVersion": null,
+    "minimumElasticInstanceCount": 0,
+    "netFrameworkVersion": null,
+    "nodeVersion": null,
+    "numberOfWorkers": 1,
+    "phpVersion": null,
+    "powerShellVersion": null,
+    "preWarmedInstanceCount": null,
+    "publicNetworkAccess": null,
+    "publishingPassword": null,
+    "publishingUsername": null,
+    "push": null,
+    "pythonVersion": null,
+    "remoteDebuggingEnabled": null,
+    "remoteDebuggingVersion": null,
+    "requestTracingEnabled": null,
+    "requestTracingExpirationTime": null,
+    "routingRules": null,
+    "runtimeADUser": null,
+    "runtimeADUserPassword": null,
+    "scmIpSecurityRestrictions": [
+      {
+        "action": "Allow",
+        "description": "Allow all access",
+        "headers": null,
+        "ipAddress": "Any",
+        "name": "Allow all",
+        "priority": 2147483647,
+        "subnetMask": null,
+        "subnetTrafficTag": null,
+        "tag": null,
+        "vnetSubnetResourceId": null,
+        "vnetTrafficTag": null
+      }
+    ],
+    "scmIpSecurityRestrictionsDefaultAction": null,
+    "scmIpSecurityRestrictionsUseMain": null,
+    "scmMinTlsVersion": null,
+    "scmType": null,
+    "sitePort": null,
+    "sitePrivateLinkHostEnabled": null,
+    "storageType": null,
+    "supportedTlsCipherSuites": null,
+    "tracingOptions": null,
+    "use32BitWorkerProcess": null,
+    "virtualApplications": null,
+    "vnetName": null,
+    "vnetPrivatePortsCount": null,
+    "vnetRouteAllEnabled": null,
+    "webSocketsEnabled": null,
+    "websiteTimeZone": null,
+    "winAuthAdminState": null,
+    "winAuthTenantState": null,
+    "windowsConfiguredStacks": null,
+    "windowsFxVersion": null,
+    "xManagedServiceIdentityId": null
+  },
+  "slotSwapStatus": null,
+  "state": "Running",
+  "storageAccountRequired": false,
+  "suspendedTill": null,
+  "tags": null,
+  "targetSwapSlot": null,
+  "trafficManagerHostNames": null,
+  "type": "Microsoft.Web/sites",
+  "usageState": "Normal",
+  "virtualNetworkSubnetId": "/subscriptions/c0de6865-a88e-448b-b905-781909aee251/resourceGroups/az305-project-026/providers/Microsoft.Network/virtualNetworks/tyrell-reg-vnet-eastus-026/subnets/tyrell-reg-subnet-eastus-026",
+  "vnetContentShareEnabled": false,
+  "vnetImagePullEnabled": false,
+  "vnetRouteAllEnabled": true
+}
+----------------------------
+deploying code from git
+from: G:\coding\envs\ps-az-setup\sites\reg-eastus
+alias: az-reg-eastus-026
+to: https://benjammin-deploy-76@tyrell-webapp-reg-eastus-026.scm.azurewebsites.net/tyrell-webapp-reg-eastus-026.git
+{
+  "availabilityState": "Normal",
+  "clientAffinityEnabled": true,
+  "clientCertEnabled": false,
+  "clientCertExclusionPaths": null,
+  "clientCertMode": "Required",
+  "cloningInfo": null,
+  "containerSize": 0,
+  "customDomainVerificationId": "7208DE66D90040EEFBA67AB6A0E2CC3A62EB32678EF869E33693407A53C493CE",
+  "dailyMemoryTimeQuota": 0,
+  "defaultHostName": "tyrell-webapp-reg-eastus-026.azurewebsites.net",
+  "deploymentLocalGitUrl": "https://az305-project-016-benjammin-deploy-76@tyrell-webapp-reg-eastus-026.scm.azurewebsites.net/tyrell-webapp-reg-eastus-026.git",
+  "enabled": true,
+  "enabledHostNames": [
+    "tyrell-webapp-reg-eastus-026.azurewebsites.net",
+    "tyrell-webapp-reg-eastus-026.scm.azurewebsites.net"
+  ],
+  "extendedLocation": null,
+  "ftpPublishingUrl": "ftps://waws-prod-blu-409.ftp.azurewebsites.windows.net/site/wwwroot",
+  "hostNameSslStates": [
+    {
+      "certificateResourceId": null,
+      "hostType": "Standard",
+      "ipBasedSslResult": null,
+      "ipBasedSslState": "NotConfigured",
+      "name": "tyrell-webapp-reg-eastus-026.azurewebsites.net",
+      "sslState": "Disabled",
+      "thumbprint": null,
+      "toUpdate": null,
+      "toUpdateIpBasedSsl": null,
+      "virtualIPv6": null,
+      "virtualIp": null
+    },
+    {
+      "certificateResourceId": null,
+      "hostType": "Repository",
+      "ipBasedSslResult": null,
+      "ipBasedSslState": "NotConfigured",
+      "name": "tyrell-webapp-reg-eastus-026.scm.azurewebsites.net",
+      "sslState": "Disabled",
+      "thumbprint": null,
+      "toUpdate": null,
+      "toUpdateIpBasedSsl": null,
+      "virtualIPv6": null,
+      "virtualIp": null
+    }
+  ],
+  "hostNames": [
+    "tyrell-webapp-reg-eastus-026.azurewebsites.net"
+  ],
+  "hostNamesDisabled": false,
+  "hostingEnvironmentProfile": null,
+  "httpsOnly": false,
+  "hyperV": false,
+  "id": "/subscriptions/c0de6865-a88e-448b-b905-781909aee251/resourceGroups/az305-project-026/providers/Microsoft.Web/sites/tyrell-webapp-reg-eastus-026",
+  "identity": null,
+  "inProgressOperationId": null,
+  "isDefaultContainer": null,
+  "isXenon": false,
+  "keyVaultReferenceIdentity": "SystemAssigned",
+  "kind": "app",
+  "lastModifiedTimeUtc": "2023-12-02T03:31:20.150000",
+  "location": "East US",
+  "maxNumberOfWorkers": null,
+  "name": "tyrell-webapp-reg-eastus-026",
+  "outboundIpAddresses": "20.231.254.168,20.231.254.207,20.231.255.29,20.231.255.39,20.231.255.98,20.231.255.137,20.119.8.35",
+  "possibleOutboundIpAddresses": "20.231.254.168,20.231.254.207,20.231.255.29,20.231.255.39,20.231.255.98,20.231.255.137,20.231.255.141,20.88.191.63,20.231.255.152,20.231.255.159,20.242.160.50,20.242.160.62,20.242.160.71,20.242.160.110,20.242.160.123,20.242.160.155,20.242.160.163,20.242.160.164,20.81.28.121,20.242.160.182,20.242.160.190,20.242.160.225,20.242.160.227,20.242.161.30,20.242.161.63,20.242.161.93,20.242.161.145,20.242.161.176,20.242.161.185,20.242.161.243,20.119.8.35",
+  "publicNetworkAccess": "Enabled",
+  "redundancyMode": "None",
+  "repositorySiteName": "tyrell-webapp-reg-eastus-026",
+  "reserved": false,
+  "resourceGroup": "az305-project-026",
+  "scmSiteAlsoStopped": false,
+  "serverFarmId": "/subscriptions/c0de6865-a88e-448b-b905-781909aee251/resourceGroups/az305-project-026/providers/Microsoft.Web/serverfarms/tyrell-plan-reg-eastus-026",
+  "siteConfig": {
+    "acrUseManagedIdentityCreds": false,
+    "acrUserManagedIdentityId": null,
+    "alwaysOn": false,
+    "antivirusScanEnabled": null,
+    "apiDefinition": null,
+    "apiManagementConfig": null,
+    "appCommandLine": null,
+    "appSettings": null,
+    "autoHealEnabled": null,
+    "autoHealRules": null,
+    "autoSwapSlotName": null,
+    "azureMonitorLogCategories": null,
+    "azureStorageAccounts": null,
+    "connectionStrings": null,
+    "cors": null,
+    "customAppPoolIdentityAdminState": null,
+    "customAppPoolIdentityTenantState": null,
+    "defaultDocuments": null,
+    "detailedErrorLoggingEnabled": null,
+    "documentRoot": null,
+    "elasticWebAppScaleLimit": 0,
+    "experiments": null,
+    "fileChangeAuditEnabled": null,
+    "ftpsState": null,
+    "functionAppScaleLimit": null,
+    "functionsRuntimeScaleMonitoringEnabled": null,
+    "handlerMappings": null,
+    "healthCheckPath": null,
+    "http20Enabled": false,
+    "http20ProxyFlag": null,
+    "httpLoggingEnabled": null,
+    "ipSecurityRestrictions": [
+      {
+        "action": "Allow",
+        "description": "Allow all access",
+        "headers": null,
+        "ipAddress": "Any",
+        "name": "Allow all",
+        "priority": 2147483647,
+        "subnetMask": null,
+        "subnetTrafficTag": null,
+        "tag": null,
+        "vnetSubnetResourceId": null,
+        "vnetTrafficTag": null
+      }
+    ],
+    "ipSecurityRestrictionsDefaultAction": null,
+    "javaContainer": null,
+    "javaContainerVersion": null,
+    "javaVersion": null,
+    "keyVaultReferenceIdentity": null,
+    "limits": null,
+    "linuxFxVersion": "",
+    "loadBalancing": null,
+    "localMySqlEnabled": null,
+    "logsDirectorySizeLimit": null,
+    "machineKey": null,
+    "managedPipelineMode": null,
+    "managedServiceIdentityId": null,
+    "metadata": null,
+    "minTlsCipherSuite": null,
+    "minTlsVersion": null,
+    "minimumElasticInstanceCount": 0,
+    "netFrameworkVersion": null,
+    "nodeVersion": null,
+    "numberOfWorkers": 1,
+    "phpVersion": null,
+    "powerShellVersion": null,
+    "preWarmedInstanceCount": null,
+    "publicNetworkAccess": null,
+    "publishingPassword": null,
+    "publishingUsername": null,
+    "push": null,
+    "pythonVersion": null,
+    "remoteDebuggingEnabled": null,
+    "remoteDebuggingVersion": null,
+    "requestTracingEnabled": null,
+    "requestTracingExpirationTime": null,
+    "routingRules": null,
+    "runtimeADUser": null,
+    "runtimeADUserPassword": null,
+    "scmIpSecurityRestrictions": [
+      {
+        "action": "Allow",
+        "description": "Allow all access",
+        "headers": null,
+        "ipAddress": "Any",
+        "name": "Allow all",
+        "priority": 2147483647,
+        "subnetMask": null,
+        "subnetTrafficTag": null,
+        "tag": null,
+        "vnetSubnetResourceId": null,
+        "vnetTrafficTag": null
+      }
+    ],
+    "scmIpSecurityRestrictionsDefaultAction": null,
+    "scmIpSecurityRestrictionsUseMain": null,
+    "scmMinTlsVersion": null,
+    "scmType": null,
+    "sitePort": null,
+    "sitePrivateLinkHostEnabled": null,
+    "storageType": null,
+    "supportedTlsCipherSuites": null,
+    "tracingOptions": null,
+    "use32BitWorkerProcess": null,
+    "virtualApplications": null,
+    "vnetName": null,
+    "vnetPrivatePortsCount": null,
+    "vnetRouteAllEnabled": null,
+    "webSocketsEnabled": null,
+    "websiteTimeZone": null,
+    "winAuthAdminState": null,
+    "winAuthTenantState": null,
+    "windowsConfiguredStacks": null,
+    "windowsFxVersion": null,
+    "xManagedServiceIdentityId": null
+  },
+  "slotSwapStatus": null,
+  "state": "Running",
+  "storageAccountRequired": false,
+  "suspendedTill": null,
+  "tags": null,
+  "targetSwapSlot": null,
+  "trafficManagerHostNames": null,
+  "type": "Microsoft.Web/sites",
+  "usageState": "Normal",
+  "virtualNetworkSubnetId": "/subscriptions/c0de6865-a88e-448b-b905-781909aee251/resourceGroups/az305-project-026/providers/Microsoft.Network/virtualNetworks/tyrell-reg-vnet-eastus-026/subnets/tyrell-reg-subnet-eastus-026",
+  "vnetContentShareEnabled": false,
+  "vnetImagePullEnabled": false,
+  "vnetRouteAllEnabled": true
+}
+****************************
+Creating App Services
+----------------------------
+creating vnet & subnet
+vnet: tyrell-imgs-vnet-aus-026, 10.0.0.0/16
+subnet: tyrell-imgs-subnet-aus-026, 10.0.20.0/24
+location: australiasoutheast
+deployment user doesn't exist, creating
+@{newVNet=}
+----------------------------
+creating service plan
+service plan: tyrell-plan-imgs-aus-026
+service loc: australiasoutheast
+deployment user doesn't exist, creating
+@{newVNet=}
+----------------------------
+creating app service
+service plan: tyrell-plan-imgs-aus-026
+web app: tyrell-webapp-imgs-aus-026
+service vnet: tyrell-imgs-vnet-aus-026
+service sub: tyrell-imgs-subnet-aus-026
+runtime: ASPNET:V4.8
+{
+  "availabilityState": "Normal",
+  "clientAffinityEnabled": true,
+  "clientCertEnabled": false,
+  "clientCertExclusionPaths": null,
+  "clientCertMode": "Required",
+  "cloningInfo": null,
+  "containerSize": 0,
+  "customDomainVerificationId": "7208DE66D90040EEFBA67AB6A0E2CC3A62EB32678EF869E33693407A53C493CE",
+  "dailyMemoryTimeQuota": 0,
+  "defaultHostName": "tyrell-webapp-imgs-aus-026.azurewebsites.net",
+  "deploymentLocalGitUrl": "https://az305-project-016-benjammin-deploy-76@tyrell-webapp-imgs-aus-026.scm.azurewebsites.net/tyrell-webapp-imgs-aus-026.git",
+  "enabled": true,
+  "enabledHostNames": [
+    "tyrell-webapp-imgs-aus-026.azurewebsites.net",
+    "tyrell-webapp-imgs-aus-026.scm.azurewebsites.net"
+  ],
+  "extendedLocation": null,
+  "ftpPublishingUrl": "ftps://waws-prod-ml1-049.ftp.azurewebsites.windows.net/site/wwwroot",
+  "hostNameSslStates": [
+    {
+      "certificateResourceId": null,
+      "hostType": "Standard",
+      "ipBasedSslResult": null,
+      "ipBasedSslState": "NotConfigured",
+      "name": "tyrell-webapp-imgs-aus-026.azurewebsites.net",
+      "sslState": "Disabled",
+      "thumbprint": null,
+      "toUpdate": null,
+      "toUpdateIpBasedSsl": null,
+      "virtualIPv6": null,
+      "virtualIp": null
+    },
+    {
+      "certificateResourceId": null,
+      "hostType": "Repository",
+      "ipBasedSslResult": null,
+      "ipBasedSslState": "NotConfigured",
+      "name": "tyrell-webapp-imgs-aus-026.scm.azurewebsites.net",
+      "sslState": "Disabled",
+      "thumbprint": null,
+      "toUpdate": null,
+      "toUpdateIpBasedSsl": null,
+      "virtualIPv6": null,
+      "virtualIp": null
+    }
+  ],
+  "hostNames": [
+    "tyrell-webapp-imgs-aus-026.azurewebsites.net"
+  ],
+  "hostNamesDisabled": false,
+  "hostingEnvironmentProfile": null,
+  "httpsOnly": false,
+  "hyperV": false,
+  "id": "/subscriptions/c0de6865-a88e-448b-b905-781909aee251/resourceGroups/az305-project-026/providers/Microsoft.Web/sites/tyrell-webapp-imgs-aus-026",
+  "identity": null,
+  "inProgressOperationId": null,
+  "isDefaultContainer": null,
+  "isXenon": false,
+  "keyVaultReferenceIdentity": "SystemAssigned",
+  "kind": "app",
+  "lastModifiedTimeUtc": "2023-12-02T03:32:38.736666",
+  "location": "Australia Southeast",
+  "maxNumberOfWorkers": null,
+  "name": "tyrell-webapp-imgs-aus-026",
+  "outboundIpAddresses": "20.11.143.202,20.11.143.144,4.198.72.13,20.70.110.56,20.70.110.121,20.11.139.179,20.190.105.58,20.190.106.197,20.190.106.207,20.190.107.222,20.190.108.138,20.190.107.77,13.77.50.112",
+  "possibleOutboundIpAddresses": "20.11.143.202,20.11.143.144,4.198.72.13,20.70.110.56,20.70.110.121,20.11.139.179,20.190.105.58,20.190.106.197,20.190.106.207,20.190.107.222,20.190.108.138,20.190.107.77,20.70.106.191,4.198.73.8,20.70.109.146,4.198.73.26,4.198.74.76,20.11.137.249,20.70.109.253,20.70.110.8,20.11.138.61,20.70.110.201,20.11.138.191,20.70.108.73,20.70.109.223,20.70.111.181,20.70.108.191,20.70.107.149,20.70.111.157,20.11.139.124,20.190.105.58,20.190.106.197,20.190.106.207,20.190.107.222,20.190.108.138,20.190.107.77,20.70.106.254,4.198.78.179,20.11.137.128,20.70.110.177,20.70.108.197,20.70.108.154,13.77.50.112",
+  "publicNetworkAccess": "Enabled",
+  "redundancyMode": "None",
+  "repositorySiteName": "tyrell-webapp-imgs-aus-026",
+  "reserved": false,
+  "resourceGroup": "az305-project-026",
+  "scmSiteAlsoStopped": false,
+  "serverFarmId": "/subscriptions/c0de6865-a88e-448b-b905-781909aee251/resourceGroups/az305-project-026/providers/Microsoft.Web/serverfarms/tyrell-plan-imgs-aus-026",
+  "siteConfig": {
+    "acrUseManagedIdentityCreds": false,
+    "acrUserManagedIdentityId": null,
+    "alwaysOn": false,
+    "antivirusScanEnabled": null,
+    "apiDefinition": null,
+    "apiManagementConfig": null,
+    "appCommandLine": null,
+    "appSettings": null,
+    "autoHealEnabled": null,
+    "autoHealRules": null,
+    "autoSwapSlotName": null,
+    "azureMonitorLogCategories": null,
+    "azureStorageAccounts": null,
+    "connectionStrings": null,
+    "cors": null,
+    "customAppPoolIdentityAdminState": null,
+    "customAppPoolIdentityTenantState": null,
+    "defaultDocuments": null,
+    "detailedErrorLoggingEnabled": null,
+    "documentRoot": null,
+    "elasticWebAppScaleLimit": 0,
+    "experiments": null,
+    "fileChangeAuditEnabled": null,
+    "ftpsState": null,
+    "functionAppScaleLimit": null,
+    "functionsRuntimeScaleMonitoringEnabled": null,
+    "handlerMappings": null,
+    "healthCheckPath": null,
+    "http20Enabled": false,
+    "http20ProxyFlag": null,
+    "httpLoggingEnabled": null,
+    "ipSecurityRestrictions": [
+      {
+        "action": "Allow",
+        "description": "Allow all access",
+        "headers": null,
+        "ipAddress": "Any",
+        "name": "Allow all",
+        "priority": 2147483647,
+        "subnetMask": null,
+        "subnetTrafficTag": null,
+        "tag": null,
+        "vnetSubnetResourceId": null,
+        "vnetTrafficTag": null
+      }
+    ],
+    "ipSecurityRestrictionsDefaultAction": null,
+    "javaContainer": null,
+    "javaContainerVersion": null,
+    "javaVersion": null,
+    "keyVaultReferenceIdentity": null,
+    "limits": null,
+    "linuxFxVersion": "",
+    "loadBalancing": null,
+    "localMySqlEnabled": null,
+    "logsDirectorySizeLimit": null,
+    "machineKey": null,
+    "managedPipelineMode": null,
+    "managedServiceIdentityId": null,
+    "metadata": null,
+    "minTlsCipherSuite": null,
+    "minTlsVersion": null,
+    "minimumElasticInstanceCount": 0,
+    "netFrameworkVersion": null,
+    "nodeVersion": null,
+    "numberOfWorkers": 1,
+    "phpVersion": null,
+    "powerShellVersion": null,
+    "preWarmedInstanceCount": null,
+    "publicNetworkAccess": null,
+    "publishingPassword": null,
+    "publishingUsername": null,
+    "push": null,
+    "pythonVersion": null,
+    "remoteDebuggingEnabled": null,
+    "remoteDebuggingVersion": null,
+    "requestTracingEnabled": null,
+    "requestTracingExpirationTime": null,
+    "routingRules": null,
+    "runtimeADUser": null,
+    "runtimeADUserPassword": null,
+    "scmIpSecurityRestrictions": [
+      {
+        "action": "Allow",
+        "description": "Allow all access",
+        "headers": null,
+        "ipAddress": "Any",
+        "name": "Allow all",
+        "priority": 2147483647,
+        "subnetMask": null,
+        "subnetTrafficTag": null,
+        "tag": null,
+        "vnetSubnetResourceId": null,
+        "vnetTrafficTag": null
+      }
+    ],
+    "scmIpSecurityRestrictionsDefaultAction": null,
+    "scmIpSecurityRestrictionsUseMain": null,
+    "scmMinTlsVersion": null,
+    "scmType": null,
+    "sitePort": null,
+    "sitePrivateLinkHostEnabled": null,
+    "storageType": null,
+    "supportedTlsCipherSuites": null,
+    "tracingOptions": null,
+    "use32BitWorkerProcess": null,
+    "virtualApplications": null,
+    "vnetName": null,
+    "vnetPrivatePortsCount": null,
+    "vnetRouteAllEnabled": null,
+    "webSocketsEnabled": null,
+    "websiteTimeZone": null,
+    "winAuthAdminState": null,
+    "winAuthTenantState": null,
+    "windowsConfiguredStacks": null,
+    "windowsFxVersion": null,
+    "xManagedServiceIdentityId": null
+  },
+  "slotSwapStatus": null,
+  "state": "Running",
+  "storageAccountRequired": false,
+  "suspendedTill": null,
+  "tags": null,
+  "targetSwapSlot": null,
+  "trafficManagerHostNames": null,
+  "type": "Microsoft.Web/sites",
+  "usageState": "Normal",
+  "virtualNetworkSubnetId": "/subscriptions/c0de6865-a88e-448b-b905-781909aee251/resourceGroups/az305-project-026/providers/Microsoft.Network/virtualNetworks/tyrell-imgs-vnet-aus-026/subnets/tyrell-imgs-subnet-aus-026",
+  "vnetContentShareEnabled": false,
+  "vnetImagePullEnabled": false,
+  "vnetRouteAllEnabled": true
+}
+----------------------------
+deploying code from git
+from: G:\coding\envs\ps-az-setup\sites\imgs-aus
+alias: az-imgs-aus-026
+to: https://benjammin-deploy-76@tyrell-webapp-imgs-aus-026.scm.azurewebsites.net/tyrell-webapp-imgs-aus-026.git
+{
+  "availabilityState": "Normal",
+  "clientAffinityEnabled": true,
+  "clientCertEnabled": false,
+  "clientCertExclusionPaths": null,
+  "clientCertMode": "Required",
+  "cloningInfo": null,
+  "containerSize": 0,
+  "customDomainVerificationId": "7208DE66D90040EEFBA67AB6A0E2CC3A62EB32678EF869E33693407A53C493CE",
+  "dailyMemoryTimeQuota": 0,
+  "defaultHostName": "tyrell-webapp-imgs-aus-026.azurewebsites.net",
+  "deploymentLocalGitUrl": "https://az305-project-016-benjammin-deploy-76@tyrell-webapp-imgs-aus-026.scm.azurewebsites.net/tyrell-webapp-imgs-aus-026.git",
+  "enabled": true,
+  "enabledHostNames": [
+    "tyrell-webapp-imgs-aus-026.azurewebsites.net",
+    "tyrell-webapp-imgs-aus-026.scm.azurewebsites.net"
+  ],
+  "extendedLocation": null,
+  "ftpPublishingUrl": "ftps://waws-prod-ml1-049.ftp.azurewebsites.windows.net/site/wwwroot",
+  "hostNameSslStates": [
+    {
+      "certificateResourceId": null,
+      "hostType": "Standard",
+      "ipBasedSslResult": null,
+      "ipBasedSslState": "NotConfigured",
+      "name": "tyrell-webapp-imgs-aus-026.azurewebsites.net",
+      "sslState": "Disabled",
+      "thumbprint": null,
+      "toUpdate": null,
+      "toUpdateIpBasedSsl": null,
+      "virtualIPv6": null,
+      "virtualIp": null
+    },
+    {
+      "certificateResourceId": null,
+      "hostType": "Repository",
+      "ipBasedSslResult": null,
+      "ipBasedSslState": "NotConfigured",
+      "name": "tyrell-webapp-imgs-aus-026.scm.azurewebsites.net",
+      "sslState": "Disabled",
+      "thumbprint": null,
+      "toUpdate": null,
+      "toUpdateIpBasedSsl": null,
+      "virtualIPv6": null,
+      "virtualIp": null
+    }
+  ],
+  "hostNames": [
+    "tyrell-webapp-imgs-aus-026.azurewebsites.net"
+  ],
+  "hostNamesDisabled": false,
+  "hostingEnvironmentProfile": null,
+  "httpsOnly": false,
+  "hyperV": false,
+  "id": "/subscriptions/c0de6865-a88e-448b-b905-781909aee251/resourceGroups/az305-project-026/providers/Microsoft.Web/sites/tyrell-webapp-imgs-aus-026",
+  "identity": null,
+  "inProgressOperationId": null,
+  "isDefaultContainer": null,
+  "isXenon": false,
+  "keyVaultReferenceIdentity": "SystemAssigned",
+  "kind": "app",
+  "lastModifiedTimeUtc": "2023-12-02T03:32:38.736666",
+  "location": "Australia Southeast",
+  "maxNumberOfWorkers": null,
+  "name": "tyrell-webapp-imgs-aus-026",
+  "outboundIpAddresses": "20.11.143.202,20.11.143.144,4.198.72.13,20.70.110.56,20.70.110.121,20.11.139.179,20.190.105.58,20.190.106.197,20.190.106.207,20.190.107.222,20.190.108.138,20.190.107.77,13.77.50.112",
+  "possibleOutboundIpAddresses": "20.11.143.202,20.11.143.144,4.198.72.13,20.70.110.56,20.70.110.121,20.11.139.179,20.190.105.58,20.190.106.197,20.190.106.207,20.190.107.222,20.190.108.138,20.190.107.77,20.70.106.191,4.198.73.8,20.70.109.146,4.198.73.26,4.198.74.76,20.11.137.249,20.70.109.253,20.70.110.8,20.11.138.61,20.70.110.201,20.11.138.191,20.70.108.73,20.70.109.223,20.70.111.181,20.70.108.191,20.70.107.149,20.70.111.157,20.11.139.124,20.190.105.58,20.190.106.197,20.190.106.207,20.190.107.222,20.190.108.138,20.190.107.77,20.70.106.254,4.198.78.179,20.11.137.128,20.70.110.177,20.70.108.197,20.70.108.154,13.77.50.112",
+  "publicNetworkAccess": "Enabled",
+  "redundancyMode": "None",
+  "repositorySiteName": "tyrell-webapp-imgs-aus-026",
+  "reserved": false,
+  "resourceGroup": "az305-project-026",
+  "scmSiteAlsoStopped": false,
+  "serverFarmId": "/subscriptions/c0de6865-a88e-448b-b905-781909aee251/resourceGroups/az305-project-026/providers/Microsoft.Web/serverfarms/tyrell-plan-imgs-aus-026",
+  "siteConfig": {
+    "acrUseManagedIdentityCreds": false,
+    "acrUserManagedIdentityId": null,
+    "alwaysOn": false,
+    "antivirusScanEnabled": null,
+    "apiDefinition": null,
+    "apiManagementConfig": null,
+    "appCommandLine": null,
+    "appSettings": null,
+    "autoHealEnabled": null,
+    "autoHealRules": null,
+    "autoSwapSlotName": null,
+    "azureMonitorLogCategories": null,
+    "azureStorageAccounts": null,
+    "connectionStrings": null,
+    "cors": null,
+    "customAppPoolIdentityAdminState": null,
+    "customAppPoolIdentityTenantState": null,
+    "defaultDocuments": null,
+    "detailedErrorLoggingEnabled": null,
+    "documentRoot": null,
+    "elasticWebAppScaleLimit": 0,
+    "experiments": null,
+    "fileChangeAuditEnabled": null,
+    "ftpsState": null,
+    "functionAppScaleLimit": null,
+    "functionsRuntimeScaleMonitoringEnabled": null,
+    "handlerMappings": null,
+    "healthCheckPath": null,
+    "http20Enabled": false,
+    "http20ProxyFlag": null,
+    "httpLoggingEnabled": null,
+    "ipSecurityRestrictions": [
+      {
+        "action": "Allow",
+        "description": "Allow all access",
+        "headers": null,
+        "ipAddress": "Any",
+        "name": "Allow all",
+        "priority": 2147483647,
+        "subnetMask": null,
+        "subnetTrafficTag": null,
+        "tag": null,
+        "vnetSubnetResourceId": null,
+        "vnetTrafficTag": null
+      }
+    ],
+    "ipSecurityRestrictionsDefaultAction": null,
+    "javaContainer": null,
+    "javaContainerVersion": null,
+    "javaVersion": null,
+    "keyVaultReferenceIdentity": null,
+    "limits": null,
+    "linuxFxVersion": "",
+    "loadBalancing": null,
+    "localMySqlEnabled": null,
+    "logsDirectorySizeLimit": null,
+    "machineKey": null,
+    "managedPipelineMode": null,
+    "managedServiceIdentityId": null,
+    "metadata": null,
+    "minTlsCipherSuite": null,
+    "minTlsVersion": null,
+    "minimumElasticInstanceCount": 0,
+    "netFrameworkVersion": null,
+    "nodeVersion": null,
+    "numberOfWorkers": 1,
+    "phpVersion": null,
+    "powerShellVersion": null,
+    "preWarmedInstanceCount": null,
+    "publicNetworkAccess": null,
+    "publishingPassword": null,
+    "publishingUsername": null,
+    "push": null,
+    "pythonVersion": null,
+    "remoteDebuggingEnabled": null,
+    "remoteDebuggingVersion": null,
+    "requestTracingEnabled": null,
+    "requestTracingExpirationTime": null,
+    "routingRules": null,
+    "runtimeADUser": null,
+    "runtimeADUserPassword": null,
+    "scmIpSecurityRestrictions": [
+      {
+        "action": "Allow",
+        "description": "Allow all access",
+        "headers": null,
+        "ipAddress": "Any",
+        "name": "Allow all",
+        "priority": 2147483647,
+        "subnetMask": null,
+        "subnetTrafficTag": null,
+        "tag": null,
+        "vnetSubnetResourceId": null,
+        "vnetTrafficTag": null
+      }
+    ],
+    "scmIpSecurityRestrictionsDefaultAction": null,
+    "scmIpSecurityRestrictionsUseMain": null,
+    "scmMinTlsVersion": null,
+    "scmType": null,
+    "sitePort": null,
+    "sitePrivateLinkHostEnabled": null,
+    "storageType": null,
+    "supportedTlsCipherSuites": null,
+    "tracingOptions": null,
+    "use32BitWorkerProcess": null,
+    "virtualApplications": null,
+    "vnetName": null,
+    "vnetPrivatePortsCount": null,
+    "vnetRouteAllEnabled": null,
+    "webSocketsEnabled": null,
+    "websiteTimeZone": null,
+    "winAuthAdminState": null,
+    "winAuthTenantState": null,
+    "windowsConfiguredStacks": null,
+    "windowsFxVersion": null,
+    "xManagedServiceIdentityId": null
+  },
+  "slotSwapStatus": null,
+  "state": "Running",
+  "storageAccountRequired": false,
+  "suspendedTill": null,
+  "tags": null,
+  "targetSwapSlot": null,
+  "trafficManagerHostNames": null,
+  "type": "Microsoft.Web/sites",
+  "usageState": "Normal",
+  "virtualNetworkSubnetId": "/subscriptions/c0de6865-a88e-448b-b905-781909aee251/resourceGroups/az305-project-026/providers/Microsoft.Network/virtualNetworks/tyrell-imgs-vnet-aus-026/subnets/tyrell-imgs-subnet-aus-026",
+  "vnetContentShareEnabled": false,
+  "vnetImagePullEnabled": false,
+  "vnetRouteAllEnabled": true
+}
+On branch main
+Your branch is ahead of 'origin/main' by 1 commit.
+  (use "git push" to publish your local commits)
+
+nothing to commit, working tree clean
+****************************
+Creating App Services
+----------------------------
+creating vnet & subnet
+vnet: tyrell-reg-vnet-aus-026, 10.0.0.0/16
+subnet: tyrell-reg-subnet-aus-026, 10.0.20.0/24
+location: australiasoutheast
+deployment user doesn't exist, creating
+@{newVNet=}
+----------------------------
+creating service plan
+service plan: tyrell-plan-reg-aus-026
+service loc: australiasoutheast
+deployment user doesn't exist, creating
+@{newVNet=}
+----------------------------
+creating app service
+service plan: tyrell-plan-reg-aus-026
+web app: tyrell-webapp-reg-aus-026
+service vnet: tyrell-reg-vnet-aus-026
+service sub: tyrell-reg-subnet-aus-026
+runtime: ASPNET:V4.8
+{
+  "availabilityState": "Normal",
+  "clientAffinityEnabled": true,
+  "clientCertEnabled": false,
+  "clientCertExclusionPaths": null,
+  "clientCertMode": "Required",
+  "cloningInfo": null,
+  "containerSize": 0,
+  "customDomainVerificationId": "7208DE66D90040EEFBA67AB6A0E2CC3A62EB32678EF869E33693407A53C493CE",
+  "dailyMemoryTimeQuota": 0,
+  "defaultHostName": "tyrell-webapp-reg-aus-026.azurewebsites.net",
+  "deploymentLocalGitUrl": "https://az305-project-016-benjammin-deploy-76@tyrell-webapp-reg-aus-026.scm.azurewebsites.net/tyrell-webapp-reg-aus-026.git",
+  "enabled": true,
+  "enabledHostNames": [
+    "tyrell-webapp-reg-aus-026.azurewebsites.net",
+    "tyrell-webapp-reg-aus-026.scm.azurewebsites.net"
+  ],
+  "extendedLocation": null,
+  "ftpPublishingUrl": "ftps://waws-prod-ml1-049.ftp.azurewebsites.windows.net/site/wwwroot",
+  "hostNameSslStates": [
+    {
+      "certificateResourceId": null,
+      "hostType": "Standard",
+      "ipBasedSslResult": null,
+      "ipBasedSslState": "NotConfigured",
+      "name": "tyrell-webapp-reg-aus-026.azurewebsites.net",
+      "sslState": "Disabled",
+      "thumbprint": null,
+      "toUpdate": null,
+      "toUpdateIpBasedSsl": null,
+      "virtualIPv6": null,
+      "virtualIp": null
+    },
+    {
+      "certificateResourceId": null,
+      "hostType": "Repository",
+      "ipBasedSslResult": null,
+      "ipBasedSslState": "NotConfigured",
+      "name": "tyrell-webapp-reg-aus-026.scm.azurewebsites.net",
+      "sslState": "Disabled",
+      "thumbprint": null,
+      "toUpdate": null,
+      "toUpdateIpBasedSsl": null,
+      "virtualIPv6": null,
+      "virtualIp": null
+    }
+  ],
+  "hostNames": [
+    "tyrell-webapp-reg-aus-026.azurewebsites.net"
+  ],
+  "hostNamesDisabled": false,
+  "hostingEnvironmentProfile": null,
+  "httpsOnly": false,
+  "hyperV": false,
+  "id": "/subscriptions/c0de6865-a88e-448b-b905-781909aee251/resourceGroups/az305-project-026/providers/Microsoft.Web/sites/tyrell-webapp-reg-aus-026",
+  "identity": null,
+  "inProgressOperationId": null,
+  "isDefaultContainer": null,
+  "isXenon": false,
+  "keyVaultReferenceIdentity": "SystemAssigned",
+  "kind": "app",
+  "lastModifiedTimeUtc": "2023-12-02T03:33:46.630000",
+  "location": "Australia Southeast",
+  "maxNumberOfWorkers": null,
+  "name": "tyrell-webapp-reg-aus-026",
+  "outboundIpAddresses": "20.11.143.202,20.11.143.144,4.198.72.13,20.70.110.56,20.70.110.121,20.11.139.179,20.190.105.58,20.190.106.197,20.190.106.207,20.190.107.222,20.190.108.138,20.190.107.77,13.77.50.112",
+  "possibleOutboundIpAddresses": "20.11.143.202,20.11.143.144,4.198.72.13,20.70.110.56,20.70.110.121,20.11.139.179,20.190.105.58,20.190.106.197,20.190.106.207,20.190.107.222,20.190.108.138,20.190.107.77,20.70.106.191,4.198.73.8,20.70.109.146,4.198.73.26,4.198.74.76,20.11.137.249,20.70.109.253,20.70.110.8,20.11.138.61,20.70.110.201,20.11.138.191,20.70.108.73,20.70.109.223,20.70.111.181,20.70.108.191,20.70.107.149,20.70.111.157,20.11.139.124,20.190.105.58,20.190.106.197,20.190.106.207,20.190.107.222,20.190.108.138,20.190.107.77,20.70.106.254,4.198.78.179,20.11.137.128,20.70.110.177,20.70.108.197,20.70.108.154,13.77.50.112",
+  "publicNetworkAccess": "Enabled",
+  "redundancyMode": "None",
+  "repositorySiteName": "tyrell-webapp-reg-aus-026",
+  "reserved": false,
+  "resourceGroup": "az305-project-026",
+  "scmSiteAlsoStopped": false,
+  "serverFarmId": "/subscriptions/c0de6865-a88e-448b-b905-781909aee251/resourceGroups/az305-project-026/providers/Microsoft.Web/serverfarms/tyrell-plan-reg-aus-026",
+  "siteConfig": {
+    "acrUseManagedIdentityCreds": false,
+    "acrUserManagedIdentityId": null,
+    "alwaysOn": false,
+    "antivirusScanEnabled": null,
+    "apiDefinition": null,
+    "apiManagementConfig": null,
+    "appCommandLine": null,
+    "appSettings": null,
+    "autoHealEnabled": null,
+    "autoHealRules": null,
+    "autoSwapSlotName": null,
+    "azureMonitorLogCategories": null,
+    "azureStorageAccounts": null,
+    "connectionStrings": null,
+    "cors": null,
+    "customAppPoolIdentityAdminState": null,
+    "customAppPoolIdentityTenantState": null,
+    "defaultDocuments": null,
+    "detailedErrorLoggingEnabled": null,
+    "documentRoot": null,
+    "elasticWebAppScaleLimit": 0,
+    "experiments": null,
+    "fileChangeAuditEnabled": null,
+    "ftpsState": null,
+    "functionAppScaleLimit": null,
+    "functionsRuntimeScaleMonitoringEnabled": null,
+    "handlerMappings": null,
+    "healthCheckPath": null,
+    "http20Enabled": false,
+    "http20ProxyFlag": null,
+    "httpLoggingEnabled": null,
+    "ipSecurityRestrictions": [
+      {
+        "action": "Allow",
+        "description": "Allow all access",
+        "headers": null,
+        "ipAddress": "Any",
+        "name": "Allow all",
+        "priority": 2147483647,
+        "subnetMask": null,
+        "subnetTrafficTag": null,
+        "tag": null,
+        "vnetSubnetResourceId": null,
+        "vnetTrafficTag": null
+      }
+    ],
+    "ipSecurityRestrictionsDefaultAction": null,
+    "javaContainer": null,
+    "javaContainerVersion": null,
+    "javaVersion": null,
+    "keyVaultReferenceIdentity": null,
+    "limits": null,
+    "linuxFxVersion": "",
+    "loadBalancing": null,
+    "localMySqlEnabled": null,
+    "logsDirectorySizeLimit": null,
+    "machineKey": null,
+    "managedPipelineMode": null,
+    "managedServiceIdentityId": null,
+    "metadata": null,
+    "minTlsCipherSuite": null,
+    "minTlsVersion": null,
+    "minimumElasticInstanceCount": 0,
+    "netFrameworkVersion": null,
+    "nodeVersion": null,
+    "numberOfWorkers": 1,
+    "phpVersion": null,
+    "powerShellVersion": null,
+    "preWarmedInstanceCount": null,
+    "publicNetworkAccess": null,
+    "publishingPassword": null,
+    "publishingUsername": null,
+    "push": null,
+    "pythonVersion": null,
+    "remoteDebuggingEnabled": null,
+    "remoteDebuggingVersion": null,
+    "requestTracingEnabled": null,
+    "requestTracingExpirationTime": null,
+    "routingRules": null,
+    "runtimeADUser": null,
+    "runtimeADUserPassword": null,
+    "scmIpSecurityRestrictions": [
+      {
+        "action": "Allow",
+        "description": "Allow all access",
+        "headers": null,
+        "ipAddress": "Any",
+        "name": "Allow all",
+        "priority": 2147483647,
+        "subnetMask": null,
+        "subnetTrafficTag": null,
+        "tag": null,
+        "vnetSubnetResourceId": null,
+        "vnetTrafficTag": null
+      }
+    ],
+    "scmIpSecurityRestrictionsDefaultAction": null,
+    "scmIpSecurityRestrictionsUseMain": null,
+    "scmMinTlsVersion": null,
+    "scmType": null,
+    "sitePort": null,
+    "sitePrivateLinkHostEnabled": null,
+    "storageType": null,
+    "supportedTlsCipherSuites": null,
+    "tracingOptions": null,
+    "use32BitWorkerProcess": null,
+    "virtualApplications": null,
+    "vnetName": null,
+    "vnetPrivatePortsCount": null,
+    "vnetRouteAllEnabled": null,
+    "webSocketsEnabled": null,
+    "websiteTimeZone": null,
+    "winAuthAdminState": null,
+    "winAuthTenantState": null,
+    "windowsConfiguredStacks": null,
+    "windowsFxVersion": null,
+    "xManagedServiceIdentityId": null
+  },
+  "slotSwapStatus": null,
+  "state": "Running",
+  "storageAccountRequired": false,
+  "suspendedTill": null,
+  "tags": null,
+  "targetSwapSlot": null,
+  "trafficManagerHostNames": null,
+  "type": "Microsoft.Web/sites",
+  "usageState": "Normal",
+  "virtualNetworkSubnetId": "/subscriptions/c0de6865-a88e-448b-b905-781909aee251/resourceGroups/az305-project-026/providers/Microsoft.Network/virtualNetworks/tyrell-reg-vnet-aus-026/subnets/tyrell-reg-subnet-aus-026",
+  "vnetContentShareEnabled": false,
+  "vnetImagePullEnabled": false,
+  "vnetRouteAllEnabled": true
+}
+----------------------------
+deploying code from git
+from: G:\coding\envs\ps-az-setup\sites\reg-aus
+alias: az-reg-aus-026
+to: https://benjammin-deploy-76@tyrell-webapp-reg-aus-026.scm.azurewebsites.net/tyrell-webapp-reg-aus-026.git
+{
+  "availabilityState": "Normal",
+  "clientAffinityEnabled": true,
+  "clientCertEnabled": false,
+  "clientCertExclusionPaths": null,
+  "clientCertMode": "Required",
+  "cloningInfo": null,
+  "containerSize": 0,
+  "customDomainVerificationId": "7208DE66D90040EEFBA67AB6A0E2CC3A62EB32678EF869E33693407A53C493CE",
+  "dailyMemoryTimeQuota": 0,
+  "defaultHostName": "tyrell-webapp-reg-aus-026.azurewebsites.net",
+  "deploymentLocalGitUrl": "https://az305-project-016-benjammin-deploy-76@tyrell-webapp-reg-aus-026.scm.azurewebsites.net/tyrell-webapp-reg-aus-026.git",
+  "enabled": true,
+  "enabledHostNames": [
+    "tyrell-webapp-reg-aus-026.azurewebsites.net",
+    "tyrell-webapp-reg-aus-026.scm.azurewebsites.net"
+  ],
+  "extendedLocation": null,
+  "ftpPublishingUrl": "ftps://waws-prod-ml1-049.ftp.azurewebsites.windows.net/site/wwwroot",
+  "hostNameSslStates": [
+    {
+      "certificateResourceId": null,
+      "hostType": "Standard",
+      "ipBasedSslResult": null,
+      "ipBasedSslState": "NotConfigured",
+      "name": "tyrell-webapp-reg-aus-026.azurewebsites.net",
+      "sslState": "Disabled",
+      "thumbprint": null,
+      "toUpdate": null,
+      "toUpdateIpBasedSsl": null,
+      "virtualIPv6": null,
+      "virtualIp": null
+    },
+    {
+      "certificateResourceId": null,
+      "hostType": "Repository",
+      "ipBasedSslResult": null,
+      "ipBasedSslState": "NotConfigured",
+      "name": "tyrell-webapp-reg-aus-026.scm.azurewebsites.net",
+      "sslState": "Disabled",
+      "thumbprint": null,
+      "toUpdate": null,
+      "toUpdateIpBasedSsl": null,
+      "virtualIPv6": null,
+      "virtualIp": null
+    }
+  ],
+  "hostNames": [
+    "tyrell-webapp-reg-aus-026.azurewebsites.net"
+  ],
+  "hostNamesDisabled": false,
+  "hostingEnvironmentProfile": null,
+  "httpsOnly": false,
+  "hyperV": false,
+  "id": "/subscriptions/c0de6865-a88e-448b-b905-781909aee251/resourceGroups/az305-project-026/providers/Microsoft.Web/sites/tyrell-webapp-reg-aus-026",
+  "identity": null,
+  "inProgressOperationId": null,
+  "isDefaultContainer": null,
+  "isXenon": false,
+  "keyVaultReferenceIdentity": "SystemAssigned",
+  "kind": "app",
+  "lastModifiedTimeUtc": "2023-12-02T03:33:46.630000",
+  "location": "Australia Southeast",
+  "maxNumberOfWorkers": null,
+  "name": "tyrell-webapp-reg-aus-026",
+  "outboundIpAddresses": "20.11.143.202,20.11.143.144,4.198.72.13,20.70.110.56,20.70.110.121,20.11.139.179,20.190.105.58,20.190.106.197,20.190.106.207,20.190.107.222,20.190.108.138,20.190.107.77,13.77.50.112",
+  "possibleOutboundIpAddresses": "20.11.143.202,20.11.143.144,4.198.72.13,20.70.110.56,20.70.110.121,20.11.139.179,20.190.105.58,20.190.106.197,20.190.106.207,20.190.107.222,20.190.108.138,20.190.107.77,20.70.106.191,4.198.73.8,20.70.109.146,4.198.73.26,4.198.74.76,20.11.137.249,20.70.109.253,20.70.110.8,20.11.138.61,20.70.110.201,20.11.138.191,20.70.108.73,20.70.109.223,20.70.111.181,20.70.108.191,20.70.107.149,20.70.111.157,20.11.139.124,20.190.105.58,20.190.106.197,20.190.106.207,20.190.107.222,20.190.108.138,20.190.107.77,20.70.106.254,4.198.78.179,20.11.137.128,20.70.110.177,20.70.108.197,20.70.108.154,13.77.50.112",
+  "publicNetworkAccess": "Enabled",
+  "redundancyMode": "None",
+  "repositorySiteName": "tyrell-webapp-reg-aus-026",
+  "reserved": false,
+  "resourceGroup": "az305-project-026",
+  "scmSiteAlsoStopped": false,
+  "serverFarmId": "/subscriptions/c0de6865-a88e-448b-b905-781909aee251/resourceGroups/az305-project-026/providers/Microsoft.Web/serverfarms/tyrell-plan-reg-aus-026",
+  "siteConfig": {
+    "acrUseManagedIdentityCreds": false,
+    "acrUserManagedIdentityId": null,
+    "alwaysOn": false,
+    "antivirusScanEnabled": null,
+    "apiDefinition": null,
+    "apiManagementConfig": null,
+    "appCommandLine": null,
+    "appSettings": null,
+    "autoHealEnabled": null,
+    "autoHealRules": null,
+    "autoSwapSlotName": null,
+    "azureMonitorLogCategories": null,
+    "azureStorageAccounts": null,
+    "connectionStrings": null,
+    "cors": null,
+    "customAppPoolIdentityAdminState": null,
+    "customAppPoolIdentityTenantState": null,
+    "defaultDocuments": null,
+    "detailedErrorLoggingEnabled": null,
+    "documentRoot": null,
+    "elasticWebAppScaleLimit": 0,
+    "experiments": null,
+    "fileChangeAuditEnabled": null,
+    "ftpsState": null,
+    "functionAppScaleLimit": null,
+    "functionsRuntimeScaleMonitoringEnabled": null,
+    "handlerMappings": null,
+    "healthCheckPath": null,
+    "http20Enabled": false,
+    "http20ProxyFlag": null,
+    "httpLoggingEnabled": null,
+    "ipSecurityRestrictions": [
+      {
+        "action": "Allow",
+        "description": "Allow all access",
+        "headers": null,
+        "ipAddress": "Any",
+        "name": "Allow all",
+        "priority": 2147483647,
+        "subnetMask": null,
+        "subnetTrafficTag": null,
+        "tag": null,
+        "vnetSubnetResourceId": null,
+        "vnetTrafficTag": null
+      }
+    ],
+    "ipSecurityRestrictionsDefaultAction": null,
+    "javaContainer": null,
+    "javaContainerVersion": null,
+    "javaVersion": null,
+    "keyVaultReferenceIdentity": null,
+    "limits": null,
+    "linuxFxVersion": "",
+    "loadBalancing": null,
+    "localMySqlEnabled": null,
+    "logsDirectorySizeLimit": null,
+    "machineKey": null,
+    "managedPipelineMode": null,
+    "managedServiceIdentityId": null,
+    "metadata": null,
+    "minTlsCipherSuite": null,
+    "minTlsVersion": null,
+    "minimumElasticInstanceCount": 0,
+    "netFrameworkVersion": null,
+    "nodeVersion": null,
+    "numberOfWorkers": 1,
+    "phpVersion": null,
+    "powerShellVersion": null,
+    "preWarmedInstanceCount": null,
+    "publicNetworkAccess": null,
+    "publishingPassword": null,
+    "publishingUsername": null,
+    "push": null,
+    "pythonVersion": null,
+    "remoteDebuggingEnabled": null,
+    "remoteDebuggingVersion": null,
+    "requestTracingEnabled": null,
+    "requestTracingExpirationTime": null,
+    "routingRules": null,
+    "runtimeADUser": null,
+    "runtimeADUserPassword": null,
+    "scmIpSecurityRestrictions": [
+      {
+        "action": "Allow",
+        "description": "Allow all access",
+        "headers": null,
+        "ipAddress": "Any",
+        "name": "Allow all",
+        "priority": 2147483647,
+        "subnetMask": null,
+        "subnetTrafficTag": null,
+        "tag": null,
+        "vnetSubnetResourceId": null,
+        "vnetTrafficTag": null
+      }
+    ],
+    "scmIpSecurityRestrictionsDefaultAction": null,
+    "scmIpSecurityRestrictionsUseMain": null,
+    "scmMinTlsVersion": null,
+    "scmType": null,
+    "sitePort": null,
+    "sitePrivateLinkHostEnabled": null,
+    "storageType": null,
+    "supportedTlsCipherSuites": null,
+    "tracingOptions": null,
+    "use32BitWorkerProcess": null,
+    "virtualApplications": null,
+    "vnetName": null,
+    "vnetPrivatePortsCount": null,
+    "vnetRouteAllEnabled": null,
+    "webSocketsEnabled": null,
+    "websiteTimeZone": null,
+    "winAuthAdminState": null,
+    "winAuthTenantState": null,
+    "windowsConfiguredStacks": null,
+    "windowsFxVersion": null,
+    "xManagedServiceIdentityId": null
+  },
+  "slotSwapStatus": null,
+  "state": "Running",
+  "storageAccountRequired": false,
+  "suspendedTill": null,
+  "tags": null,
+  "targetSwapSlot": null,
+  "trafficManagerHostNames": null,
+  "type": "Microsoft.Web/sites",
+  "usageState": "Normal",
+  "virtualNetworkSubnetId": "/subscriptions/c0de6865-a88e-448b-b905-781909aee251/resourceGroups/az305-project-026/providers/Microsoft.Network/virtualNetworks/tyrell-reg-vnet-aus-026/subnets/tyrell-reg-subnet-aus-026",
+  "vnetContentShareEnabled": false,
+  "vnetImagePullEnabled": false,
+  "vnetRouteAllEnabled": true
+}
+On branch master
+nothing to commit, working tree clean
+****************************
+Creating App Services
+----------------------------
+creating vnet & subnet
+vnet: tyrell-imgs-vnet-asia-026, 10.0.0.0/16
+subnet: tyrell-imgs-subnet-asia-026, 10.0.30.0/24
+location: eastasia
+deployment user doesn't exist, creating
+@{newVNet=}
+----------------------------
+creating service plan
+service plan: tyrell-plan-imgs-asia-026
+service loc: eastasia
+deployment user doesn't exist, creating
+@{newVNet=}
+----------------------------
+creating app service
+service plan: tyrell-plan-imgs-asia-026
+web app: tyrell-webapp-imgs-asia-026
+service vnet: tyrell-imgs-vnet-asia-026
+service sub: tyrell-imgs-subnet-asia-026
+runtime: ASPNET:V4.8
+{
+  "availabilityState": "Normal",
+  "clientAffinityEnabled": true,
+  "clientCertEnabled": false,
+  "clientCertExclusionPaths": null,
+  "clientCertMode": "Required",
+  "cloningInfo": null,
+  "containerSize": 0,
+  "customDomainVerificationId": "7208DE66D90040EEFBA67AB6A0E2CC3A62EB32678EF869E33693407A53C493CE",
+  "dailyMemoryTimeQuota": 0,
+  "defaultHostName": "tyrell-webapp-imgs-asia-026.azurewebsites.net",
+  "deploymentLocalGitUrl": "https://az305-project-016-benjammin-deploy-76@tyrell-webapp-imgs-asia-026.scm.azurewebsites.net/tyrell-webapp-imgs-asia-026.git",
+  "enabled": true,
+  "enabledHostNames": [
+    "tyrell-webapp-imgs-asia-026.azurewebsites.net",
+    "tyrell-webapp-imgs-asia-026.scm.azurewebsites.net"
+  ],
+  "extendedLocation": null,
+  "ftpPublishingUrl": "ftps://waws-prod-hk1-003.ftp.azurewebsites.windows.net/site/wwwroot",
+  "hostNameSslStates": [
+    {
+      "certificateResourceId": null,
+      "hostType": "Standard",
+      "ipBasedSslResult": null,
+      "ipBasedSslState": "NotConfigured",
+      "name": "tyrell-webapp-imgs-asia-026.azurewebsites.net",
+      "sslState": "Disabled",
+      "thumbprint": null,
+      "toUpdate": null,
+      "toUpdateIpBasedSsl": null,
+      "virtualIPv6": null,
+      "virtualIp": null
+    },
+    {
+      "certificateResourceId": null,
+      "hostType": "Repository",
+      "ipBasedSslResult": null,
+      "ipBasedSslState": "NotConfigured",
+      "name": "tyrell-webapp-imgs-asia-026.scm.azurewebsites.net",
+      "sslState": "Disabled",
+      "thumbprint": null,
+      "toUpdate": null,
+      "toUpdateIpBasedSsl": null,
+      "virtualIPv6": null,
+      "virtualIp": null
+    }
+  ],
+  "hostNames": [
+    "tyrell-webapp-imgs-asia-026.azurewebsites.net"
+  ],
+  "hostNamesDisabled": false,
+  "hostingEnvironmentProfile": null,
+  "httpsOnly": false,
+  "hyperV": false,
+  "id": "/subscriptions/c0de6865-a88e-448b-b905-781909aee251/resourceGroups/az305-project-026/providers/Microsoft.Web/sites/tyrell-webapp-imgs-asia-026",
+  "identity": null,
+  "inProgressOperationId": null,
+  "isDefaultContainer": null,
+  "isXenon": false,
+  "keyVaultReferenceIdentity": "SystemAssigned",
+  "kind": "app",
+  "lastModifiedTimeUtc": "2023-12-02T03:35:00.280000",
+  "location": "East Asia",
+  "maxNumberOfWorkers": null,
+  "name": "tyrell-webapp-imgs-asia-026",
+  "outboundIpAddresses": "207.46.144.46,207.46.144.85,207.46.144.91,207.46.148.246,207.46.147.148",
+  "possibleOutboundIpAddresses": "207.46.144.46,207.46.144.85,207.46.144.91,207.46.148.246,40.83.98.184,40.83.100.1,23.101.0.123,40.83.99.149,13.75.65.55,104.208.121.53,104.208.121.126,104.208.125.165,104.208.125.168,104.208.125.209,104.208.125.220,20.255.135.195,20.255.135.197,20.255.135.207,20.6.153.71,20.6.153.170,20.6.153.174,207.46.147.148",
+  "publicNetworkAccess": "Enabled",
+  "redundancyMode": "None",
+  "repositorySiteName": "tyrell-webapp-imgs-asia-026",
+  "reserved": false,
+  "resourceGroup": "az305-project-026",
+  "scmSiteAlsoStopped": false,
+  "serverFarmId": "/subscriptions/c0de6865-a88e-448b-b905-781909aee251/resourceGroups/az305-project-026/providers/Microsoft.Web/serverfarms/tyrell-plan-imgs-asia-026",
+  "siteConfig": {
+    "acrUseManagedIdentityCreds": false,
+    "acrUserManagedIdentityId": null,
+    "alwaysOn": false,
+    "antivirusScanEnabled": null,
+    "apiDefinition": null,
+    "apiManagementConfig": null,
+    "appCommandLine": null,
+    "appSettings": null,
+    "autoHealEnabled": null,
+    "autoHealRules": null,
+    "autoSwapSlotName": null,
+    "azureMonitorLogCategories": null,
+    "azureStorageAccounts": null,
+    "connectionStrings": null,
+    "cors": null,
+    "customAppPoolIdentityAdminState": null,
+    "customAppPoolIdentityTenantState": null,
+    "defaultDocuments": null,
+    "detailedErrorLoggingEnabled": null,
+    "documentRoot": null,
+    "elasticWebAppScaleLimit": 0,
+    "experiments": null,
+    "fileChangeAuditEnabled": null,
+    "ftpsState": null,
+    "functionAppScaleLimit": null,
+    "functionsRuntimeScaleMonitoringEnabled": null,
+    "handlerMappings": null,
+    "healthCheckPath": null,
+    "http20Enabled": false,
+    "http20ProxyFlag": null,
+    "httpLoggingEnabled": null,
+    "ipSecurityRestrictions": [
+      {
+        "action": "Allow",
+        "description": "Allow all access",
+        "headers": null,
+        "ipAddress": "Any",
+        "name": "Allow all",
+        "priority": 2147483647,
+        "subnetMask": null,
+        "subnetTrafficTag": null,
+        "tag": null,
+        "vnetSubnetResourceId": null,
+        "vnetTrafficTag": null
+      }
+    ],
+    "ipSecurityRestrictionsDefaultAction": null,
+    "javaContainer": null,
+    "javaContainerVersion": null,
+    "javaVersion": null,
+    "keyVaultReferenceIdentity": null,
+    "limits": null,
+    "linuxFxVersion": "",
+    "loadBalancing": null,
+    "localMySqlEnabled": null,
+    "logsDirectorySizeLimit": null,
+    "machineKey": null,
+    "managedPipelineMode": null,
+    "managedServiceIdentityId": null,
+    "metadata": null,
+    "minTlsCipherSuite": null,
+    "minTlsVersion": null,
+    "minimumElasticInstanceCount": 0,
+    "netFrameworkVersion": null,
+    "nodeVersion": null,
+    "numberOfWorkers": 1,
+    "phpVersion": null,
+    "powerShellVersion": null,
+    "preWarmedInstanceCount": null,
+    "publicNetworkAccess": null,
+    "publishingPassword": null,
+    "publishingUsername": null,
+    "push": null,
+    "pythonVersion": null,
+    "remoteDebuggingEnabled": null,
+    "remoteDebuggingVersion": null,
+    "requestTracingEnabled": null,
+    "requestTracingExpirationTime": null,
+    "routingRules": null,
+    "runtimeADUser": null,
+    "runtimeADUserPassword": null,
+    "scmIpSecurityRestrictions": [
+      {
+        "action": "Allow",
+        "description": "Allow all access",
+        "headers": null,
+        "ipAddress": "Any",
+        "name": "Allow all",
+        "priority": 2147483647,
+        "subnetMask": null,
+        "subnetTrafficTag": null,
+        "tag": null,
+        "vnetSubnetResourceId": null,
+        "vnetTrafficTag": null
+      }
+    ],
+    "scmIpSecurityRestrictionsDefaultAction": null,
+    "scmIpSecurityRestrictionsUseMain": null,
+    "scmMinTlsVersion": null,
+    "scmType": null,
+    "sitePort": null,
+    "sitePrivateLinkHostEnabled": null,
+    "storageType": null,
+    "supportedTlsCipherSuites": null,
+    "tracingOptions": null,
+    "use32BitWorkerProcess": null,
+    "virtualApplications": null,
+    "vnetName": null,
+    "vnetPrivatePortsCount": null,
+    "vnetRouteAllEnabled": null,
+    "webSocketsEnabled": null,
+    "websiteTimeZone": null,
+    "winAuthAdminState": null,
+    "winAuthTenantState": null,
+    "windowsConfiguredStacks": null,
+    "windowsFxVersion": null,
+    "xManagedServiceIdentityId": null
+  },
+  "slotSwapStatus": null,
+  "state": "Running",
+  "storageAccountRequired": false,
+  "suspendedTill": null,
+  "tags": null,
+  "targetSwapSlot": null,
+  "trafficManagerHostNames": null,
+  "type": "Microsoft.Web/sites",
+  "usageState": "Normal",
+  "virtualNetworkSubnetId": "/subscriptions/c0de6865-a88e-448b-b905-781909aee251/resourceGroups/az305-project-026/providers/Microsoft.Network/virtualNetworks/tyrell-imgs-vnet-asia-026/subnets/tyrell-imgs-subnet-asia-026",
+  "vnetContentShareEnabled": false,
+  "vnetImagePullEnabled": false,
+  "vnetRouteAllEnabled": true
+}
+----------------------------
+deploying code from git
+from: G:\coding\envs\ps-az-setup\sites\imgs-asia
+alias: az-imgs-asia-026
+to: https://benjammin-deploy-76@tyrell-webapp-imgs-asia-026.scm.azurewebsites.net/tyrell-webapp-imgs-asia-026.git
+{
+  "availabilityState": "Normal",
+  "clientAffinityEnabled": true,
+  "clientCertEnabled": false,
+  "clientCertExclusionPaths": null,
+  "clientCertMode": "Required",
+  "cloningInfo": null,
+  "containerSize": 0,
+  "customDomainVerificationId": "7208DE66D90040EEFBA67AB6A0E2CC3A62EB32678EF869E33693407A53C493CE",
+  "dailyMemoryTimeQuota": 0,
+  "defaultHostName": "tyrell-webapp-imgs-asia-026.azurewebsites.net",
+  "deploymentLocalGitUrl": "https://az305-project-016-benjammin-deploy-76@tyrell-webapp-imgs-asia-026.scm.azurewebsites.net/tyrell-webapp-imgs-asia-026.git",
+  "enabled": true,
+  "enabledHostNames": [
+    "tyrell-webapp-imgs-asia-026.azurewebsites.net",
+    "tyrell-webapp-imgs-asia-026.scm.azurewebsites.net"
+  ],
+  "extendedLocation": null,
+  "ftpPublishingUrl": "ftps://waws-prod-hk1-003.ftp.azurewebsites.windows.net/site/wwwroot",
+  "hostNameSslStates": [
+    {
+      "certificateResourceId": null,
+      "hostType": "Standard",
+      "ipBasedSslResult": null,
+      "ipBasedSslState": "NotConfigured",
+      "name": "tyrell-webapp-imgs-asia-026.azurewebsites.net",
+      "sslState": "Disabled",
+      "thumbprint": null,
+      "toUpdate": null,
+      "toUpdateIpBasedSsl": null,
+      "virtualIPv6": null,
+      "virtualIp": null
+    },
+    {
+      "certificateResourceId": null,
+      "hostType": "Repository",
+      "ipBasedSslResult": null,
+      "ipBasedSslState": "NotConfigured",
+      "name": "tyrell-webapp-imgs-asia-026.scm.azurewebsites.net",
+      "sslState": "Disabled",
+      "thumbprint": null,
+      "toUpdate": null,
+      "toUpdateIpBasedSsl": null,
+      "virtualIPv6": null,
+      "virtualIp": null
+    }
+  ],
+  "hostNames": [
+    "tyrell-webapp-imgs-asia-026.azurewebsites.net"
+  ],
+  "hostNamesDisabled": false,
+  "hostingEnvironmentProfile": null,
+  "httpsOnly": false,
+  "hyperV": false,
+  "id": "/subscriptions/c0de6865-a88e-448b-b905-781909aee251/resourceGroups/az305-project-026/providers/Microsoft.Web/sites/tyrell-webapp-imgs-asia-026",
+  "identity": null,
+  "inProgressOperationId": null,
+  "isDefaultContainer": null,
+  "isXenon": false,
+  "keyVaultReferenceIdentity": "SystemAssigned",
+  "kind": "app",
+  "lastModifiedTimeUtc": "2023-12-02T03:35:00.280000",
+  "location": "East Asia",
+  "maxNumberOfWorkers": null,
+  "name": "tyrell-webapp-imgs-asia-026",
+  "outboundIpAddresses": "207.46.144.46,207.46.144.85,207.46.144.91,207.46.148.246,207.46.147.148",
+  "possibleOutboundIpAddresses": "207.46.144.46,207.46.144.85,207.46.144.91,207.46.148.246,40.83.98.184,40.83.100.1,23.101.0.123,40.83.99.149,13.75.65.55,104.208.121.53,104.208.121.126,104.208.125.165,104.208.125.168,104.208.125.209,104.208.125.220,20.255.135.195,20.255.135.197,20.255.135.207,20.6.153.71,20.6.153.170,20.6.153.174,207.46.147.148",
+  "publicNetworkAccess": "Enabled",
+  "redundancyMode": "None",
+  "repositorySiteName": "tyrell-webapp-imgs-asia-026",
+  "reserved": false,
+  "resourceGroup": "az305-project-026",
+  "scmSiteAlsoStopped": false,
+  "serverFarmId": "/subscriptions/c0de6865-a88e-448b-b905-781909aee251/resourceGroups/az305-project-026/providers/Microsoft.Web/serverfarms/tyrell-plan-imgs-asia-026",
+  "siteConfig": {
+    "acrUseManagedIdentityCreds": false,
+    "acrUserManagedIdentityId": null,
+    "alwaysOn": false,
+    "antivirusScanEnabled": null,
+    "apiDefinition": null,
+    "apiManagementConfig": null,
+    "appCommandLine": null,
+    "appSettings": null,
+    "autoHealEnabled": null,
+    "autoHealRules": null,
+    "autoSwapSlotName": null,
+    "azureMonitorLogCategories": null,
+    "azureStorageAccounts": null,
+    "connectionStrings": null,
+    "cors": null,
+    "customAppPoolIdentityAdminState": null,
+    "customAppPoolIdentityTenantState": null,
+    "defaultDocuments": null,
+    "detailedErrorLoggingEnabled": null,
+    "documentRoot": null,
+    "elasticWebAppScaleLimit": 0,
+    "experiments": null,
+    "fileChangeAuditEnabled": null,
+    "ftpsState": null,
+    "functionAppScaleLimit": null,
+    "functionsRuntimeScaleMonitoringEnabled": null,
+    "handlerMappings": null,
+    "healthCheckPath": null,
+    "http20Enabled": false,
+    "http20ProxyFlag": null,
+    "httpLoggingEnabled": null,
+    "ipSecurityRestrictions": [
+      {
+        "action": "Allow",
+        "description": "Allow all access",
+        "headers": null,
+        "ipAddress": "Any",
+        "name": "Allow all",
+        "priority": 2147483647,
+        "subnetMask": null,
+        "subnetTrafficTag": null,
+        "tag": null,
+        "vnetSubnetResourceId": null,
+        "vnetTrafficTag": null
+      }
+    ],
+    "ipSecurityRestrictionsDefaultAction": null,
+    "javaContainer": null,
+    "javaContainerVersion": null,
+    "javaVersion": null,
+    "keyVaultReferenceIdentity": null,
+    "limits": null,
+    "linuxFxVersion": "",
+    "loadBalancing": null,
+    "localMySqlEnabled": null,
+    "logsDirectorySizeLimit": null,
+    "machineKey": null,
+    "managedPipelineMode": null,
+    "managedServiceIdentityId": null,
+    "metadata": null,
+    "minTlsCipherSuite": null,
+    "minTlsVersion": null,
+    "minimumElasticInstanceCount": 0,
+    "netFrameworkVersion": null,
+    "nodeVersion": null,
+    "numberOfWorkers": 1,
+    "phpVersion": null,
+    "powerShellVersion": null,
+    "preWarmedInstanceCount": null,
+    "publicNetworkAccess": null,
+    "publishingPassword": null,
+    "publishingUsername": null,
+    "push": null,
+    "pythonVersion": null,
+    "remoteDebuggingEnabled": null,
+    "remoteDebuggingVersion": null,
+    "requestTracingEnabled": null,
+    "requestTracingExpirationTime": null,
+    "routingRules": null,
+    "runtimeADUser": null,
+    "runtimeADUserPassword": null,
+    "scmIpSecurityRestrictions": [
+      {
+        "action": "Allow",
+        "description": "Allow all access",
+        "headers": null,
+        "ipAddress": "Any",
+        "name": "Allow all",
+        "priority": 2147483647,
+        "subnetMask": null,
+        "subnetTrafficTag": null,
+        "tag": null,
+        "vnetSubnetResourceId": null,
+        "vnetTrafficTag": null
+      }
+    ],
+    "scmIpSecurityRestrictionsDefaultAction": null,
+    "scmIpSecurityRestrictionsUseMain": null,
+    "scmMinTlsVersion": null,
+    "scmType": null,
+    "sitePort": null,
+    "sitePrivateLinkHostEnabled": null,
+    "storageType": null,
+    "supportedTlsCipherSuites": null,
+    "tracingOptions": null,
+    "use32BitWorkerProcess": null,
+    "virtualApplications": null,
+    "vnetName": null,
+    "vnetPrivatePortsCount": null,
+    "vnetRouteAllEnabled": null,
+    "webSocketsEnabled": null,
+    "websiteTimeZone": null,
+    "winAuthAdminState": null,
+    "winAuthTenantState": null,
+    "windowsConfiguredStacks": null,
+    "windowsFxVersion": null,
+    "xManagedServiceIdentityId": null
+  },
+  "slotSwapStatus": null,
+  "state": "Running",
+  "storageAccountRequired": false,
+  "suspendedTill": null,
+  "tags": null,
+  "targetSwapSlot": null,
+  "trafficManagerHostNames": null,
+  "type": "Microsoft.Web/sites",
+  "usageState": "Normal",
+  "virtualNetworkSubnetId": "/subscriptions/c0de6865-a88e-448b-b905-781909aee251/resourceGroups/az305-project-026/providers/Microsoft.Network/virtualNetworks/tyrell-imgs-vnet-asia-026/subnets/tyrell-imgs-subnet-asia-026",
+  "vnetContentShareEnabled": false,
+  "vnetImagePullEnabled": false,
+  "vnetRouteAllEnabled": true
+}
+****************************
+Creating App Services
+----------------------------
+creating vnet & subnet
+vnet: tyrell-reg-vnet-asia-026, 10.0.0.0/16
+subnet: tyrell-reg-subnet-asia-026, 10.0.30.0/24
+location: eastasia
+deployment user doesn't exist, creating
+@{newVNet=}
+----------------------------
+creating service plan
+service plan: tyrell-plan-reg-asia-026
+service loc: eastasia
+deployment user doesn't exist, creating
+@{newVNet=}
+----------------------------
+creating app service
+service plan: tyrell-plan-reg-asia-026
+web app: tyrell-webapp-reg-asia-026
+service vnet: tyrell-reg-vnet-asia-026
+service sub: tyrell-reg-subnet-asia-026
+runtime: ASPNET:V4.8
+{
+  "availabilityState": "Normal",
+  "clientAffinityEnabled": true,
+  "clientCertEnabled": false,
+  "clientCertExclusionPaths": null,
+  "clientCertMode": "Required",
+  "cloningInfo": null,
+  "containerSize": 0,
+  "customDomainVerificationId": "7208DE66D90040EEFBA67AB6A0E2CC3A62EB32678EF869E33693407A53C493CE",
+  "dailyMemoryTimeQuota": 0,
+  "defaultHostName": "tyrell-webapp-reg-asia-026.azurewebsites.net",
+  "deploymentLocalGitUrl": "https://az305-project-016-benjammin-deploy-76@tyrell-webapp-reg-asia-026.scm.azurewebsites.net/tyrell-webapp-reg-asia-026.git",
+  "enabled": true,
+  "enabledHostNames": [
+    "tyrell-webapp-reg-asia-026.azurewebsites.net",
+    "tyrell-webapp-reg-asia-026.scm.azurewebsites.net"
+  ],
+  "extendedLocation": null,
+  "ftpPublishingUrl": "ftps://waws-prod-hk1-003.ftp.azurewebsites.windows.net/site/wwwroot",
+  "hostNameSslStates": [
+    {
+      "certificateResourceId": null,
+      "hostType": "Standard",
+      "ipBasedSslResult": null,
+      "ipBasedSslState": "NotConfigured",
+      "name": "tyrell-webapp-reg-asia-026.azurewebsites.net",
+      "sslState": "Disabled",
+      "thumbprint": null,
+      "toUpdate": null,
+      "toUpdateIpBasedSsl": null,
+      "virtualIPv6": null,
+      "virtualIp": null
+    },
+    {
+      "certificateResourceId": null,
+      "hostType": "Repository",
+      "ipBasedSslResult": null,
+      "ipBasedSslState": "NotConfigured",
+      "name": "tyrell-webapp-reg-asia-026.scm.azurewebsites.net",
+      "sslState": "Disabled",
+      "thumbprint": null,
+      "toUpdate": null,
+      "toUpdateIpBasedSsl": null,
+      "virtualIPv6": null,
+      "virtualIp": null
+    }
+  ],
+  "hostNames": [
+    "tyrell-webapp-reg-asia-026.azurewebsites.net"
+  ],
+  "hostNamesDisabled": false,
+  "hostingEnvironmentProfile": null,
+  "httpsOnly": false,
+  "hyperV": false,
+  "id": "/subscriptions/c0de6865-a88e-448b-b905-781909aee251/resourceGroups/az305-project-026/providers/Microsoft.Web/sites/tyrell-webapp-reg-asia-026",
+  "identity": null,
+  "inProgressOperationId": null,
+  "isDefaultContainer": null,
+  "isXenon": false,
+  "keyVaultReferenceIdentity": "SystemAssigned",
+  "kind": "app",
+  "lastModifiedTimeUtc": "2023-12-02T03:36:11.630000",
+  "location": "East Asia",
+  "maxNumberOfWorkers": null,
+  "name": "tyrell-webapp-reg-asia-026",
+  "outboundIpAddresses": "207.46.144.46,207.46.144.85,207.46.144.91,207.46.148.246,207.46.147.148",
+  "possibleOutboundIpAddresses": "207.46.144.46,207.46.144.85,207.46.144.91,207.46.148.246,40.83.98.184,40.83.100.1,23.101.0.123,40.83.99.149,13.75.65.55,104.208.121.53,104.208.121.126,104.208.125.165,104.208.125.168,104.208.125.209,104.208.125.220,20.255.135.195,20.255.135.197,20.255.135.207,20.6.153.71,20.6.153.170,20.6.153.174,207.46.147.148",
+  "publicNetworkAccess": "Enabled",
+  "redundancyMode": "None",
+  "repositorySiteName": "tyrell-webapp-reg-asia-026",
+  "reserved": false,
+  "resourceGroup": "az305-project-026",
+  "scmSiteAlsoStopped": false,
+  "serverFarmId": "/subscriptions/c0de6865-a88e-448b-b905-781909aee251/resourceGroups/az305-project-026/providers/Microsoft.Web/serverfarms/tyrell-plan-reg-asia-026",
+  "siteConfig": {
+    "acrUseManagedIdentityCreds": false,
+    "acrUserManagedIdentityId": null,
+    "alwaysOn": false,
+    "antivirusScanEnabled": null,
+    "apiDefinition": null,
+    "apiManagementConfig": null,
+    "appCommandLine": null,
+    "appSettings": null,
+    "autoHealEnabled": null,
+    "autoHealRules": null,
+    "autoSwapSlotName": null,
+    "azureMonitorLogCategories": null,
+    "azureStorageAccounts": null,
+    "connectionStrings": null,
+    "cors": null,
+    "customAppPoolIdentityAdminState": null,
+    "customAppPoolIdentityTenantState": null,
+    "defaultDocuments": null,
+    "detailedErrorLoggingEnabled": null,
+    "documentRoot": null,
+    "elasticWebAppScaleLimit": 0,
+    "experiments": null,
+    "fileChangeAuditEnabled": null,
+    "ftpsState": null,
+    "functionAppScaleLimit": null,
+    "functionsRuntimeScaleMonitoringEnabled": null,
+    "handlerMappings": null,
+    "healthCheckPath": null,
+    "http20Enabled": false,
+    "http20ProxyFlag": null,
+    "httpLoggingEnabled": null,
+    "ipSecurityRestrictions": [
+      {
+        "action": "Allow",
+        "description": "Allow all access",
+        "headers": null,
+        "ipAddress": "Any",
+        "name": "Allow all",
+        "priority": 2147483647,
+        "subnetMask": null,
+        "subnetTrafficTag": null,
+        "tag": null,
+        "vnetSubnetResourceId": null,
+        "vnetTrafficTag": null
+      }
+    ],
+    "ipSecurityRestrictionsDefaultAction": null,
+    "javaContainer": null,
+    "javaContainerVersion": null,
+    "javaVersion": null,
+    "keyVaultReferenceIdentity": null,
+    "limits": null,
+    "linuxFxVersion": "",
+    "loadBalancing": null,
+    "localMySqlEnabled": null,
+    "logsDirectorySizeLimit": null,
+    "machineKey": null,
+    "managedPipelineMode": null,
+    "managedServiceIdentityId": null,
+    "metadata": null,
+    "minTlsCipherSuite": null,
+    "minTlsVersion": null,
+    "minimumElasticInstanceCount": 0,
+    "netFrameworkVersion": null,
+    "nodeVersion": null,
+    "numberOfWorkers": 1,
+    "phpVersion": null,
+    "powerShellVersion": null,
+    "preWarmedInstanceCount": null,
+    "publicNetworkAccess": null,
+    "publishingPassword": null,
+    "publishingUsername": null,
+    "push": null,
+    "pythonVersion": null,
+    "remoteDebuggingEnabled": null,
+    "remoteDebuggingVersion": null,
+    "requestTracingEnabled": null,
+    "requestTracingExpirationTime": null,
+    "routingRules": null,
+    "runtimeADUser": null,
+    "runtimeADUserPassword": null,
+    "scmIpSecurityRestrictions": [
+      {
+        "action": "Allow",
+        "description": "Allow all access",
+        "headers": null,
+        "ipAddress": "Any",
+        "name": "Allow all",
+        "priority": 2147483647,
+        "subnetMask": null,
+        "subnetTrafficTag": null,
+        "tag": null,
+        "vnetSubnetResourceId": null,
+        "vnetTrafficTag": null
+      }
+    ],
+    "scmIpSecurityRestrictionsDefaultAction": null,
+    "scmIpSecurityRestrictionsUseMain": null,
+    "scmMinTlsVersion": null,
+    "scmType": null,
+    "sitePort": null,
+    "sitePrivateLinkHostEnabled": null,
+    "storageType": null,
+    "supportedTlsCipherSuites": null,
+    "tracingOptions": null,
+    "use32BitWorkerProcess": null,
+    "virtualApplications": null,
+    "vnetName": null,
+    "vnetPrivatePortsCount": null,
+    "vnetRouteAllEnabled": null,
+    "webSocketsEnabled": null,
+    "websiteTimeZone": null,
+    "winAuthAdminState": null,
+    "winAuthTenantState": null,
+    "windowsConfiguredStacks": null,
+    "windowsFxVersion": null,
+    "xManagedServiceIdentityId": null
+  },
+  "slotSwapStatus": null,
+  "state": "Running",
+  "storageAccountRequired": false,
+  "suspendedTill": null,
+  "tags": null,
+  "targetSwapSlot": null,
+  "trafficManagerHostNames": null,
+  "type": "Microsoft.Web/sites",
+  "usageState": "Normal",
+  "virtualNetworkSubnetId": "/subscriptions/c0de6865-a88e-448b-b905-781909aee251/resourceGroups/az305-project-026/providers/Microsoft.Network/virtualNetworks/tyrell-reg-vnet-asia-026/subnets/tyrell-reg-subnet-asia-026",
+  "vnetContentShareEnabled": false,
+  "vnetImagePullEnabled": false,
+  "vnetRouteAllEnabled": true
+}
+----------------------------
+deploying code from git
+from: G:\coding\envs\ps-az-setup\sites\reg-asia
+alias: az-reg-asia-026
+to: https://benjammin-deploy-76@tyrell-webapp-reg-asia-026.scm.azurewebsites.net/tyrell-webapp-reg-asia-026.git
+{
+  "availabilityState": "Normal",
+  "clientAffinityEnabled": true,
+  "clientCertEnabled": false,
+  "clientCertExclusionPaths": null,
+  "clientCertMode": "Required",
+  "cloningInfo": null,
+  "containerSize": 0,
+  "customDomainVerificationId": "7208DE66D90040EEFBA67AB6A0E2CC3A62EB32678EF869E33693407A53C493CE",
+  "dailyMemoryTimeQuota": 0,
+  "defaultHostName": "tyrell-webapp-reg-asia-026.azurewebsites.net",
+  "deploymentLocalGitUrl": "https://az305-project-016-benjammin-deploy-76@tyrell-webapp-reg-asia-026.scm.azurewebsites.net/tyrell-webapp-reg-asia-026.git",
+  "enabled": true,
+  "enabledHostNames": [
+    "tyrell-webapp-reg-asia-026.azurewebsites.net",
+    "tyrell-webapp-reg-asia-026.scm.azurewebsites.net"
+  ],
+  "extendedLocation": null,
+  "ftpPublishingUrl": "ftps://waws-prod-hk1-003.ftp.azurewebsites.windows.net/site/wwwroot",
+  "hostNameSslStates": [
+    {
+      "certificateResourceId": null,
+      "hostType": "Standard",
+      "ipBasedSslResult": null,
+      "ipBasedSslState": "NotConfigured",
+      "name": "tyrell-webapp-reg-asia-026.azurewebsites.net",
+      "sslState": "Disabled",
+      "thumbprint": null,
+      "toUpdate": null,
+      "toUpdateIpBasedSsl": null,
+      "virtualIPv6": null,
+      "virtualIp": null
+    },
+    {
+      "certificateResourceId": null,
+      "hostType": "Repository",
+      "ipBasedSslResult": null,
+      "ipBasedSslState": "NotConfigured",
+      "name": "tyrell-webapp-reg-asia-026.scm.azurewebsites.net",
+      "sslState": "Disabled",
+      "thumbprint": null,
+      "toUpdate": null,
+      "toUpdateIpBasedSsl": null,
+      "virtualIPv6": null,
+      "virtualIp": null
+    }
+  ],
+  "hostNames": [
+    "tyrell-webapp-reg-asia-026.azurewebsites.net"
+  ],
+  "hostNamesDisabled": false,
+  "hostingEnvironmentProfile": null,
+  "httpsOnly": false,
+  "hyperV": false,
+  "id": "/subscriptions/c0de6865-a88e-448b-b905-781909aee251/resourceGroups/az305-project-026/providers/Microsoft.Web/sites/tyrell-webapp-reg-asia-026",
+  "identity": null,
+  "inProgressOperationId": null,
+  "isDefaultContainer": null,
+  "isXenon": false,
+  "keyVaultReferenceIdentity": "SystemAssigned",
+  "kind": "app",
+  "lastModifiedTimeUtc": "2023-12-02T03:36:11.630000",
+  "location": "East Asia",
+  "maxNumberOfWorkers": null,
+  "name": "tyrell-webapp-reg-asia-026",
+  "outboundIpAddresses": "207.46.144.46,207.46.144.85,207.46.144.91,207.46.148.246,207.46.147.148",
+  "possibleOutboundIpAddresses": "207.46.144.46,207.46.144.85,207.46.144.91,207.46.148.246,40.83.98.184,40.83.100.1,23.101.0.123,40.83.99.149,13.75.65.55,104.208.121.53,104.208.121.126,104.208.125.165,104.208.125.168,104.208.125.209,104.208.125.220,20.255.135.195,20.255.135.197,20.255.135.207,20.6.153.71,20.6.153.170,20.6.153.174,207.46.147.148",
+  "publicNetworkAccess": "Enabled",
+  "redundancyMode": "None",
+  "repositorySiteName": "tyrell-webapp-reg-asia-026",
+  "reserved": false,
+  "resourceGroup": "az305-project-026",
+  "scmSiteAlsoStopped": false,
+  "serverFarmId": "/subscriptions/c0de6865-a88e-448b-b905-781909aee251/resourceGroups/az305-project-026/providers/Microsoft.Web/serverfarms/tyrell-plan-reg-asia-026",
+  "siteConfig": {
+    "acrUseManagedIdentityCreds": false,
+    "acrUserManagedIdentityId": null,
+    "alwaysOn": false,
+    "antivirusScanEnabled": null,
+    "apiDefinition": null,
+    "apiManagementConfig": null,
+    "appCommandLine": null,
+    "appSettings": null,
+    "autoHealEnabled": null,
+    "autoHealRules": null,
+    "autoSwapSlotName": null,
+    "azureMonitorLogCategories": null,
+    "azureStorageAccounts": null,
+    "connectionStrings": null,
+    "cors": null,
+    "customAppPoolIdentityAdminState": null,
+    "customAppPoolIdentityTenantState": null,
+    "defaultDocuments": null,
+    "detailedErrorLoggingEnabled": null,
+    "documentRoot": null,
+    "elasticWebAppScaleLimit": 0,
+    "experiments": null,
+    "fileChangeAuditEnabled": null,
+    "ftpsState": null,
+    "functionAppScaleLimit": null,
+    "functionsRuntimeScaleMonitoringEnabled": null,
+    "handlerMappings": null,
+    "healthCheckPath": null,
+    "http20Enabled": false,
+    "http20ProxyFlag": null,
+    "httpLoggingEnabled": null,
+    "ipSecurityRestrictions": [
+      {
+        "action": "Allow",
+        "description": "Allow all access",
+        "headers": null,
+        "ipAddress": "Any",
+        "name": "Allow all",
+        "priority": 2147483647,
+        "subnetMask": null,
+        "subnetTrafficTag": null,
+        "tag": null,
+        "vnetSubnetResourceId": null,
+        "vnetTrafficTag": null
+      }
+    ],
+    "ipSecurityRestrictionsDefaultAction": null,
+    "javaContainer": null,
+    "javaContainerVersion": null,
+    "javaVersion": null,
+    "keyVaultReferenceIdentity": null,
+    "limits": null,
+    "linuxFxVersion": "",
+    "loadBalancing": null,
+    "localMySqlEnabled": null,
+    "logsDirectorySizeLimit": null,
+    "machineKey": null,
+    "managedPipelineMode": null,
+    "managedServiceIdentityId": null,
+    "metadata": null,
+    "minTlsCipherSuite": null,
+    "minTlsVersion": null,
+    "minimumElasticInstanceCount": 0,
+    "netFrameworkVersion": null,
+    "nodeVersion": null,
+    "numberOfWorkers": 1,
+    "phpVersion": null,
+    "powerShellVersion": null,
+    "preWarmedInstanceCount": null,
+    "publicNetworkAccess": null,
+    "publishingPassword": null,
+    "publishingUsername": null,
+    "push": null,
+    "pythonVersion": null,
+    "remoteDebuggingEnabled": null,
+    "remoteDebuggingVersion": null,
+    "requestTracingEnabled": null,
+    "requestTracingExpirationTime": null,
+    "routingRules": null,
+    "runtimeADUser": null,
+    "runtimeADUserPassword": null,
+    "scmIpSecurityRestrictions": [
+      {
+        "action": "Allow",
+        "description": "Allow all access",
+        "headers": null,
+        "ipAddress": "Any",
+        "name": "Allow all",
+        "priority": 2147483647,
+        "subnetMask": null,
+        "subnetTrafficTag": null,
+        "tag": null,
+        "vnetSubnetResourceId": null,
+        "vnetTrafficTag": null
+      }
+    ],
+    "scmIpSecurityRestrictionsDefaultAction": null,
+    "scmIpSecurityRestrictionsUseMain": null,
+    "scmMinTlsVersion": null,
+    "scmType": null,
+    "sitePort": null,
+    "sitePrivateLinkHostEnabled": null,
+    "storageType": null,
+    "supportedTlsCipherSuites": null,
+    "tracingOptions": null,
+    "use32BitWorkerProcess": null,
+    "virtualApplications": null,
+    "vnetName": null,
+    "vnetPrivatePortsCount": null,
+    "vnetRouteAllEnabled": null,
+    "webSocketsEnabled": null,
+    "websiteTimeZone": null,
+    "winAuthAdminState": null,
+    "winAuthTenantState": null,
+    "windowsConfiguredStacks": null,
+    "windowsFxVersion": null,
+    "xManagedServiceIdentityId": null
+  },
+  "slotSwapStatus": null,
+  "state": "Running",
+  "storageAccountRequired": false,
+  "suspendedTill": null,
+  "tags": null,
+  "targetSwapSlot": null,
+  "trafficManagerHostNames": null,
+  "type": "Microsoft.Web/sites",
+  "usageState": "Normal",
+  "virtualNetworkSubnetId": "/subscriptions/c0de6865-a88e-448b-b905-781909aee251/resourceGroups/az305-project-026/providers/Microsoft.Network/virtualNetworks/tyrell-reg-vnet-asia-026/subnets/tyrell-reg-subnet-asia-026",
+  "vnetContentShareEnabled": false,
+  "vnetImagePullEnabled": false,
+  "vnetRouteAllEnabled": true
+}
+On branch master
+nothing to commit, working tree clean
+****************************
+Creating Traffic Manager
+----------------------------
+name: tyrell-trafficmgr-imgs-026
+----------------------------
+creating traffic endpoint
+traffic mgr: tyrell-trafficmgr-imgs-026
+name: tyrell-webapp-imgs-eastus-026
+geo-mapping: US-NY
+resId: /subscriptions/c0de6865-a88e-448b-b905-781909aee251/resourceGroups/az305-project-026/providers/Microsoft.Web/sites/tyrell-webapp-imgs-eastus-026
+{
+  "alwaysServe": "Disabled",
+  "endpointLocation": "East US",
+  "endpointMonitorStatus": "CheckingEndpoint",
+  "endpointStatus": "Enabled",
+  "id": "/subscriptions/c0de6865-a88e-448b-b905-781909aee251/resourceGroups/az305-project-026/providers/Microsoft.Network/trafficManagerProfiles/tyrell-trafficmgr-imgs-026/azureEndpoints/tyrell-webapp-imgs-eastus-026",
+  "name": "tyrell-webapp-imgs-eastus-026",
+  "priority": 1,
+  "resourceGroup": "az305-project-026",
+  "target": "tyrell-webapp-imgs-eastus-026.azurewebsites.net",
+  "targetResourceId": "/subscriptions/c0de6865-a88e-448b-b905-781909aee251/resourceGroups/az305-project-026/providers/Microsoft.Web/sites/tyrell-webapp-imgs-eastus-026",
+  "type": "Microsoft.Network/trafficManagerProfiles/azureEndpoints",
+  "weight": 1
+}
+----------------------------
+creating traffic endpoint
+traffic mgr: tyrell-trafficmgr-imgs-026
+name: tyrell-webapp-imgs-aus-026
+geo-mapping: AU-VIC
+resId: /subscriptions/c0de6865-a88e-448b-b905-781909aee251/resourceGroups/az305-project-026/providers/Microsoft.Web/sites/tyrell-webapp-imgs-aus-026
+{
+  "alwaysServe": "Disabled",
+  "endpointLocation": "Australia Southeast",
+  "endpointMonitorStatus": "CheckingEndpoint",
+  "endpointStatus": "Enabled",
+  "id": "/subscriptions/c0de6865-a88e-448b-b905-781909aee251/resourceGroups/az305-project-026/providers/Microsoft.Network/trafficManagerProfiles/tyrell-trafficmgr-imgs-026/azureEndpoints/tyrell-webapp-imgs-aus-026",
+  "name": "tyrell-webapp-imgs-aus-026",
+  "priority": 2,
+  "resourceGroup": "az305-project-026",
+  "target": "tyrell-webapp-imgs-aus-026.azurewebsites.net",
+  "targetResourceId": "/subscriptions/c0de6865-a88e-448b-b905-781909aee251/resourceGroups/az305-project-026/providers/Microsoft.Web/sites/tyrell-webapp-imgs-aus-026",
+  "type": "Microsoft.Network/trafficManagerProfiles/azureEndpoints",
+  "weight": 1
+}
+----------------------------
+creating traffic endpoint
+traffic mgr: tyrell-trafficmgr-imgs-026
+name: tyrell-webapp-imgs-asia-026
+geo-mapping: SG
+resId: /subscriptions/c0de6865-a88e-448b-b905-781909aee251/resourceGroups/az305-project-026/providers/Microsoft.Web/sites/tyrell-webapp-imgs-asia-026
+{
+  "alwaysServe": "Disabled",
+  "endpointLocation": "East Asia",
+  "endpointMonitorStatus": "CheckingEndpoint",
+  "endpointStatus": "Enabled",
+  "id": "/subscriptions/c0de6865-a88e-448b-b905-781909aee251/resourceGroups/az305-project-026/providers/Microsoft.Network/trafficManagerProfiles/tyrell-trafficmgr-imgs-026/azureEndpoints/tyrell-webapp-imgs-asia-026",
+  "name": "tyrell-webapp-imgs-asia-026",
+  "priority": 3,
+  "resourceGroup": "az305-project-026",
+  "target": "tyrell-webapp-imgs-asia-026.azurewebsites.net",
+  "targetResourceId": "/subscriptions/c0de6865-a88e-448b-b905-781909aee251/resourceGroups/az305-project-026/providers/Microsoft.Web/sites/tyrell-webapp-imgs-asia-026",
+  "type": "Microsoft.Network/trafficManagerProfiles/azureEndpoints",
+  "weight": 1
+}
+****************************
+Creating Traffic Manager
+----------------------------
+name: tyrell-trafficmgr-reg-026
+{
+  "alwaysServe": "Disabled",
+  "endpointLocation": "East Asia",
+  "endpointMonitorStatus": "CheckingEndpoint",
+  "endpointStatus": "Enabled",
+  "id": "/subscriptions/c0de6865-a88e-448b-b905-781909aee251/resourceGroups/az305-project-026/providers/Microsoft.Network/trafficManagerProfiles/tyrell-trafficmgr-imgs-026/azureEndpoints/tyrell-webapp-imgs-asia-026",
+  "name": "tyrell-webapp-imgs-asia-026",
+  "priority": 3,
+  "resourceGroup": "az305-project-026",
+  "target": "tyrell-webapp-imgs-asia-026.azurewebsites.net",
+  "targetResourceId": "/subscriptions/c0de6865-a88e-448b-b905-781909aee251/resourceGroups/az305-project-026/providers/Microsoft.Web/sites/tyrell-webapp-imgs-asia-026",
+  "type": "Microsoft.Network/trafficManagerProfiles/azureEndpoints",
+  "weight": 1
+}
+----------------------------
+creating traffic endpoint
+traffic mgr: tyrell-trafficmgr-reg-026
+name: tyrell-webapp-reg-eastus-026
+geo-mapping: US-NY
+resId: /subscriptions/c0de6865-a88e-448b-b905-781909aee251/resourceGroups/az305-project-026/providers/Microsoft.Web/sites/tyrell-webapp-reg-eastus-026
+{
+  "alwaysServe": "Disabled",
+  "endpointLocation": "East US",
+  "endpointMonitorStatus": "CheckingEndpoint",
+  "endpointStatus": "Enabled",
+  "id": "/subscriptions/c0de6865-a88e-448b-b905-781909aee251/resourceGroups/az305-project-026/providers/Microsoft.Network/trafficManagerProfiles/tyrell-trafficmgr-reg-026/azureEndpoints/tyrell-webapp-reg-eastus-026",
+  "name": "tyrell-webapp-reg-eastus-026",
+  "priority": 1,
+  "resourceGroup": "az305-project-026",
+  "target": "tyrell-webapp-reg-eastus-026.azurewebsites.net",
+  "targetResourceId": "/subscriptions/c0de6865-a88e-448b-b905-781909aee251/resourceGroups/az305-project-026/providers/Microsoft.Web/sites/tyrell-webapp-reg-eastus-026",
+  "type": "Microsoft.Network/trafficManagerProfiles/azureEndpoints",
+  "weight": 1
+}
+----------------------------
+creating traffic endpoint
+traffic mgr: tyrell-trafficmgr-reg-026
+name: tyrell-webapp-reg-aus-026
+geo-mapping: AU-VIC
+resId: /subscriptions/c0de6865-a88e-448b-b905-781909aee251/resourceGroups/az305-project-026/providers/Microsoft.Web/sites/tyrell-webapp-reg-aus-026
+{
+  "alwaysServe": "Disabled",
+  "endpointLocation": "Australia Southeast",
+  "endpointMonitorStatus": "CheckingEndpoint",
+  "endpointStatus": "Enabled",
+  "id": "/subscriptions/c0de6865-a88e-448b-b905-781909aee251/resourceGroups/az305-project-026/providers/Microsoft.Network/trafficManagerProfiles/tyrell-trafficmgr-reg-026/azureEndpoints/tyrell-webapp-reg-aus-026",
+  "name": "tyrell-webapp-reg-aus-026",
+  "priority": 2,
+  "resourceGroup": "az305-project-026",
+  "target": "tyrell-webapp-reg-aus-026.azurewebsites.net",
+  "targetResourceId": "/subscriptions/c0de6865-a88e-448b-b905-781909aee251/resourceGroups/az305-project-026/providers/Microsoft.Web/sites/tyrell-webapp-reg-aus-026",
+  "type": "Microsoft.Network/trafficManagerProfiles/azureEndpoints",
+  "weight": 1
+}
+----------------------------
+creating traffic endpoint
+traffic mgr: tyrell-trafficmgr-reg-026
+name: tyrell-webapp-reg-asia-026
+geo-mapping: SG
+resId: /subscriptions/c0de6865-a88e-448b-b905-781909aee251/resourceGroups/az305-project-026/providers/Microsoft.Web/sites/tyrell-webapp-reg-asia-026
+{
+  "alwaysServe": "Disabled",
+  "endpointLocation": "East Asia",
+  "endpointMonitorStatus": "CheckingEndpoint",
+  "endpointStatus": "Enabled",
+  "id": "/subscriptions/c0de6865-a88e-448b-b905-781909aee251/resourceGroups/az305-project-026/providers/Microsoft.Network/trafficManagerProfiles/tyrell-trafficmgr-reg-026/azureEndpoints/tyrell-webapp-reg-asia-026",
+  "name": "tyrell-webapp-reg-asia-026",
+  "priority": 3,
+  "resourceGroup": "az305-project-026",
+  "target": "tyrell-webapp-reg-asia-026.azurewebsites.net",
+  "targetResourceId": "/subscriptions/c0de6865-a88e-448b-b905-781909aee251/resourceGroups/az305-project-026/providers/Microsoft.Web/sites/tyrell-webapp-reg-asia-026",
+  "type": "Microsoft.Network/trafficManagerProfiles/azureEndpoints",
+  "weight": 1
+}
+****************************
+Creating App Gateway
+appgw: tyrell-appgw-026
+----------------------------
+creating vnet & subnet
+vnet: tyrell-appgw-vnet-026, cidr: 10.0.0.0/16
+subnet: tyrell-appgw-subnet-026, cidr 10.0.230.0/24
+{
+  "newVNet": {
+    "addressSpace": {
+      "addressPrefixes": [
+        "10.0.0.0/16"
+      ]
+    },
+    "enableDdosProtection": false,
+    "etag": "W/\"791afa10-6410-438f-bd69-93e7d665aaf0\"",
+    "id": "/subscriptions/c0de6865-a88e-448b-b905-781909aee251/resourceGroups/az305-project-026/providers/Microsoft.Network/virtualNetworks/tyrell-appgw-vnet-026",
+    "location": "eastus",
+    "name": "tyrell-appgw-vnet-026",
+    "provisioningState": "Succeeded",
+    "resourceGroup": "az305-project-026",
+    "resourceGuid": "50ca6bbb-cae9-4425-a933-4648e06c85b7",
+    "subnets": [
+      {
+        "addressPrefix": "10.0.230.0/24",
+        "delegations": [],
+        "etag": "W/\"791afa10-6410-438f-bd69-93e7d665aaf0\"",
+        "id": "/subscriptions/c0de6865-a88e-448b-b905-781909aee251/resourceGroups/az305-project-026/providers/Microsoft.Network/virtualNetworks/tyrell-appgw-vnet-026/subnets/tyrell-appgw-subnet-026",
+        "name": "tyrell-appgw-subnet-026",
+        "privateEndpointNetworkPolicies": "Disabled",
+        "privateLinkServiceNetworkPolicies": "Enabled",
+        "provisioningState": "Succeeded",
+        "resourceGroup": "az305-project-026",
+        "type": "Microsoft.Network/virtualNetworks/subnets"
+      }
+    ],
+    "type": "Microsoft.Network/virtualNetworks",
+    "virtualNetworkPeerings": []
+  }
+}
+----------------------------
+creating public ip
+public ip name: tyrell-appgw-pip-026
+{
+  "publicIp": {
+    "ddosSettings": {
+      "protectionMode": "VirtualNetworkInherited"
+    },
+    "etag": "W/\"be7ecf36-b62c-437f-b1cc-ecd1b0a26457\"",
+    "id": "/subscriptions/c0de6865-a88e-448b-b905-781909aee251/resourceGroups/az305-project-026/providers/Microsoft.Network/publicIPAddresses/tyrell-appgw-pip-026",
+    "idleTimeoutInMinutes": 4,
+    "ipAddress": "4.236.142.195",
+    "ipTags": [],
+    "location": "eastus",
+    "name": "tyrell-appgw-pip-026",
+    "provisioningState": "Succeeded",
+    "publicIPAddressVersion": "IPv4",
+    "publicIPAllocationMethod": "Static",
+    "resourceGroup": "az305-project-026",
+    "resourceGuid": "20f36874-cdd7-4d8c-91fd-de74aa55eb3c",
+    "sku": {
+      "name": "Standard",
+      "tier": "Regional"
+    },
+    "type": "Microsoft.Network/publicIPAddresses"
+  }
+}
+public ip name: 4.236.142.195
+----------------------------
+creating app gw
+deployment user doesn't exist, creating
+{
+  "applicationGateway": {
+    "backendAddressPools": [
+      {
+        "etag": "W/\"f589a9af-599d-4636-b8bd-28fa2928967e\"",
+        "id": "/subscriptions/c0de6865-a88e-448b-b905-781909aee251/resourceGroups/az305-project-026/providers/Microsoft.Network/applicationGateways/tyrell-appgw-026/backendAddressPools/appGatewayBackendPool",
+        "name": "appGatewayBackendPool",
+        "properties": {
+          "backendAddresses": [],
+          "provisioningState": "Succeeded",
+          "requestRoutingRules": [
+            {
+              "id": "/subscriptions/c0de6865-a88e-448b-b905-781909aee251/resourceGroups/az305-project-026/providers/Microsoft.Network/applicationGateways/tyrell-appgw-026/requestRoutingRules/rule1",
+              "resourceGroup": "az305-project-026"
+            }
+          ]
+        },
+        "resourceGroup": "az305-project-026",
+        "type": "Microsoft.Network/applicationGateways/backendAddressPools"
+      }
+    ],
+    "backendHttpSettingsCollection": [
+      {
+        "etag": "W/\"f589a9af-599d-4636-b8bd-28fa2928967e\"",
+        "id": "/subscriptions/c0de6865-a88e-448b-b905-781909aee251/resourceGroups/az305-project-026/providers/Microsoft.Network/applicationGateways/tyrell-appgw-026/backendHttpSettingsCollection/appGatewayBackendHttpSettings",
+        "name": "appGatewayBackendHttpSettings",
+        "properties": {
+          "connectionDraining": {
+            "drainTimeoutInSec": 1,
+            "enabled": false
+          },
+          "cookieBasedAffinity": "Enabled",
+          "pickHostNameFromBackendAddress": false,
+          "port": 80,
+          "protocol": "Http",
+          "provisioningState": "Succeeded",
+          "requestRoutingRules": [
+            {
+              "id": "/subscriptions/c0de6865-a88e-448b-b905-781909aee251/resourceGroups/az305-project-026/providers/Microsoft.Network/applicationGateways/tyrell-appgw-026/requestRoutingRules/rule1",
+              "resourceGroup": "az305-project-026"
+            }
+          ],
+          "requestTimeout": 30
+        },
+        "resourceGroup": "az305-project-026",
+        "type": "Microsoft.Network/applicationGateways/backendHttpSettingsCollection"
+      }
+    ],
+    "backendSettingsCollection": [],
+    "frontendIPConfigurations": [
+      {
+        "etag": "W/\"f589a9af-599d-4636-b8bd-28fa2928967e\"",
+        "id": "/subscriptions/c0de6865-a88e-448b-b905-781909aee251/resourceGroups/az305-project-026/providers/Microsoft.Network/applicationGateways/tyrell-appgw-026/frontendIPConfigurations/appGatewayFrontendIP",
+        "name": "appGatewayFrontendIP",
+        "properties": {
+          "httpListeners": [
+            {
+              "id": "/subscriptions/c0de6865-a88e-448b-b905-781909aee251/resourceGroups/az305-project-026/providers/Microsoft.Network/applicationGateways/tyrell-appgw-026/httpListeners/appGatewayHttpListener",
+              "resourceGroup": "az305-project-026"
+            }
+          ],
+          "privateIPAllocationMethod": "Dynamic",
+          "provisioningState": "Succeeded",
+          "publicIPAddress": {
+            "id": "/subscriptions/c0de6865-a88e-448b-b905-781909aee251/resourceGroups/az305-project-026/providers/Microsoft.Network/publicIPAddresses/4.236.142.195",
+            "resourceGroup": "az305-project-026"
+          }
+        },
+        "resourceGroup": "az305-project-026",
+        "type": "Microsoft.Network/applicationGateways/frontendIPConfigurations"
+      }
+    ],
+    "frontendPorts": [
+      {
+        "etag": "W/\"f589a9af-599d-4636-b8bd-28fa2928967e\"",
+        "id": "/subscriptions/c0de6865-a88e-448b-b905-781909aee251/resourceGroups/az305-project-026/providers/Microsoft.Network/applicationGateways/tyrell-appgw-026/frontendPorts/appGatewayFrontendPort",
+        "name": "appGatewayFrontendPort",
+        "properties": {
+          "httpListeners": [
+            {
+              "id": "/subscriptions/c0de6865-a88e-448b-b905-781909aee251/resourceGroups/az305-project-026/providers/Microsoft.Network/applicationGateways/tyrell-appgw-026/httpListeners/appGatewayHttpListener",
+              "resourceGroup": "az305-project-026"
+            }
+          ],
+          "port": 80,
+          "provisioningState": "Succeeded"
+        },
+        "resourceGroup": "az305-project-026",
+        "type": "Microsoft.Network/applicationGateways/frontendPorts"
+      }
+    ],
+    "gatewayIPConfigurations": [
+      {
+        "etag": "W/\"f589a9af-599d-4636-b8bd-28fa2928967e\"",
+        "id": "/subscriptions/c0de6865-a88e-448b-b905-781909aee251/resourceGroups/az305-project-026/providers/Microsoft.Network/applicationGateways/tyrell-appgw-026/gatewayIPConfigurations/appGatewayFrontendIP",
+        "name": "appGatewayFrontendIP",
+        "properties": {
+          "provisioningState": "Succeeded",
+          "subnet": {
+            "id": "/subscriptions/c0de6865-a88e-448b-b905-781909aee251/resourceGroups/az305-project-026/providers/Microsoft.Network/virtualNetworks/tyrell-appgw-vnet-026/subnets/tyrell-appgw-subnet-026",
+            "resourceGroup": "az305-project-026"
+          }
+        },
+        "resourceGroup": "az305-project-026",
+        "type": "Microsoft.Network/applicationGateways/gatewayIPConfigurations"
+      }
+    ],
+    "httpListeners": [
+      {
+        "etag": "W/\"f589a9af-599d-4636-b8bd-28fa2928967e\"",
+        "id": "/subscriptions/c0de6865-a88e-448b-b905-781909aee251/resourceGroups/az305-project-026/providers/Microsoft.Network/applicationGateways/tyrell-appgw-026/httpListeners/appGatewayHttpListener",
+        "name": "appGatewayHttpListener",
+        "properties": {
+          "frontendIPConfiguration": {
+            "id": "/subscriptions/c0de6865-a88e-448b-b905-781909aee251/resourceGroups/az305-project-026/providers/Microsoft.Network/applicationGateways/tyrell-appgw-026/frontendIPConfigurations/appGatewayFrontendIP",
+            "resourceGroup": "az305-project-026"
+          },
+          "frontendPort": {
+            "id": "/subscriptions/c0de6865-a88e-448b-b905-781909aee251/resourceGroups/az305-project-026/providers/Microsoft.Network/applicationGateways/tyrell-appgw-026/frontendPorts/appGatewayFrontendPort",
+            "resourceGroup": "az305-project-026"
+          },
+          "hostNames": [],
+          "protocol": "Http",
+          "provisioningState": "Succeeded",
+          "requestRoutingRules": [
+            {
+              "id": "/subscriptions/c0de6865-a88e-448b-b905-781909aee251/resourceGroups/az305-project-026/providers/Microsoft.Network/applicationGateways/tyrell-appgw-026/requestRoutingRules/rule1",
+              "resourceGroup": "az305-project-026"
+            }
+          ],
+          "requireServerNameIndication": false
+        },
+        "resourceGroup": "az305-project-026",
+        "type": "Microsoft.Network/applicationGateways/httpListeners"
+      }
+    ],
+    "listeners": [],
+    "loadDistributionPolicies": [],
+    "operationalState": "Running",
+    "privateEndpointConnections": [],
+    "privateLinkConfigurations": [],
+    "probes": [],
+    "provisioningState": "Succeeded",
+    "redirectConfigurations": [],
+    "requestRoutingRules": [
+      {
+        "etag": "W/\"f589a9af-599d-4636-b8bd-28fa2928967e\"",
+        "id": "/subscriptions/c0de6865-a88e-448b-b905-781909aee251/resourceGroups/az305-project-026/providers/Microsoft.Network/applicationGateways/tyrell-appgw-026/requestRoutingRules/rule1",
+        "name": "rule1",
+        "properties": {
+          "backendAddressPool": {
+            "id": "/subscriptions/c0de6865-a88e-448b-b905-781909aee251/resourceGroups/az305-project-026/providers/Microsoft.Network/applicationGateways/tyrell-appgw-026/backendAddressPools/appGatewayBackendPool",
+            "resourceGroup": "az305-project-026"
+          },
+          "backendHttpSettings": {
+            "id": "/subscriptions/c0de6865-a88e-448b-b905-781909aee251/resourceGroups/az305-project-026/providers/Microsoft.Network/applicationGateways/tyrell-appgw-026/backendHttpSettingsCollection/appGatewayBackendHttpSettings",
+            "resourceGroup": "az305-project-026"
+          },
+          "httpListener": {
+            "id": "/subscriptions/c0de6865-a88e-448b-b905-781909aee251/resourceGroups/az305-project-026/providers/Microsoft.Network/applicationGateways/tyrell-appgw-026/httpListeners/appGatewayHttpListener",
+            "resourceGroup": "az305-project-026"
+          },
+          "priority": 100,
+          "provisioningState": "Succeeded",
+          "ruleType": "Basic"
+        },
+        "resourceGroup": "az305-project-026",
+        "type": "Microsoft.Network/applicationGateways/requestRoutingRules"
+      }
+    ],
+    "resourceGuid": "feef7e09-6ab3-42a1-9a7d-a96b57af4c7d",
+    "rewriteRuleSets": [],
+    "routingRules": [],
+    "sku": {
+      "capacity": 2,
+      "family": "Generation_1",
+      "name": "Standard_v2",
+      "tier": "Standard_v2"
+    },
+    "sslCertificates": [],
+    "sslProfiles": [],
+    "trustedClientCertificates": [],
+    "trustedRootCertificates": [],
+    "urlPathMaps": []
+  }
+}
+----------------------------
+creating back end pools
+name: appGatewayBackendPool
+servers: tyrell-trafficmgr-imgs-026.trafficmanager.net
+{
+  "backendAddresses": [
+    {
+      "fqdn": "tyrell-trafficmgr-imgs-026.trafficmanager.net"
+    }
+  ],
+  "etag": "W/\"610d9d65-b39a-4b2b-a06d-42afed40c266\"",
+  "id": "/subscriptions/c0de6865-a88e-448b-b905-781909aee251/resourceGroups/az305-project-026/providers/Microsoft.Network/applicationGateways/tyrell-appgw-026/backendAddressPools/appGatewayBackendPool",
+  "name": "appGatewayBackendPool",
+  "provisioningState": "Succeeded",
+  "resourceGroup": "az305-project-026",
+  "type": "Microsoft.Network/applicationGateways/backendAddressPools"
+}
+name: appGatewayBackendPool2
+servers: tyrell-trafficmgr-reg-026.trafficmanager.net
+{
+  "backendAddresses": [
+    {
+      "fqdn": "tyrell-trafficmgr-reg-026.trafficmanager.net"
+    }
+  ],
+  "etag": "W/\"a4699656-eb97-4c17-9f87-133cb5b9a9c5\"",
+  "id": "/subscriptions/c0de6865-a88e-448b-b905-781909aee251/resourceGroups/az305-project-026/providers/Microsoft.Network/applicationGateways/tyrell-appgw-026/backendAddressPools/appGatewayBackendPool2",
+  "name": "appGatewayBackendPool2",
+  "provisioningState": "Succeeded",
+  "resourceGroup": "az305-project-026",
+  "type": "Microsoft.Network/applicationGateways/backendAddressPools"
+}
+----------------------------
+creating path map
+{
+  "defaultBackendAddressPool": {
+    "id": "/subscriptions/c0de6865-a88e-448b-b905-781909aee251/resourceGroups/az305-project-026/providers/Microsoft.Network/applicationGateways/tyrell-appgw-026/backendAddressPools/appGatewayBackendPool",
+    "resourceGroup": "az305-project-026"
+  },
+  "defaultBackendHttpSettings": {
+    "id": "/subscriptions/c0de6865-a88e-448b-b905-781909aee251/resourceGroups/az305-project-026/providers/Microsoft.Network/applicationGateways/tyrell-appgw-026/backendHttpSettingsCollection/appGatewayBackendHttpSettings",
+    "resourceGroup": "az305-project-026"
+  },
+  "etag": "W/\"8b4e323f-77b8-4011-8b51-7d5091e76d35\"",
+  "id": "/subscriptions/c0de6865-a88e-448b-b905-781909aee251/resourceGroups/az305-project-026/providers/Microsoft.Network/applicationGateways/tyrell-appgw-026/urlPathMaps/tyrell-appgw-pathmap",
+  "name": "tyrell-appgw-pathmap",
+  "pathRules": [
+    {
+      "backendAddressPool": {
+        "id": "/subscriptions/c0de6865-a88e-448b-b905-781909aee251/resourceGroups/az305-project-026/providers/Microsoft.Network/applicationGateways/tyrell-appgw-026/backendAddressPools/appGatewayBackendPool",
+        "resourceGroup": "az305-project-026"
+      },
+      "backendHttpSettings": {
+        "id": "/subscriptions/c0de6865-a88e-448b-b905-781909aee251/resourceGroups/az305-project-026/providers/Microsoft.Network/applicationGateways/tyrell-appgw-026/backendHttpSettingsCollection/appGatewayBackendHttpSettings",
+        "resourceGroup": "az305-project-026"
+      },
+      "etag": "W/\"8b4e323f-77b8-4011-8b51-7d5091e76d35\"",
+      "id": "/subscriptions/c0de6865-a88e-448b-b905-781909aee251/resourceGroups/az305-project-026/providers/Microsoft.Network/applicationGateways/tyrell-appgw-026/urlPathMaps/tyrell-appgw-pathmap/pathRules/default",
+      "name": "default",
+      "paths": [
+        "/images/*"
+      ],
+      "provisioningState": "Succeeded",
+      "resourceGroup": "az305-project-026",
+      "type": "Microsoft.Network/applicationGateways/urlPathMaps/pathRules"
+    }
+  ],
+  "provisioningState": "Succeeded",
+  "resourceGroup": "az305-project-026",
+  "type": "Microsoft.Network/applicationGateways/urlPathMaps"
+}
+{
+  "defaultBackendAddressPool": {
+    "id": "/subscriptions/c0de6865-a88e-448b-b905-781909aee251/resourceGroups/az305-project-026/providers/Microsoft.Network/applicationGateways/tyrell-appgw-026/backendAddressPools/appGatewayBackendPool2",
+    "resourceGroup": "az305-project-026"
+  },
+  "defaultBackendHttpSettings": {
+    "id": "/subscriptions/c0de6865-a88e-448b-b905-781909aee251/resourceGroups/az305-project-026/providers/Microsoft.Network/applicationGateways/tyrell-appgw-026/backendHttpSettingsCollection/appGatewayBackendHttpSettings",
+    "resourceGroup": "az305-project-026"
+  },
+  "etag": "W/\"cd2f2f5d-df8a-481d-980a-25aed7f96d70\"",
+  "id": "/subscriptions/c0de6865-a88e-448b-b905-781909aee251/resourceGroups/az305-project-026/providers/Microsoft.Network/applicationGateways/tyrell-appgw-026/urlPathMaps/tyrell-appgw-pathmap",
+  "name": "tyrell-appgw-pathmap",
+  "pathRules": [
+    {
+      "backendAddressPool": {
+        "id": "/subscriptions/c0de6865-a88e-448b-b905-781909aee251/resourceGroups/az305-project-026/providers/Microsoft.Network/applicationGateways/tyrell-appgw-026/backendAddressPools/appGatewayBackendPool2",
+        "resourceGroup": "az305-project-026"
+      },
+      "backendHttpSettings": {
+        "id": "/subscriptions/c0de6865-a88e-448b-b905-781909aee251/resourceGroups/az305-project-026/providers/Microsoft.Network/applicationGateways/tyrell-appgw-026/backendHttpSettingsCollection/appGatewayBackendHttpSettings",
+        "resourceGroup": "az305-project-026"
+      },
+      "etag": "W/\"cd2f2f5d-df8a-481d-980a-25aed7f96d70\"",
+      "id": "/subscriptions/c0de6865-a88e-448b-b905-781909aee251/resourceGroups/az305-project-026/providers/Microsoft.Network/applicationGateways/tyrell-appgw-026/urlPathMaps/tyrell-appgw-pathmap/pathRules/default",
+      "name": "default",
+      "paths": [
+        "/blog/*"
+      ],
+      "provisioningState": "Succeeded",
+      "resourceGroup": "az305-project-026",
+      "type": "Microsoft.Network/applicationGateways/urlPathMaps/pathRules"
+    }
+  ],
+  "provisioningState": "Succeeded",
+  "resourceGroup": "az305-project-026",
+  "type": "Microsoft.Network/applicationGateways/urlPathMaps"
+}
+----------------------------
+creating rule
+----------------------------
+creating http settings
+{
+  "connectionDraining": {
+    "drainTimeoutInSec": 1,
+    "enabled": false
+  },
+  "cookieBasedAffinity": "Enabled",
+  "etag": "W/\"927719ed-079a-4e94-94f5-42d6c1492584\"",
+  "id": "/subscriptions/c0de6865-a88e-448b-b905-781909aee251/resourceGroups/az305-project-026/providers/Microsoft.Network/applicationGateways/tyrell-appgw-026/backendHttpSettingsCollection/appGatewayBackendHttpSettings",
+  "name": "appGatewayBackendHttpSettings",
+  "path": "/",
+  "pickHostNameFromBackendAddress": true,
+  "port": 80,
+  "protocol": "Http",
+  "provisioningState": "Succeeded",
+  "requestTimeout": 30,
+  "resourceGroup": "az305-project-026",
+  "type": "Microsoft.Network/applicationGateways/backendHttpSettingsCollection"
+}
+----------------------------
+creating http probe

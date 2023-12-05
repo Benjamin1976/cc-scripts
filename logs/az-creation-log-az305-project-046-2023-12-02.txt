@@ -1,0 +1,445 @@
+********************************************************
+Creating Resource Group & Setting deployment user
+--------------------------------------------------------
+@{id=/subscriptions/c0de6865-a88e-448b-b905-781909aee251/resourceGroups/az305-project-046; location=eastus; managedBy=; name=az305-project-046; properties=; tags=; type=Microsoft.Resources/resourceGroups}
+@{id=; kind=; name=web; publishingPassword=; publishingPasswordHash=; publishingPasswordHashSalt=; publishingUserName=az305-project-046-benjammin-deploy-76; scmUri=; type=Microsoft.Web/publishingUsers/web}
+****************************
+Creating Machine Scale Sets
+----------------------------
+creating vnet & subnet
+vnet: tyrell-eastus-vnet-046, 10.10.0.0/16
+subnet: tyrell-eastus-subnet-046, 10.10.10.0/24
+appGW: tyrell-appgw-subnet-046, 10.10.230.0/24
+location: eastus
+@{newVNet=}
+----------------------------
+creating machine scale set
+machine set: tyrell-webapp-imgs-eastus-046
+service vnet: tyrell-eastus-vnet-046
+service sub: tyrell-eastus-subnet-046
+runtime: Ubuntu2204
+private IP: pip-tyrell-webapp-imgs-eastus-046
+appGW Name: tyrell-webapp-appgw-eastus-046
+{
+  "vmss": {
+    "doNotRunExtensionsOnOverprovisionedVMs": false,
+    "orchestrationMode": "Uniform",
+    "overprovision": true,
+    "provisioningState": "Succeeded",
+    "singlePlacementGroup": true,
+    "timeCreated": "2023-12-02T07:31:33.3686565+00:00",
+    "uniqueId": "27d073f7-7f08-4d05-b1a0-b8fb3d2e725c",
+    "upgradePolicy": {
+      "mode": "Automatic",
+      "rollingUpgradePolicy": {
+        "maxBatchInstancePercent": 20,
+        "maxSurge": false,
+        "maxUnhealthyInstancePercent": 20,
+        "maxUnhealthyUpgradedInstancePercent": 20,
+        "pauseTimeBetweenBatches": "PT0S",
+        "rollbackFailedInstancesOnPolicyBreach": false
+      }
+    },
+    "virtualMachineProfile": {
+      "networkProfile": {
+        "networkInterfaceConfigurations": [
+          {
+            "name": "tyrel1177Nic",
+            "properties": {
+              "disableTcpStateTracking": false,
+              "dnsSettings": {
+                "dnsServers": []
+              },
+              "enableAcceleratedNetworking": false,
+              "enableIPForwarding": false,
+              "ipConfigurations": [
+                {
+                  "name": "tyrel1177IPConfig",
+                  "properties": {
+                    "loadBalancerBackendAddressPools": [
+                      {
+                        "id": "/subscriptions/c0de6865-a88e-448b-b905-781909aee251/resourceGroups/az305-project-046/providers/Microsoft.Network/loadBalancers/tyrell-webapp-imgs-eastus-046LB/backendAddressPools/tyrell-webapp-imgs-eastus-046LBBEPool",
+                        "resourceGroup": "az305-project-046"
+                      }
+                    ],
+                    "privateIPAddressVersion": "IPv4",
+                    "subnet": {
+                      "id": "/subscriptions/c0de6865-a88e-448b-b905-781909aee251/resourceGroups/az305-project-046/providers/Microsoft.Network/virtualNetworks/tyrell-eastus-vnet-046/subnets/tyrell-eastus-subnet-046",
+                      "resourceGroup": "az305-project-046"
+                    }
+                  }
+                }
+              ],
+              "networkSecurityGroup": {
+                "id": "/subscriptions/c0de6865-a88e-448b-b905-781909aee251/resourceGroups/az305-project-046/providers/Microsoft.Network/networkSecurityGroups/tyrell-webapp-imgs-eastus-046NSG",
+                "resourceGroup": "az305-project-046"
+              },
+              "primary": true
+            }
+          }
+        ]
+      },
+      "osProfile": {
+        "adminUsername": "benjamin",
+        "allowExtensionOperations": true,
+        "computerNamePrefix": "tyrel1177",
+        "linuxConfiguration": {
+          "disablePasswordAuthentication": false,
+          "enableVMAgentPlatformUpdates": false,
+          "provisionVMAgent": true,
+          "ssh": {
+            "publicKeys": [
+              {
+                "keyData": "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDzFSaYwWa+4Axl8bitH3COCWRFnD4aAemcbgW9Jh0tgoeey9zhOw0P3Nfy/yW1hg8q9HkogbkRM71GpPFn8P0tVMUK1wfoSxHD0uEwFQQC8U3Mny3TRzAM6QcabVSoii9Cgaxf8xvDVRDtGvMBBpToyuU+QgPvfsB09cU1qhAVMkJlxhyHAgm2jDe/PspuCltRhJl0Hu4P8TFVBPyAGdqVDvcB9zjayZ8bKhimTdO+xRJE9FWO9dDzf+YCcLJJggagdJb4nqp7UZr5wSua/p4sMTd3e8u9segVn26gmp9QhWD41mkRGjNVK52QpnoWiGhQlFAs707ufO5KFwgd7SIz",
+                "path": "/home/benjamin/.ssh/authorized_keys"
+              }
+            ]
+          }
+        },
+        "requireGuestProvisionSignal": true,
+        "secrets": []
+      },
+      "storageProfile": {
+        "diskControllerType": "SCSI",
+        "imageReference": {
+          "offer": "0001-com-ubuntu-server-jammy",
+          "publisher": "Canonical",
+          "sku": "22_04-lts-gen2",
+          "version": "latest"
+        },
+        "osDisk": {
+          "caching": "ReadWrite",
+          "createOption": "FromImage",
+          "diskSizeGB": 30,
+          "managedDisk": {
+            "storageAccountType": "Premium_LRS"
+          },
+          "osType": "Linux"
+        }
+      },
+      "timeCreated": "2023-12-02T07:31:33.3686565+00:00"
+    }
+  }
+}
+****************************
+Creating Machine Scale Sets
+----------------------------
+creating vnet & subnet
+vnet: tyrell-eastus-vnet-046, 10.10.0.0/16
+subnet: tyrell-eastus-subnet-046, 10.10.10.0/24
+appGW: tyrell-appgw-subnet-046, 10.10.230.0/24
+location: eastus
+@{newVNet=}
+----------------------------
+creating machine scale set
+machine set: tyrell-webapp-reg-eastus-046
+service vnet: tyrell-eastus-vnet-046
+service sub: tyrell-eastus-subnet-046
+runtime: Ubuntu2204
+private IP: pip-tyrell-webapp-reg-eastus-046
+appGW Name: tyrell-webapp-appgw-eastus-046
+{
+  "vmss": {
+    "doNotRunExtensionsOnOverprovisionedVMs": false,
+    "orchestrationMode": "Uniform",
+    "overprovision": true,
+    "provisioningState": "Succeeded",
+    "singlePlacementGroup": true,
+    "timeCreated": "2023-12-02T07:33:01.5085088+00:00",
+    "uniqueId": "39ff7f27-0b94-4192-b865-286bf6c5462f",
+    "upgradePolicy": {
+      "mode": "Automatic",
+      "rollingUpgradePolicy": {
+        "maxBatchInstancePercent": 20,
+        "maxSurge": false,
+        "maxUnhealthyInstancePercent": 20,
+        "maxUnhealthyUpgradedInstancePercent": 20,
+        "pauseTimeBetweenBatches": "PT0S",
+        "rollbackFailedInstancesOnPolicyBreach": false
+      }
+    },
+    "virtualMachineProfile": {
+      "networkProfile": {
+        "networkInterfaceConfigurations": [
+          {
+            "name": "tyrel816fNic",
+            "properties": {
+              "disableTcpStateTracking": false,
+              "dnsSettings": {
+                "dnsServers": []
+              },
+              "enableAcceleratedNetworking": false,
+              "enableIPForwarding": false,
+              "ipConfigurations": [
+                {
+                  "name": "tyrel816fIPConfig",
+                  "properties": {
+                    "loadBalancerBackendAddressPools": [
+                      {
+                        "id": "/subscriptions/c0de6865-a88e-448b-b905-781909aee251/resourceGroups/az305-project-046/providers/Microsoft.Network/loadBalancers/tyrell-webapp-reg-eastus-046LB/backendAddressPools/tyrell-webapp-reg-eastus-046LBBEPool",
+                        "resourceGroup": "az305-project-046"
+                      }
+                    ],
+                    "privateIPAddressVersion": "IPv4",
+                    "subnet": {
+                      "id": "/subscriptions/c0de6865-a88e-448b-b905-781909aee251/resourceGroups/az305-project-046/providers/Microsoft.Network/virtualNetworks/tyrell-eastus-vnet-046/subnets/tyrell-eastus-subnet-046",
+                      "resourceGroup": "az305-project-046"
+                    }
+                  }
+                }
+              ],
+              "networkSecurityGroup": {
+                "id": "/subscriptions/c0de6865-a88e-448b-b905-781909aee251/resourceGroups/az305-project-046/providers/Microsoft.Network/networkSecurityGroups/tyrell-webapp-reg-eastus-046NSG",
+                "resourceGroup": "az305-project-046"
+              },
+              "primary": true
+            }
+          }
+        ]
+      },
+      "osProfile": {
+        "adminUsername": "benjamin",
+        "allowExtensionOperations": true,
+        "computerNamePrefix": "tyrel816f",
+        "linuxConfiguration": {
+          "disablePasswordAuthentication": false,
+          "enableVMAgentPlatformUpdates": false,
+          "provisionVMAgent": true,
+          "ssh": {
+            "publicKeys": [
+              {
+                "keyData": "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDzFSaYwWa+4Axl8bitH3COCWRFnD4aAemcbgW9Jh0tgoeey9zhOw0P3Nfy/yW1hg8q9HkogbkRM71GpPFn8P0tVMUK1wfoSxHD0uEwFQQC8U3Mny3TRzAM6QcabVSoii9Cgaxf8xvDVRDtGvMBBpToyuU+QgPvfsB09cU1qhAVMkJlxhyHAgm2jDe/PspuCltRhJl0Hu4P8TFVBPyAGdqVDvcB9zjayZ8bKhimTdO+xRJE9FWO9dDzf+YCcLJJggagdJb4nqp7UZr5wSua/p4sMTd3e8u9segVn26gmp9QhWD41mkRGjNVK52QpnoWiGhQlFAs707ufO5KFwgd7SIz",
+                "path": "/home/benjamin/.ssh/authorized_keys"
+              }
+            ]
+          }
+        },
+        "requireGuestProvisionSignal": true,
+        "secrets": []
+      },
+      "storageProfile": {
+        "diskControllerType": "SCSI",
+        "imageReference": {
+          "offer": "0001-com-ubuntu-server-jammy",
+          "publisher": "Canonical",
+          "sku": "22_04-lts-gen2",
+          "version": "latest"
+        },
+        "osDisk": {
+          "caching": "ReadWrite",
+          "createOption": "FromImage",
+          "diskSizeGB": 30,
+          "managedDisk": {
+            "storageAccountType": "Premium_LRS"
+          },
+          "osType": "Linux"
+        }
+      },
+      "timeCreated": "2023-12-02T07:33:01.5085088+00:00"
+    }
+  }
+}
+****************************
+Creating Machine Scale Sets
+----------------------------
+creating vnet & subnet
+vnet: tyrell-aus-vnet-046, 10.20.0.0/16
+subnet: tyrell-aus-subnet-046, 10.20.10.0/24
+appGW: tyrell-appgw-subnet-046, 10.20.230.0/24
+location: australiasoutheast
+@{newVNet=}
+----------------------------
+creating machine scale set
+machine set: tyrell-webapp-imgs-aus-046
+service vnet: tyrell-aus-vnet-046
+service sub: tyrell-aus-subnet-046
+runtime: Ubuntu2204
+private IP: pip-tyrell-webapp-imgs-aus-046
+appGW Name: tyrell-webapp-appgw-aus-046
+****************************
+Creating Machine Scale Sets
+----------------------------
+creating vnet & subnet
+vnet: tyrell-aus-vnet-046, 10.20.0.0/16
+subnet: tyrell-aus-subnet-046, 10.20.10.0/24
+appGW: tyrell-appgw-subnet-046, 10.20.230.0/24
+location: australiasoutheast
+@{newVNet=}
+----------------------------
+creating machine scale set
+machine set: tyrell-webapp-reg-aus-046
+service vnet: tyrell-aus-vnet-046
+service sub: tyrell-aus-subnet-046
+runtime: Ubuntu2204
+private IP: pip-tyrell-webapp-reg-aus-046
+appGW Name: tyrell-webapp-appgw-aus-046
+****************************
+Creating Machine Scale Sets
+----------------------------
+creating vnet & subnet
+vnet: tyrell-asia-vnet-046, 10.30.0.0/16
+subnet: tyrell-asia-subnet-046, 10.30.10.0/24
+appGW: tyrell-appgw-subnet-046, 10.30.230.0/24
+location: eastasia
+@{newVNet=}
+----------------------------
+creating machine scale set
+machine set: tyrell-webapp-imgs-asia-046
+service vnet: tyrell-asia-vnet-046
+service sub: tyrell-asia-subnet-046
+runtime: Ubuntu2204
+private IP: pip-tyrell-webapp-imgs-asia-046
+appGW Name: tyrell-webapp-appgw-asia-046
+****************************
+Creating Machine Scale Sets
+----------------------------
+creating vnet & subnet
+vnet: tyrell-asia-vnet-046, 10.30.0.0/16
+subnet: tyrell-asia-subnet-046, 10.30.10.0/24
+appGW: tyrell-appgw-subnet-046, 10.30.230.0/24
+location: eastasia
+@{newVNet=}
+----------------------------
+creating machine scale set
+machine set: tyrell-webapp-reg-asia-046
+service vnet: tyrell-asia-vnet-046
+service sub: tyrell-asia-subnet-046
+runtime: Ubuntu2204
+private IP: pip-tyrell-webapp-reg-asia-046
+appGW Name: tyrell-webapp-appgw-asia-046
+****************************
+Creating App Gateway
+appgw: tyrell-appgw-046
+----------------------------
+creating public ip
+public ip name: tyrell-appgw-pip-026
+{
+  "publicIp": {
+    "ddosSettings": {
+      "protectionMode": "VirtualNetworkInherited"
+    },
+    "etag": "W/\"0c159aad-ec5e-43ce-a52e-6e5907a00d1c\"",
+    "id": "/subscriptions/c0de6865-a88e-448b-b905-781909aee251/resourceGroups/az305-project-046/providers/Microsoft.Network/publicIPAddresses/tyrell-appgw-pip-026",
+    "idleTimeoutInMinutes": 4,
+    "ipAddress": "20.85.212.134",
+    "ipTags": [],
+    "location": "eastus",
+    "name": "tyrell-appgw-pip-026",
+    "provisioningState": "Succeeded",
+    "publicIPAddressVersion": "IPv4",
+    "publicIPAllocationMethod": "Static",
+    "resourceGroup": "az305-project-046",
+    "resourceGuid": "d562d613-2c0c-4e9f-907a-63fdd7b024b1",
+    "sku": {
+      "name": "Standard",
+      "tier": "Regional"
+    },
+    "type": "Microsoft.Network/publicIPAddresses"
+  }
+}
+public ip name: 20.85.212.134
+----------------------------
+creating app gw
+deployment user doesn't exist, creating
+----------------------------
+creating back end pools
+name: appGatewayBackendPool
+servers: p
+name: appGatewayBackendPool2
+servers: i
+----------------------------
+creating path map
+----------------------------
+creating rule
+----------------------------
+creating http settings
+****************************
+Creating App Gateway
+appgw: tyrell-appgw-046
+----------------------------
+creating public ip
+public ip name: tyrell-appgw-pip-026
+public ip name: 20.85.212.134
+----------------------------
+creating app gw
+deployment user doesn't exist, creating
+----------------------------
+creating back end pools
+name: appGatewayBackendPool
+servers: p
+name: appGatewayBackendPool2
+servers: i
+----------------------------
+creating path map
+----------------------------
+creating rule
+----------------------------
+creating http settings
+****************************
+Creating App Gateway
+appgw: tyrell-appgw-046
+----------------------------
+creating public ip
+public ip name: tyrell-appgw-pip-026
+public ip name: 20.85.212.134
+----------------------------
+creating app gw
+deployment user doesn't exist, creating
+----------------------------
+creating back end pools
+name: appGatewayBackendPool
+servers: p
+name: appGatewayBackendPool2
+servers: i
+----------------------------
+creating path map
+----------------------------
+creating rule
+----------------------------
+creating http settings
+****************************
+Creating Traffic Manager
+----------------------------
+name: tyrell-trafficmgr-reg-046
+{
+  "TrafficManagerProfile": {
+    "dnsConfig": {
+      "fqdn": "tyrell-trafficmgr-reg-046.trafficmanager.net",
+      "relativeName": "tyrell-trafficmgr-reg-046",
+      "ttl": 30
+    },
+    "endpoints": [],
+    "id": "/subscriptions/c0de6865-a88e-448b-b905-781909aee251/resourceGroups/az305-project-046/providers/Microsoft.Network/trafficManagerProfiles/tyrell-trafficmgr-reg-046",
+    "location": "global",
+    "monitorConfig": {
+      "intervalInSeconds": 30,
+      "path": "/",
+      "port": 80,
+      "profileMonitorStatus": "Inactive",
+      "protocol": "HTTP",
+      "timeoutInSeconds": 10,
+      "toleratedNumberOfFailures": 3
+    },
+    "name": "tyrell-trafficmgr-reg-046",
+    "profileStatus": "Enabled",
+    "resourceGroup": "az305-project-046",
+    "trafficRoutingMethod": "Performance",
+    "trafficViewEnrollmentStatus": "Disabled",
+    "type": "Microsoft.Network/trafficManagerProfiles"
+  }
+}
+----------------------------
+creating traffic endpoint
+traffic mgr: tyrell-trafficmgr-reg-046
+name: tyrell-webapp-endpoint-eastus-046
+resId: /subscriptions/c0de6865-a88e-448b-b905-781909aee251/resourceGroups/az305-project-046/providers/Microsoft.Network/applicationGateways/tyrell-appgw-046
+----------------------------
+creating traffic endpoint
+traffic mgr: tyrell-trafficmgr-reg-046
+name: tyrell-webapp-endpoint-aus-046
+resId: /subscriptions/c0de6865-a88e-448b-b905-781909aee251/resourceGroups/az305-project-046/providers/Microsoft.Network/applicationGateways/tyrell-appgw-046
+----------------------------
+creating traffic endpoint
+traffic mgr: tyrell-trafficmgr-reg-046
+name: tyrell-webapp-endpoint-asia-046
+resId: /subscriptions/c0de6865-a88e-448b-b905-781909aee251/resourceGroups/az305-project-046/providers/Microsoft.Network/applicationGateways/tyrell-appgw-046

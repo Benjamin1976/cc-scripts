@@ -1,0 +1,507 @@
+****************************
+Creating Resource Group & Setting deployment user
+----------------------------
+{
+  "id": "/subscriptions/13d4a723-8867-459b-a884-12e29ea44352/resourceGroups/az305-project-200",
+  "location": "eastus",
+  "managedBy": null,
+  "name": "az305-project-200",
+  "properties": {
+    "provisioningState": "Succeeded"
+  },
+  "tags": null,
+  "type": "Microsoft.Resources/resourceGroups"
+}
+{
+  "id": null,
+  "kind": null,
+  "name": "web",
+  "publishingPassword": null,
+  "publishingPasswordHash": null,
+  "publishingPasswordHashSalt": null,
+  "publishingUserName": "az305-project-200-benjammin-deploy-76",
+  "scmUri": null,
+  "type": "Microsoft.Web/publishingUsers/web"
+}
+****************************
+Creating App Services
+----------------------------
+creating vnet & subnet
+vnet: tyrell-imgs-vnet-eastus-200, 10.10.0.0/16
+subnet: tyrell-imgs-subnet-eastus-200, 10.10.0.0/24
+location: eastus
+not instructed to create
+----------------------------
+creating service plan
+service plan: tyrell-plan-imgs-eastus-200
+service loc: eastus
+not instructed to create
+----------------------------
+creating app service
+service plan: tyrell-plan-imgs-eastus-200
+web app: tyrell-webapp-imgs-eastus-200
+service vnet: tyrell-imgs-vnet-eastus-200
+service sub: tyrell-imgs-subnet-eastus-200
+runtime: ASPNET:V4.8
+not instructed to create
+****************************
+Creating App Services
+----------------------------
+creating vnet & subnet
+vnet: tyrell-reg-vnet-eastus-200, 10.10.0.0/16
+subnet: tyrell-reg-subnet-eastus-200, 10.10.0.0/24
+location: eastus
+not instructed to create
+----------------------------
+creating service plan
+service plan: tyrell-plan-reg-eastus-200
+service loc: eastus
+not instructed to create
+----------------------------
+creating app service
+service plan: tyrell-plan-reg-eastus-200
+web app: tyrell-webapp-imgs-eastus-200-reg-eastus-200
+service vnet: tyrell-reg-vnet-eastus-200
+service sub: tyrell-reg-subnet-eastus-200
+runtime: ASPNET:V4.8
+not instructed to create
+****************************
+Creating App Services
+----------------------------
+creating vnet & subnet
+vnet: tyrell-imgs-vnet-aus-200, 10.20.0.0/16
+subnet: tyrell-imgs-subnet-aus-200, 10.20.0.0/24
+location: australiasoutheast
+not instructed to create
+----------------------------
+creating service plan
+service plan: tyrell-plan-imgs-aus-200
+service loc: australiasoutheast
+not instructed to create
+----------------------------
+creating app service
+service plan: tyrell-plan-imgs-aus-200
+web app: tyrell-webapp-imgs-eastus-200-reg-eastus-200-imgs-aus-200
+service vnet: tyrell-imgs-vnet-aus-200
+service sub: tyrell-imgs-subnet-aus-200
+runtime: ASPNET:V4.8
+not instructed to create
+****************************
+Creating App Services
+----------------------------
+creating vnet & subnet
+vnet: tyrell-reg-vnet-aus-200, 10.20.0.0/16
+subnet: tyrell-reg-subnet-aus-200, 10.20.0.0/24
+location: australiasoutheast
+not instructed to create
+----------------------------
+creating service plan
+service plan: tyrell-plan-reg-aus-200
+service loc: australiasoutheast
+not instructed to create
+----------------------------
+creating app service
+service plan: tyrell-plan-reg-aus-200
+web app: tyrell-webapp-imgs-eastus-200-reg-eastus-200-imgs-aus-200-reg-aus-200
+service vnet: tyrell-reg-vnet-aus-200
+service sub: tyrell-reg-subnet-aus-200
+runtime: ASPNET:V4.8
+not instructed to create
+****************************
+Creating App Services
+----------------------------
+creating vnet & subnet
+vnet: tyrell-imgs-vnet-asia-200, 10.30.0.0/16
+subnet: tyrell-imgs-subnet-asia-200, 10.30.0.0/24
+location: eastasia
+not instructed to create
+----------------------------
+creating service plan
+service plan: tyrell-plan-imgs-asia-200
+service loc: eastasia
+not instructed to create
+----------------------------
+creating app service
+service plan: tyrell-plan-imgs-asia-200
+web app: tyrell-webapp-imgs-eastus-200-reg-eastus-200-imgs-aus-200-reg-aus-200-imgs-asia-200
+service vnet: tyrell-imgs-vnet-asia-200
+service sub: tyrell-imgs-subnet-asia-200
+runtime: ASPNET:V4.8
+not instructed to create
+****************************
+Creating App Services
+----------------------------
+creating vnet & subnet
+vnet: tyrell-reg-vnet-asia-200, 10.30.0.0/16
+subnet: tyrell-reg-subnet-asia-200, 10.30.0.0/24
+location: eastasia
+not instructed to create
+----------------------------
+creating service plan
+service plan: tyrell-plan-reg-asia-200
+service loc: eastasia
+not instructed to create
+----------------------------
+creating app service
+service plan: tyrell-plan-reg-asia-200
+web app: tyrell-webapp-imgs-eastus-200-reg-eastus-200-imgs-aus-200-reg-aus-200-imgs-asia-200-reg-asia-200
+service vnet: tyrell-reg-vnet-asia-200
+service sub: tyrell-reg-subnet-asia-200
+runtime: ASPNET:V4.8
+not instructed to create
+****************************
+Creating Traffic Manager
+----------------------------
+creating traffic mgr
+name: tyrell-trafficmgr-imgs-200
+not instructed to create
+----------------------------
+creating traffic endpoint
+traffic mgr: tyrell-trafficmgr-imgs-200
+name: tyrell-webapp-imgs-eastus-200-reg-eastus-200-imgs-aus-200-reg-aus-200-imgs-asia-200-reg-asia-200-imgs-eastus-200
+geo-mapping: US-NY
+resId: /subscriptions/13d4a723-8867-459b-a884-12e29ea44352/resourceGroups/az305-project-200/providers/Microsoft.Web/sites/tyrell-webapp-imgs-eastus-200-reg-eastus-200-imgs-aus-200-reg-aus-200-imgs-asia-200-reg-asia-200-imgs-eastus-200
+not instructed to create
+----------------------------
+creating traffic endpoint
+traffic mgr: tyrell-trafficmgr-imgs-200
+name: tyrell-webapp-imgs-eastus-200-reg-eastus-200-imgs-aus-200-reg-aus-200-imgs-asia-200-reg-asia-200-imgs-aus-200
+geo-mapping: AU-VIC
+resId: /subscriptions/13d4a723-8867-459b-a884-12e29ea44352/resourceGroups/az305-project-200/providers/Microsoft.Web/sites/tyrell-webapp-imgs-eastus-200-reg-eastus-200-imgs-aus-200-reg-aus-200-imgs-asia-200-reg-asia-200-imgs-aus-200
+not instructed to create
+----------------------------
+creating traffic endpoint
+traffic mgr: tyrell-trafficmgr-imgs-200
+name: tyrell-webapp-imgs-eastus-200-reg-eastus-200-imgs-aus-200-reg-aus-200-imgs-asia-200-reg-asia-200-imgs-asia-200
+geo-mapping: SG
+resId: /subscriptions/13d4a723-8867-459b-a884-12e29ea44352/resourceGroups/az305-project-200/providers/Microsoft.Web/sites/tyrell-webapp-imgs-eastus-200-reg-eastus-200-imgs-aus-200-reg-aus-200-imgs-asia-200-reg-asia-200-imgs-asia-200
+not instructed to create
+****************************
+Creating Traffic Manager
+----------------------------
+creating traffic mgr
+name: tyrell-trafficmgr-reg-200
+not instructed to create
+----------------------------
+creating traffic endpoint
+traffic mgr: tyrell-trafficmgr-reg-200
+name: tyrell-webapp-imgs-eastus-200-reg-eastus-200-imgs-aus-200-reg-aus-200-imgs-asia-200-reg-asia-200-reg-eastus-200
+geo-mapping: US-NY
+resId: /subscriptions/13d4a723-8867-459b-a884-12e29ea44352/resourceGroups/az305-project-200/providers/Microsoft.Web/sites/tyrell-webapp-imgs-eastus-200-reg-eastus-200-imgs-aus-200-reg-aus-200-imgs-asia-200-reg-asia-200-reg-eastus-200
+not instructed to create
+----------------------------
+creating traffic endpoint
+traffic mgr: tyrell-trafficmgr-reg-200
+name: tyrell-webapp-imgs-eastus-200-reg-eastus-200-imgs-aus-200-reg-aus-200-imgs-asia-200-reg-asia-200-reg-aus-200
+geo-mapping: AU-VIC
+resId: /subscriptions/13d4a723-8867-459b-a884-12e29ea44352/resourceGroups/az305-project-200/providers/Microsoft.Web/sites/tyrell-webapp-imgs-eastus-200-reg-eastus-200-imgs-aus-200-reg-aus-200-imgs-asia-200-reg-asia-200-reg-aus-200
+not instructed to create
+----------------------------
+creating traffic endpoint
+traffic mgr: tyrell-trafficmgr-reg-200
+name: tyrell-webapp-imgs-eastus-200-reg-eastus-200-imgs-aus-200-reg-aus-200-imgs-asia-200-reg-asia-200-reg-asia-200
+geo-mapping: SG
+resId: /subscriptions/13d4a723-8867-459b-a884-12e29ea44352/resourceGroups/az305-project-200/providers/Microsoft.Web/sites/tyrell-webapp-imgs-eastus-200-reg-eastus-200-imgs-aus-200-reg-aus-200-imgs-asia-200-reg-asia-200-reg-asia-200
+not instructed to create
+****************************
+Creating App Gateway
+----------------------------
+creating vnet
+----------------------------
+creating public ip
+----------------------------
+creating app gw
+{
+  "applicationGateway": {
+    "backendAddressPools": [
+      {
+        "etag": "W/\"aa1d4871-e318-490f-ba4b-89d6dbcbbad6\"",
+        "id": "/subscriptions/13d4a723-8867-459b-a884-12e29ea44352/resourceGroups/az305-project-200/providers/Microsoft.Network/applicationGateways/tyrell-appgw-200/backendAddressPools/appGatewayBackendPool",
+        "name": "appGatewayBackendPool",
+        "properties": {
+          "backendAddresses": [],
+          "provisioningState": "Succeeded",
+          "requestRoutingRules": [
+            {
+              "id": "/subscriptions/13d4a723-8867-459b-a884-12e29ea44352/resourceGroups/az305-project-200/providers/Microsoft.Network/applicationGateways/tyrell-appgw-200/requestRoutingRules/rule1",
+              "resourceGroup": "az305-project-200"
+            }
+          ]
+        },
+        "resourceGroup": "az305-project-200",
+        "type": "Microsoft.Network/applicationGateways/backendAddressPools"
+      }
+    ],
+    "backendHttpSettingsCollection": [
+      {
+        "etag": "W/\"aa1d4871-e318-490f-ba4b-89d6dbcbbad6\"",
+        "id": "/subscriptions/13d4a723-8867-459b-a884-12e29ea44352/resourceGroups/az305-project-200/providers/Microsoft.Network/applicationGateways/tyrell-appgw-200/backendHttpSettingsCollection/appGatewayBackendHttpSettings",
+        "name": "appGatewayBackendHttpSettings",
+        "properties": {
+          "connectionDraining": {
+            "drainTimeoutInSec": 1,
+            "enabled": false
+          },
+          "cookieBasedAffinity": "Enabled",
+          "pickHostNameFromBackendAddress": false,
+          "port": 80,
+          "protocol": "Http",
+          "provisioningState": "Succeeded",
+          "requestRoutingRules": [
+            {
+              "id": "/subscriptions/13d4a723-8867-459b-a884-12e29ea44352/resourceGroups/az305-project-200/providers/Microsoft.Network/applicationGateways/tyrell-appgw-200/requestRoutingRules/rule1",
+              "resourceGroup": "az305-project-200"
+            }
+          ],
+          "requestTimeout": 30
+        },
+        "resourceGroup": "az305-project-200",
+        "type": "Microsoft.Network/applicationGateways/backendHttpSettingsCollection"
+      }
+    ],
+    "backendSettingsCollection": [],
+    "frontendIPConfigurations": [
+      {
+        "etag": "W/\"aa1d4871-e318-490f-ba4b-89d6dbcbbad6\"",
+        "id": "/subscriptions/13d4a723-8867-459b-a884-12e29ea44352/resourceGroups/az305-project-200/providers/Microsoft.Network/applicationGateways/tyrell-appgw-200/frontendIPConfigurations/appGatewayFrontendIP",
+        "name": "appGatewayFrontendIP",
+        "properties": {
+          "httpListeners": [
+            {
+              "id": "/subscriptions/13d4a723-8867-459b-a884-12e29ea44352/resourceGroups/az305-project-200/providers/Microsoft.Network/applicationGateways/tyrell-appgw-200/httpListeners/appGatewayHttpListener",
+              "resourceGroup": "az305-project-200"
+            }
+          ],
+          "privateIPAllocationMethod": "Dynamic",
+          "provisioningState": "Succeeded",
+          "publicIPAddress": {
+            "id": "/subscriptions/13d4a723-8867-459b-a884-12e29ea44352/resourceGroups/az305-project-200/providers/Microsoft.Network/publicIPAddresses/172.172.172.55",
+            "resourceGroup": "az305-project-200"
+          }
+        },
+        "resourceGroup": "az305-project-200",
+        "type": "Microsoft.Network/applicationGateways/frontendIPConfigurations"
+      }
+    ],
+    "frontendPorts": [
+      {
+        "etag": "W/\"aa1d4871-e318-490f-ba4b-89d6dbcbbad6\"",
+        "id": "/subscriptions/13d4a723-8867-459b-a884-12e29ea44352/resourceGroups/az305-project-200/providers/Microsoft.Network/applicationGateways/tyrell-appgw-200/frontendPorts/appGatewayFrontendPort",
+        "name": "appGatewayFrontendPort",
+        "properties": {
+          "httpListeners": [
+            {
+              "id": "/subscriptions/13d4a723-8867-459b-a884-12e29ea44352/resourceGroups/az305-project-200/providers/Microsoft.Network/applicationGateways/tyrell-appgw-200/httpListeners/appGatewayHttpListener",
+              "resourceGroup": "az305-project-200"
+            }
+          ],
+          "port": 80,
+          "provisioningState": "Succeeded"
+        },
+        "resourceGroup": "az305-project-200",
+        "type": "Microsoft.Network/applicationGateways/frontendPorts"
+      }
+    ],
+    "gatewayIPConfigurations": [
+      {
+        "etag": "W/\"aa1d4871-e318-490f-ba4b-89d6dbcbbad6\"",
+        "id": "/subscriptions/13d4a723-8867-459b-a884-12e29ea44352/resourceGroups/az305-project-200/providers/Microsoft.Network/applicationGateways/tyrell-appgw-200/gatewayIPConfigurations/appGatewayFrontendIP",
+        "name": "appGatewayFrontendIP",
+        "properties": {
+          "provisioningState": "Succeeded",
+          "subnet": {
+            "id": "/subscriptions/13d4a723-8867-459b-a884-12e29ea44352/resourceGroups/az305-project-200/providers/Microsoft.Network/virtualNetworks/tyrell-appgw-vnet-200/subnets/tyrell-appgw-subnet-200",
+            "resourceGroup": "az305-project-200"
+          }
+        },
+        "resourceGroup": "az305-project-200",
+        "type": "Microsoft.Network/applicationGateways/gatewayIPConfigurations"
+      }
+    ],
+    "httpListeners": [
+      {
+        "etag": "W/\"aa1d4871-e318-490f-ba4b-89d6dbcbbad6\"",
+        "id": "/subscriptions/13d4a723-8867-459b-a884-12e29ea44352/resourceGroups/az305-project-200/providers/Microsoft.Network/applicationGateways/tyrell-appgw-200/httpListeners/appGatewayHttpListener",
+        "name": "appGatewayHttpListener",
+        "properties": {
+          "frontendIPConfiguration": {
+            "id": "/subscriptions/13d4a723-8867-459b-a884-12e29ea44352/resourceGroups/az305-project-200/providers/Microsoft.Network/applicationGateways/tyrell-appgw-200/frontendIPConfigurations/appGatewayFrontendIP",
+            "resourceGroup": "az305-project-200"
+          },
+          "frontendPort": {
+            "id": "/subscriptions/13d4a723-8867-459b-a884-12e29ea44352/resourceGroups/az305-project-200/providers/Microsoft.Network/applicationGateways/tyrell-appgw-200/frontendPorts/appGatewayFrontendPort",
+            "resourceGroup": "az305-project-200"
+          },
+          "hostNames": [],
+          "protocol": "Http",
+          "provisioningState": "Succeeded",
+          "requestRoutingRules": [
+            {
+              "id": "/subscriptions/13d4a723-8867-459b-a884-12e29ea44352/resourceGroups/az305-project-200/providers/Microsoft.Network/applicationGateways/tyrell-appgw-200/requestRoutingRules/rule1",
+              "resourceGroup": "az305-project-200"
+            }
+          ],
+          "requireServerNameIndication": false
+        },
+        "resourceGroup": "az305-project-200",
+        "type": "Microsoft.Network/applicationGateways/httpListeners"
+      }
+    ],
+    "listeners": [],
+    "loadDistributionPolicies": [],
+    "operationalState": "Running",
+    "privateEndpointConnections": [],
+    "privateLinkConfigurations": [],
+    "probes": [],
+    "provisioningState": "Succeeded",
+    "redirectConfigurations": [],
+    "requestRoutingRules": [
+      {
+        "etag": "W/\"aa1d4871-e318-490f-ba4b-89d6dbcbbad6\"",
+        "id": "/subscriptions/13d4a723-8867-459b-a884-12e29ea44352/resourceGroups/az305-project-200/providers/Microsoft.Network/applicationGateways/tyrell-appgw-200/requestRoutingRules/rule1",
+        "name": "rule1",
+        "properties": {
+          "backendAddressPool": {
+            "id": "/subscriptions/13d4a723-8867-459b-a884-12e29ea44352/resourceGroups/az305-project-200/providers/Microsoft.Network/applicationGateways/tyrell-appgw-200/backendAddressPools/appGatewayBackendPool",
+            "resourceGroup": "az305-project-200"
+          },
+          "backendHttpSettings": {
+            "id": "/subscriptions/13d4a723-8867-459b-a884-12e29ea44352/resourceGroups/az305-project-200/providers/Microsoft.Network/applicationGateways/tyrell-appgw-200/backendHttpSettingsCollection/appGatewayBackendHttpSettings",
+            "resourceGroup": "az305-project-200"
+          },
+          "httpListener": {
+            "id": "/subscriptions/13d4a723-8867-459b-a884-12e29ea44352/resourceGroups/az305-project-200/providers/Microsoft.Network/applicationGateways/tyrell-appgw-200/httpListeners/appGatewayHttpListener",
+            "resourceGroup": "az305-project-200"
+          },
+          "priority": 100,
+          "provisioningState": "Succeeded",
+          "ruleType": "Basic"
+        },
+        "resourceGroup": "az305-project-200",
+        "type": "Microsoft.Network/applicationGateways/requestRoutingRules"
+      }
+    ],
+    "resourceGuid": "ebde0031-667a-47a7-a8bf-204c3b29aa79",
+    "rewriteRuleSets": [],
+    "routingRules": [],
+    "sku": {
+      "capacity": 2,
+      "family": "Generation_1",
+      "name": "Standard_v2",
+      "tier": "Standard_v2"
+    },
+    "sslCertificates": [],
+    "sslProfiles": [],
+    "trustedClientCertificates": [],
+    "trustedRootCertificates": [],
+    "urlPathMaps": []
+  }
+}
+----------------------------
+creating back end pools
+name: appGatewayBackendPool
+servers: tyrell-trafficmgr-imgs-200.azurewebsites.net
+{
+  "backendAddresses": [
+    {
+      "fqdn": "tyrell-trafficmgr-imgs-200.azurewebsites.net"
+    }
+  ],
+  "etag": "W/\"ba2e7ba0-6ad6-4aee-93b2-bbd1004df089\"",
+  "id": "/subscriptions/13d4a723-8867-459b-a884-12e29ea44352/resourceGroups/az305-project-200/providers/Microsoft.Network/applicationGateways/tyrell-appgw-200/backendAddressPools/appGatewayBackendPool",
+  "name": "appGatewayBackendPool",
+  "provisioningState": "Succeeded",
+  "resourceGroup": "az305-project-200",
+  "type": "Microsoft.Network/applicationGateways/backendAddressPools"
+}
+name: appGatewayBackendPool2
+servers: tyrell-trafficmgr-reg-200.azurewebsites.net
+{
+  "backendAddresses": [
+    {
+      "fqdn": "tyrell-trafficmgr-reg-200.azurewebsites.net"
+    }
+  ],
+  "etag": "W/\"63e5f0d0-439a-4221-b4c9-f2abdf9a67eb\"",
+  "id": "/subscriptions/13d4a723-8867-459b-a884-12e29ea44352/resourceGroups/az305-project-200/providers/Microsoft.Network/applicationGateways/tyrell-appgw-200/backendAddressPools/appGatewayBackendPool2",
+  "name": "appGatewayBackendPool2",
+  "provisioningState": "Succeeded",
+  "resourceGroup": "az305-project-200",
+  "type": "Microsoft.Network/applicationGateways/backendAddressPools"
+}
+----------------------------
+creating path map
+{
+  "backendAddresses": [
+    {
+      "fqdn": "tyrell-trafficmgr-reg-200.azurewebsites.net"
+    }
+  ],
+  "etag": "W/\"63e5f0d0-439a-4221-b4c9-f2abdf9a67eb\"",
+  "id": "/subscriptions/13d4a723-8867-459b-a884-12e29ea44352/resourceGroups/az305-project-200/providers/Microsoft.Network/applicationGateways/tyrell-appgw-200/backendAddressPools/appGatewayBackendPool2",
+  "name": "appGatewayBackendPool2",
+  "provisioningState": "Succeeded",
+  "resourceGroup": "az305-project-200",
+  "type": "Microsoft.Network/applicationGateways/backendAddressPools"
+}
+{
+  "defaultBackendAddressPool": {
+    "id": "/subscriptions/13d4a723-8867-459b-a884-12e29ea44352/resourceGroups/az305-project-200/providers/Microsoft.Network/applicationGateways/tyrell-appgw-200/backendAddressPools/appGatewayBackendPool",
+    "resourceGroup": "az305-project-200"
+  },
+  "defaultBackendHttpSettings": {
+    "id": "/subscriptions/13d4a723-8867-459b-a884-12e29ea44352/resourceGroups/az305-project-200/providers/Microsoft.Network/applicationGateways/tyrell-appgw-200/backendHttpSettingsCollection/appGatewayBackendHttpSettings",
+    "resourceGroup": "az305-project-200"
+  },
+  "etag": "W/\"5b46c2b7-7bef-4f49-a897-8701af4c4fa5\"",
+  "id": "/subscriptions/13d4a723-8867-459b-a884-12e29ea44352/resourceGroups/az305-project-200/providers/Microsoft.Network/applicationGateways/tyrell-appgw-200/urlPathMaps/tyrell-appgw-pathmap",
+  "name": "tyrell-appgw-pathmap",
+  "pathRules": [
+    {
+      "backendAddressPool": {
+        "id": "/subscriptions/13d4a723-8867-459b-a884-12e29ea44352/resourceGroups/az305-project-200/providers/Microsoft.Network/applicationGateways/tyrell-appgw-200/backendAddressPools/appGatewayBackendPool",
+        "resourceGroup": "az305-project-200"
+      },
+      "backendHttpSettings": {
+        "id": "/subscriptions/13d4a723-8867-459b-a884-12e29ea44352/resourceGroups/az305-project-200/providers/Microsoft.Network/applicationGateways/tyrell-appgw-200/backendHttpSettingsCollection/appGatewayBackendHttpSettings",
+        "resourceGroup": "az305-project-200"
+      },
+      "etag": "W/\"5b46c2b7-7bef-4f49-a897-8701af4c4fa5\"",
+      "id": "/subscriptions/13d4a723-8867-459b-a884-12e29ea44352/resourceGroups/az305-project-200/providers/Microsoft.Network/applicationGateways/tyrell-appgw-200/urlPathMaps/tyrell-appgw-pathmap/pathRules/default",
+      "name": "default",
+      "paths": [
+        "/images/*"
+      ],
+      "provisioningState": "Succeeded",
+      "resourceGroup": "az305-project-200",
+      "type": "Microsoft.Network/applicationGateways/urlPathMaps/pathRules"
+    }
+  ],
+  "provisioningState": "Succeeded",
+  "resourceGroup": "az305-project-200",
+  "type": "Microsoft.Network/applicationGateways/urlPathMaps"
+}
+----------------------------
+creating rule
+----------------------------
+creating http settings
+{
+  "connectionDraining": {
+    "drainTimeoutInSec": 1,
+    "enabled": false
+  },
+  "cookieBasedAffinity": "Enabled",
+  "etag": "W/\"28ebe276-73c7-4906-b510-1f3f52e62a1a\"",
+  "id": "/subscriptions/13d4a723-8867-459b-a884-12e29ea44352/resourceGroups/az305-project-200/providers/Microsoft.Network/applicationGateways/tyrell-appgw-200/backendHttpSettingsCollection/appGatewayBackendHttpSettings",
+  "name": "appGatewayBackendHttpSettings",
+  "path": "/",
+  "pickHostNameFromBackendAddress": true,
+  "port": 80,
+  "protocol": "Http",
+  "provisioningState": "Succeeded",
+  "requestTimeout": 30,
+  "resourceGroup": "az305-project-200",
+  "type": "Microsoft.Network/applicationGateways/backendHttpSettingsCollection"
+}
+----------------------------
+creating http probe

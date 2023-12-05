@@ -1,0 +1,59 @@
+az webapp deployment user show
+@{id=; kind=; name=web; publishingPassword=; publishingPasswordHash=; publishingPasswordHashSalt=; publishingUserName=az305-project-015-benjammin-deploy-76; scmUri=; type=Microsoft.Web/publishingUsers/web}
+********************************************************
+Creating Resource Group & Setting deployment user
+--------------------------------------------------------
+{
+  "id": "/subscriptions/c95c0e44-d963-4aa7-8ee5-b8bd005e19f7/resourceGroups/az305-project-015",
+  "location": "eastus",
+  "managedBy": null,
+  "name": "az305-project-015",
+  "properties": {
+    "provisioningState": "Succeeded"
+  },
+  "tags": null,
+  "type": "Microsoft.Resources/resourceGroups"
+}
+{
+  "id": null,
+  "kind": null,
+  "name": "web",
+  "publishingPassword": null,
+  "publishingPasswordHash": null,
+  "publishingPasswordHashSalt": null,
+  "publishingUserName": "az305-project-015-benjammin-deploy-76",
+  "scmUri": null,
+  "type": "Microsoft.Web/publishingUsers/web"
+}
+********************************************************
+Creating Resource Group & Setting deployment user
+--------------------------------------------------------
+{
+  "id": null,
+  "kind": null,
+  "name": "web",
+  "publishingPassword": null,
+  "publishingPasswordHash": null,
+  "publishingPasswordHashSalt": null,
+  "publishingUserName": "az305-project-015-benjammin-deploy-76",
+  "scmUri": null,
+  "type": "Microsoft.Web/publishingUsers/web"
+}
+********************************************************
+Creating Resource Group & Setting deployment user
+--------------------------------------------------------
+********************************************************
+Creating Resource Group & Setting deployment user
+--------------------------------------------------------
+********************************************************
+Creating Resource Group & Setting deployment user
+--------------------------------------------------------
+********************************************************
+Creating Resource Group & Setting deployment user
+--------------------------------------------------------
+********************************************************
+Creating Resource Group & Setting deployment user
+--------------------------------------------------------
+********************************************************
+Creating Resource Group & Setting deployment user
+--------------------------------------------------------

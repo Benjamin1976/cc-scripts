@@ -1,0 +1,13 @@
+Creating Resource Group & Setting deployment user
+--------------------------------------------------------
+Creating Resource Group & Setting deployment user
+--------------------------------------------------------
+Creating Resource Group & Setting deployment user
+--------------------------------------------------------
+Creating Resource Group & Setting deployment user
+--------------------------------------------------------
+Creating Resource Group & Setting deployment user
+--------------------------------------------------------
+Creating Resource Group & Setting deployment user
+--------------------------------------------------------
+@{id=/subscriptions/bd509929-1a7a-4416-99b8-a82351102076/resourceGroups/cc-capstone2-1; location=eastus; managedBy=; name=cc-capstone2-1; properties=; tags=; type=Microsoft.Resources/resourceGroups}

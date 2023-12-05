@@ -1,0 +1,4 @@
+{
+  "appService.defaultWebAppToDeploy": "/subscriptions/951a0254-05ce-4ed4-b8fc-904d8a959c7f/resourceGroups/az305-project-004/providers/Microsoft.Web/sites/tyrell-webapp-imgs-asia-004",
+  "appService.deploySubpath": "sites\\img-asia\\web-app-imgs-asia"
+}

@@ -1,0 +1,4 @@
+********************************************************
+Creating Resource Group & Setting deployment user
+--------------------------------------------------------
+@{id=/subscriptions/a5d9f35c-81e1-4f98-899b-e25bb26bfa3a/resourceGroups/az305-project-066; location=eastus; managedBy=; name=az305-project-066; properties=; tags=; type=Microsoft.Resources/resourceGroups}

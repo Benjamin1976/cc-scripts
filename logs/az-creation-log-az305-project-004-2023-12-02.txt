@@ -1,0 +1,622 @@
+****************************
+Creating Resource Group & Setting deployment user
+----------------------------
+{
+  "id": "/subscriptions/c95c0e44-d963-4aa7-8ee5-b8bd005e19f7/resourceGroups/az305-project-004",
+  "location": "eastus",
+  "managedBy": null,
+  "name": "az305-project-004",
+  "properties": {
+    "provisioningState": "Succeeded"
+  },
+  "tags": null,
+  "type": "Microsoft.Resources/resourceGroups"
+}
+{
+  "id": null,
+  "kind": null,
+  "name": "web",
+  "publishingPassword": null,
+  "publishingPasswordHash": null,
+  "publishingPasswordHashSalt": null,
+  "publishingUserName": "az305-project-004-benjammin-deploy-76",
+  "scmUri": null,
+  "type": "Microsoft.Web/publishingUsers/web"
+}
+****************************
+Creating App Services
+----------------------------
+creating vnet & subnet
+vnet: tyrell-imgs-vnet-eastus-004, 10.10.0.0/16
+subnet: tyrell-imgs-subnet-eastus-004, 10.10.10.0/24
+location: eastus
+{
+  "newVNet": {
+    "addressSpace": {
+      "addressPrefixes": [
+        "10.10.0.0/16"
+      ]
+    },
+    "enableDdosProtection": false,
+    "etag": "W/\"81b320b7-b77e-475c-aee2-c2d9d06d7915\"",
+    "id": "/subscriptions/c95c0e44-d963-4aa7-8ee5-b8bd005e19f7/resourceGroups/az305-project-004/providers/Microsoft.Network/virtualNetworks/tyrell-imgs-vnet-eastus-004",
+    "location": "eastus",
+    "name": "tyrell-imgs-vnet-eastus-004",
+    "provisioningState": "Succeeded",
+    "resourceGroup": "az305-project-004",
+    "resourceGuid": "525866ce-855f-4d3f-9d16-b5a8aab769a6",
+    "subnets": [
+      {
+        "addressPrefix": "10.10.10.0/24",
+        "delegations": [],
+        "etag": "W/\"81b320b7-b77e-475c-aee2-c2d9d06d7915\"",
+        "id": "/subscriptions/c95c0e44-d963-4aa7-8ee5-b8bd005e19f7/resourceGroups/az305-project-004/providers/Microsoft.Network/virtualNetworks/tyrell-imgs-vnet-eastus-004/subnets/tyrell-imgs-subnet-eastus-004",
+        "name": "tyrell-imgs-subnet-eastus-004",
+        "privateEndpointNetworkPolicies": "Disabled",
+        "privateLinkServiceNetworkPolicies": "Enabled",
+        "provisioningState": "Succeeded",
+        "resourceGroup": "az305-project-004",
+        "type": "Microsoft.Network/virtualNetworks/subnets"
+      }
+    ],
+    "type": "Microsoft.Network/virtualNetworks",
+    "virtualNetworkPeerings": []
+  }
+}
+----------------------------
+creating service plan
+service plan: tyrell-plan-imgs-eastus-004
+service loc: eastus
+{
+  "newVNet": {
+    "addressSpace": {
+      "addressPrefixes": [
+        "10.10.0.0/16"
+      ]
+    },
+    "enableDdosProtection": false,
+    "etag": "W/\"81b320b7-b77e-475c-aee2-c2d9d06d7915\"",
+    "id": "/subscriptions/c95c0e44-d963-4aa7-8ee5-b8bd005e19f7/resourceGroups/az305-project-004/providers/Microsoft.Network/virtualNetworks/tyrell-imgs-vnet-eastus-004",
+    "location": "eastus",
+    "name": "tyrell-imgs-vnet-eastus-004",
+    "provisioningState": "Succeeded",
+    "resourceGroup": "az305-project-004",
+    "resourceGuid": "525866ce-855f-4d3f-9d16-b5a8aab769a6",
+    "subnets": [
+      {
+        "addressPrefix": "10.10.10.0/24",
+        "delegations": [],
+        "etag": "W/\"81b320b7-b77e-475c-aee2-c2d9d06d7915\"",
+        "id": "/subscriptions/c95c0e44-d963-4aa7-8ee5-b8bd005e19f7/resourceGroups/az305-project-004/providers/Microsoft.Network/virtualNetworks/tyrell-imgs-vnet-eastus-004/subnets/tyrell-imgs-subnet-eastus-004",
+        "name": "tyrell-imgs-subnet-eastus-004",
+        "privateEndpointNetworkPolicies": "Disabled",
+        "privateLinkServiceNetworkPolicies": "Enabled",
+        "provisioningState": "Succeeded",
+        "resourceGroup": "az305-project-004",
+        "type": "Microsoft.Network/virtualNetworks/subnets"
+      }
+    ],
+    "type": "Microsoft.Network/virtualNetworks",
+    "virtualNetworkPeerings": []
+  }
+}
+----------------------------
+creating app service
+service plan: tyrell-plan-imgs-eastus-004
+web app: tyrell-webapp-imgs-eastus-004
+service vnet: tyrell-imgs-vnet-eastus-004
+service sub: tyrell-imgs-subnet-eastus-004
+runtime: ASPNET:V4.8
+----------------------------
+deploying code from git
+from: G:\coding\envs\ps-az-setup\sites\imgs-eastus
+alias: az-imgs-eastus-004
+to: https://benjammin-deploy-76@tyrell-webapp-imgs-eastus-004.scm.azurewebsites.net/tyrell-webapp-imgs-eastus-004.git
+On branch master
+nothing to commit, working tree clean
+****************************
+Creating App Services
+----------------------------
+creating vnet & subnet
+vnet: tyrell-reg-vnet-eastus-004, 10.10.0.0/16
+subnet: tyrell-reg-subnet-eastus-004, 10.10.10.0/24
+location: eastus
+{
+  "newVNet": {
+    "addressSpace": {
+      "addressPrefixes": [
+        "10.10.0.0/16"
+      ]
+    },
+    "enableDdosProtection": false,
+    "etag": "W/\"eda25f6e-ac83-4028-b3dc-2f9ff720dd98\"",
+    "id": "/subscriptions/c95c0e44-d963-4aa7-8ee5-b8bd005e19f7/resourceGroups/az305-project-004/providers/Microsoft.Network/virtualNetworks/tyrell-reg-vnet-eastus-004",
+    "location": "eastus",
+    "name": "tyrell-reg-vnet-eastus-004",
+    "provisioningState": "Succeeded",
+    "resourceGroup": "az305-project-004",
+    "resourceGuid": "0acf105f-3d9d-4a02-8f32-1b0c23380096",
+    "subnets": [
+      {
+        "addressPrefix": "10.10.10.0/24",
+        "delegations": [],
+        "etag": "W/\"eda25f6e-ac83-4028-b3dc-2f9ff720dd98\"",
+        "id": "/subscriptions/c95c0e44-d963-4aa7-8ee5-b8bd005e19f7/resourceGroups/az305-project-004/providers/Microsoft.Network/virtualNetworks/tyrell-reg-vnet-eastus-004/subnets/tyrell-reg-subnet-eastus-004",
+        "name": "tyrell-reg-subnet-eastus-004",
+        "privateEndpointNetworkPolicies": "Disabled",
+        "privateLinkServiceNetworkPolicies": "Enabled",
+        "provisioningState": "Succeeded",
+        "resourceGroup": "az305-project-004",
+        "type": "Microsoft.Network/virtualNetworks/subnets"
+      }
+    ],
+    "type": "Microsoft.Network/virtualNetworks",
+    "virtualNetworkPeerings": []
+  }
+}
+----------------------------
+creating service plan
+service plan: tyrell-plan-reg-eastus-004
+service loc: eastus
+{
+  "newVNet": {
+    "addressSpace": {
+      "addressPrefixes": [
+        "10.10.0.0/16"
+      ]
+    },
+    "enableDdosProtection": false,
+    "etag": "W/\"eda25f6e-ac83-4028-b3dc-2f9ff720dd98\"",
+    "id": "/subscriptions/c95c0e44-d963-4aa7-8ee5-b8bd005e19f7/resourceGroups/az305-project-004/providers/Microsoft.Network/virtualNetworks/tyrell-reg-vnet-eastus-004",
+    "location": "eastus",
+    "name": "tyrell-reg-vnet-eastus-004",
+    "provisioningState": "Succeeded",
+    "resourceGroup": "az305-project-004",
+    "resourceGuid": "0acf105f-3d9d-4a02-8f32-1b0c23380096",
+    "subnets": [
+      {
+        "addressPrefix": "10.10.10.0/24",
+        "delegations": [],
+        "etag": "W/\"eda25f6e-ac83-4028-b3dc-2f9ff720dd98\"",
+        "id": "/subscriptions/c95c0e44-d963-4aa7-8ee5-b8bd005e19f7/resourceGroups/az305-project-004/providers/Microsoft.Network/virtualNetworks/tyrell-reg-vnet-eastus-004/subnets/tyrell-reg-subnet-eastus-004",
+        "name": "tyrell-reg-subnet-eastus-004",
+        "privateEndpointNetworkPolicies": "Disabled",
+        "privateLinkServiceNetworkPolicies": "Enabled",
+        "provisioningState": "Succeeded",
+        "resourceGroup": "az305-project-004",
+        "type": "Microsoft.Network/virtualNetworks/subnets"
+      }
+    ],
+    "type": "Microsoft.Network/virtualNetworks",
+    "virtualNetworkPeerings": []
+  }
+}
+----------------------------
+creating app service
+service plan: tyrell-plan-reg-eastus-004
+web app: tyrell-webapp-reg-eastus-004
+service vnet: tyrell-reg-vnet-eastus-004
+service sub: tyrell-reg-subnet-eastus-004
+runtime: ASPNET:V4.8
+----------------------------
+deploying code from git
+from: G:\coding\envs\ps-az-setup\sites\reg-eastus
+alias: az-reg-eastus-004
+to: https://benjammin-deploy-76@tyrell-webapp-reg-eastus-004.scm.azurewebsites.net/tyrell-webapp-reg-eastus-004.git
+****************************
+Creating App Services
+----------------------------
+creating vnet & subnet
+vnet: tyrell-imgs-vnet-aus-004, 10.10.0.0/16
+subnet: tyrell-imgs-subnet-aus-004, 10.10.20.0/24
+location: australiasoutheast
+{
+  "newVNet": {
+    "addressSpace": {
+      "addressPrefixes": [
+        "10.10.0.0/16"
+      ]
+    },
+    "enableDdosProtection": false,
+    "etag": "W/\"88b4def4-524f-4664-96a1-46058eb72d24\"",
+    "id": "/subscriptions/c95c0e44-d963-4aa7-8ee5-b8bd005e19f7/resourceGroups/az305-project-004/providers/Microsoft.Network/virtualNetworks/tyrell-imgs-vnet-aus-004",
+    "location": "australiasoutheast",
+    "name": "tyrell-imgs-vnet-aus-004",
+    "provisioningState": "Succeeded",
+    "resourceGroup": "az305-project-004",
+    "resourceGuid": "c3d2b68c-6156-4f41-95b7-857eae3a463c",
+    "subnets": [
+      {
+        "addressPrefix": "10.10.20.0/24",
+        "delegations": [],
+        "etag": "W/\"88b4def4-524f-4664-96a1-46058eb72d24\"",
+        "id": "/subscriptions/c95c0e44-d963-4aa7-8ee5-b8bd005e19f7/resourceGroups/az305-project-004/providers/Microsoft.Network/virtualNetworks/tyrell-imgs-vnet-aus-004/subnets/tyrell-imgs-subnet-aus-004",
+        "name": "tyrell-imgs-subnet-aus-004",
+        "privateEndpointNetworkPolicies": "Disabled",
+        "privateLinkServiceNetworkPolicies": "Enabled",
+        "provisioningState": "Succeeded",
+        "resourceGroup": "az305-project-004",
+        "type": "Microsoft.Network/virtualNetworks/subnets"
+      }
+    ],
+    "type": "Microsoft.Network/virtualNetworks",
+    "virtualNetworkPeerings": []
+  }
+}
+----------------------------
+creating service plan
+service plan: tyrell-plan-imgs-aus-004
+service loc: australiasoutheast
+{
+  "newVNet": {
+    "addressSpace": {
+      "addressPrefixes": [
+        "10.10.0.0/16"
+      ]
+    },
+    "enableDdosProtection": false,
+    "etag": "W/\"88b4def4-524f-4664-96a1-46058eb72d24\"",
+    "id": "/subscriptions/c95c0e44-d963-4aa7-8ee5-b8bd005e19f7/resourceGroups/az305-project-004/providers/Microsoft.Network/virtualNetworks/tyrell-imgs-vnet-aus-004",
+    "location": "australiasoutheast",
+    "name": "tyrell-imgs-vnet-aus-004",
+    "provisioningState": "Succeeded",
+    "resourceGroup": "az305-project-004",
+    "resourceGuid": "c3d2b68c-6156-4f41-95b7-857eae3a463c",
+    "subnets": [
+      {
+        "addressPrefix": "10.10.20.0/24",
+        "delegations": [],
+        "etag": "W/\"88b4def4-524f-4664-96a1-46058eb72d24\"",
+        "id": "/subscriptions/c95c0e44-d963-4aa7-8ee5-b8bd005e19f7/resourceGroups/az305-project-004/providers/Microsoft.Network/virtualNetworks/tyrell-imgs-vnet-aus-004/subnets/tyrell-imgs-subnet-aus-004",
+        "name": "tyrell-imgs-subnet-aus-004",
+        "privateEndpointNetworkPolicies": "Disabled",
+        "privateLinkServiceNetworkPolicies": "Enabled",
+        "provisioningState": "Succeeded",
+        "resourceGroup": "az305-project-004",
+        "type": "Microsoft.Network/virtualNetworks/subnets"
+      }
+    ],
+    "type": "Microsoft.Network/virtualNetworks",
+    "virtualNetworkPeerings": []
+  }
+}
+----------------------------
+creating app service
+service plan: tyrell-plan-imgs-aus-004
+web app: tyrell-webapp-imgs-aus-004
+service vnet: tyrell-imgs-vnet-aus-004
+service sub: tyrell-imgs-subnet-aus-004
+runtime: ASPNET:V4.8
+----------------------------
+deploying code from git
+from: G:\coding\envs\ps-az-setup\sites\imgs-aus
+alias: az-imgs-aus-004
+to: https://benjammin-deploy-76@tyrell-webapp-imgs-aus-004.scm.azurewebsites.net/tyrell-webapp-imgs-aus-004.git
+[main d1ac2ba] first deploy
+ 2 files changed, 264 insertions(+), 17 deletions(-)
+ create mode 100644 .gitignore
+ rename index copy.html => index.html (69%)
+****************************
+Creating App Services
+----------------------------
+creating vnet & subnet
+vnet: tyrell-reg-vnet-aus-004, 10.10.0.0/16
+subnet: tyrell-reg-subnet-aus-004, 10.10.20.0/24
+location: australiasoutheast
+{
+  "newVNet": {
+    "addressSpace": {
+      "addressPrefixes": [
+        "10.10.0.0/16"
+      ]
+    },
+    "enableDdosProtection": false,
+    "etag": "W/\"8039c877-55e7-4b24-a7df-1f301e02fc73\"",
+    "id": "/subscriptions/c95c0e44-d963-4aa7-8ee5-b8bd005e19f7/resourceGroups/az305-project-004/providers/Microsoft.Network/virtualNetworks/tyrell-reg-vnet-aus-004",
+    "location": "australiasoutheast",
+    "name": "tyrell-reg-vnet-aus-004",
+    "provisioningState": "Succeeded",
+    "resourceGroup": "az305-project-004",
+    "resourceGuid": "0e02ee84-8c91-4af5-9418-4f6d11edbb2f",
+    "subnets": [
+      {
+        "addressPrefix": "10.10.20.0/24",
+        "delegations": [],
+        "etag": "W/\"8039c877-55e7-4b24-a7df-1f301e02fc73\"",
+        "id": "/subscriptions/c95c0e44-d963-4aa7-8ee5-b8bd005e19f7/resourceGroups/az305-project-004/providers/Microsoft.Network/virtualNetworks/tyrell-reg-vnet-aus-004/subnets/tyrell-reg-subnet-aus-004",
+        "name": "tyrell-reg-subnet-aus-004",
+        "privateEndpointNetworkPolicies": "Disabled",
+        "privateLinkServiceNetworkPolicies": "Enabled",
+        "provisioningState": "Succeeded",
+        "resourceGroup": "az305-project-004",
+        "type": "Microsoft.Network/virtualNetworks/subnets"
+      }
+    ],
+    "type": "Microsoft.Network/virtualNetworks",
+    "virtualNetworkPeerings": []
+  }
+}
+----------------------------
+creating service plan
+service plan: tyrell-plan-reg-aus-004
+service loc: australiasoutheast
+{
+  "newVNet": {
+    "addressSpace": {
+      "addressPrefixes": [
+        "10.10.0.0/16"
+      ]
+    },
+    "enableDdosProtection": false,
+    "etag": "W/\"8039c877-55e7-4b24-a7df-1f301e02fc73\"",
+    "id": "/subscriptions/c95c0e44-d963-4aa7-8ee5-b8bd005e19f7/resourceGroups/az305-project-004/providers/Microsoft.Network/virtualNetworks/tyrell-reg-vnet-aus-004",
+    "location": "australiasoutheast",
+    "name": "tyrell-reg-vnet-aus-004",
+    "provisioningState": "Succeeded",
+    "resourceGroup": "az305-project-004",
+    "resourceGuid": "0e02ee84-8c91-4af5-9418-4f6d11edbb2f",
+    "subnets": [
+      {
+        "addressPrefix": "10.10.20.0/24",
+        "delegations": [],
+        "etag": "W/\"8039c877-55e7-4b24-a7df-1f301e02fc73\"",
+        "id": "/subscriptions/c95c0e44-d963-4aa7-8ee5-b8bd005e19f7/resourceGroups/az305-project-004/providers/Microsoft.Network/virtualNetworks/tyrell-reg-vnet-aus-004/subnets/tyrell-reg-subnet-aus-004",
+        "name": "tyrell-reg-subnet-aus-004",
+        "privateEndpointNetworkPolicies": "Disabled",
+        "privateLinkServiceNetworkPolicies": "Enabled",
+        "provisioningState": "Succeeded",
+        "resourceGroup": "az305-project-004",
+        "type": "Microsoft.Network/virtualNetworks/subnets"
+      }
+    ],
+    "type": "Microsoft.Network/virtualNetworks",
+    "virtualNetworkPeerings": []
+  }
+}
+----------------------------
+creating app service
+service plan: tyrell-plan-reg-aus-004
+web app: tyrell-webapp-reg-aus-004
+service vnet: tyrell-reg-vnet-aus-004
+service sub: tyrell-reg-subnet-aus-004
+runtime: ASPNET:V4.8
+----------------------------
+deploying code from git
+from: G:\coding\envs\ps-az-setup\sites\reg-aus
+alias: az-reg-aus-004
+to: https://benjammin-deploy-76@tyrell-webapp-reg-aus-004.scm.azurewebsites.net/tyrell-webapp-reg-aus-004.git
+On branch master
+nothing to commit, working tree clean
+****************************
+Creating App Services
+----------------------------
+creating vnet & subnet
+vnet: tyrell-imgs-vnet-asia-004, 10.10.0.0/16
+subnet: tyrell-imgs-subnet-asia-004, 10.10.30.0/24
+location: eastasia
+{
+  "newVNet": {
+    "addressSpace": {
+      "addressPrefixes": [
+        "10.10.0.0/16"
+      ]
+    },
+    "enableDdosProtection": false,
+    "etag": "W/\"274c0eab-10a1-4b05-92d1-6313491e728c\"",
+    "id": "/subscriptions/c95c0e44-d963-4aa7-8ee5-b8bd005e19f7/resourceGroups/az305-project-004/providers/Microsoft.Network/virtualNetworks/tyrell-imgs-vnet-asia-004",
+    "location": "eastasia",
+    "name": "tyrell-imgs-vnet-asia-004",
+    "provisioningState": "Succeeded",
+    "resourceGroup": "az305-project-004",
+    "resourceGuid": "39d58fb5-106e-4672-9588-0803d50f4932",
+    "subnets": [
+      {
+        "addressPrefix": "10.10.30.0/24",
+        "delegations": [],
+        "etag": "W/\"274c0eab-10a1-4b05-92d1-6313491e728c\"",
+        "id": "/subscriptions/c95c0e44-d963-4aa7-8ee5-b8bd005e19f7/resourceGroups/az305-project-004/providers/Microsoft.Network/virtualNetworks/tyrell-imgs-vnet-asia-004/subnets/tyrell-imgs-subnet-asia-004",
+        "name": "tyrell-imgs-subnet-asia-004",
+        "privateEndpointNetworkPolicies": "Disabled",
+        "privateLinkServiceNetworkPolicies": "Enabled",
+        "provisioningState": "Succeeded",
+        "resourceGroup": "az305-project-004",
+        "type": "Microsoft.Network/virtualNetworks/subnets"
+      }
+    ],
+    "type": "Microsoft.Network/virtualNetworks",
+    "virtualNetworkPeerings": []
+  }
+}
+----------------------------
+creating service plan
+service plan: tyrell-plan-imgs-asia-004
+service loc: eastasia
+{
+  "newVNet": {
+    "addressSpace": {
+      "addressPrefixes": [
+        "10.10.0.0/16"
+      ]
+    },
+    "enableDdosProtection": false,
+    "etag": "W/\"274c0eab-10a1-4b05-92d1-6313491e728c\"",
+    "id": "/subscriptions/c95c0e44-d963-4aa7-8ee5-b8bd005e19f7/resourceGroups/az305-project-004/providers/Microsoft.Network/virtualNetworks/tyrell-imgs-vnet-asia-004",
+    "location": "eastasia",
+    "name": "tyrell-imgs-vnet-asia-004",
+    "provisioningState": "Succeeded",
+    "resourceGroup": "az305-project-004",
+    "resourceGuid": "39d58fb5-106e-4672-9588-0803d50f4932",
+    "subnets": [
+      {
+        "addressPrefix": "10.10.30.0/24",
+        "delegations": [],
+        "etag": "W/\"274c0eab-10a1-4b05-92d1-6313491e728c\"",
+        "id": "/subscriptions/c95c0e44-d963-4aa7-8ee5-b8bd005e19f7/resourceGroups/az305-project-004/providers/Microsoft.Network/virtualNetworks/tyrell-imgs-vnet-asia-004/subnets/tyrell-imgs-subnet-asia-004",
+        "name": "tyrell-imgs-subnet-asia-004",
+        "privateEndpointNetworkPolicies": "Disabled",
+        "privateLinkServiceNetworkPolicies": "Enabled",
+        "provisioningState": "Succeeded",
+        "resourceGroup": "az305-project-004",
+        "type": "Microsoft.Network/virtualNetworks/subnets"
+      }
+    ],
+    "type": "Microsoft.Network/virtualNetworks",
+    "virtualNetworkPeerings": []
+  }
+}
+----------------------------
+creating app service
+service plan: tyrell-plan-imgs-asia-004
+web app: tyrell-webapp-imgs-asia-004
+service vnet: tyrell-imgs-vnet-asia-004
+service sub: tyrell-imgs-subnet-asia-004
+runtime: ASPNET:V4.8
+----------------------------
+deploying code from git
+from: G:\coding\envs\ps-az-setup\sites\imgs-asia
+alias: az-imgs-asia-004
+to: https://benjammin-deploy-76@tyrell-webapp-imgs-asia-004.scm.azurewebsites.net/tyrell-webapp-imgs-asia-004.git
+****************************
+Creating App Services
+----------------------------
+creating vnet & subnet
+vnet: tyrell-reg-vnet-asia-004, 10.10.0.0/16
+subnet: tyrell-reg-subnet-asia-004, 10.10.30.0/24
+location: eastasia
+{
+  "newVNet": {
+    "addressSpace": {
+      "addressPrefixes": [
+        "10.10.0.0/16"
+      ]
+    },
+    "enableDdosProtection": false,
+    "etag": "W/\"1f4bd418-09e6-42e3-8e36-8794172e5670\"",
+    "id": "/subscriptions/c95c0e44-d963-4aa7-8ee5-b8bd005e19f7/resourceGroups/az305-project-004/providers/Microsoft.Network/virtualNetworks/tyrell-reg-vnet-asia-004",
+    "location": "eastasia",
+    "name": "tyrell-reg-vnet-asia-004",
+    "provisioningState": "Succeeded",
+    "resourceGroup": "az305-project-004",
+    "resourceGuid": "db222734-fbb6-468f-a51e-cf1f8f2b604c",
+    "subnets": [
+      {
+        "addressPrefix": "10.10.30.0/24",
+        "delegations": [],
+        "etag": "W/\"1f4bd418-09e6-42e3-8e36-8794172e5670\"",
+        "id": "/subscriptions/c95c0e44-d963-4aa7-8ee5-b8bd005e19f7/resourceGroups/az305-project-004/providers/Microsoft.Network/virtualNetworks/tyrell-reg-vnet-asia-004/subnets/tyrell-reg-subnet-asia-004",
+        "name": "tyrell-reg-subnet-asia-004",
+        "privateEndpointNetworkPolicies": "Disabled",
+        "privateLinkServiceNetworkPolicies": "Enabled",
+        "provisioningState": "Succeeded",
+        "resourceGroup": "az305-project-004",
+        "type": "Microsoft.Network/virtualNetworks/subnets"
+      }
+    ],
+    "type": "Microsoft.Network/virtualNetworks",
+    "virtualNetworkPeerings": []
+  }
+}
+----------------------------
+creating service plan
+service plan: tyrell-plan-reg-asia-004
+service loc: eastasia
+{
+  "newVNet": {
+    "addressSpace": {
+      "addressPrefixes": [
+        "10.10.0.0/16"
+      ]
+    },
+    "enableDdosProtection": false,
+    "etag": "W/\"1f4bd418-09e6-42e3-8e36-8794172e5670\"",
+    "id": "/subscriptions/c95c0e44-d963-4aa7-8ee5-b8bd005e19f7/resourceGroups/az305-project-004/providers/Microsoft.Network/virtualNetworks/tyrell-reg-vnet-asia-004",
+    "location": "eastasia",
+    "name": "tyrell-reg-vnet-asia-004",
+    "provisioningState": "Succeeded",
+    "resourceGroup": "az305-project-004",
+    "resourceGuid": "db222734-fbb6-468f-a51e-cf1f8f2b604c",
+    "subnets": [
+      {
+        "addressPrefix": "10.10.30.0/24",
+        "delegations": [],
+        "etag": "W/\"1f4bd418-09e6-42e3-8e36-8794172e5670\"",
+        "id": "/subscriptions/c95c0e44-d963-4aa7-8ee5-b8bd005e19f7/resourceGroups/az305-project-004/providers/Microsoft.Network/virtualNetworks/tyrell-reg-vnet-asia-004/subnets/tyrell-reg-subnet-asia-004",
+        "name": "tyrell-reg-subnet-asia-004",
+        "privateEndpointNetworkPolicies": "Disabled",
+        "privateLinkServiceNetworkPolicies": "Enabled",
+        "provisioningState": "Succeeded",
+        "resourceGroup": "az305-project-004",
+        "type": "Microsoft.Network/virtualNetworks/subnets"
+      }
+    ],
+    "type": "Microsoft.Network/virtualNetworks",
+    "virtualNetworkPeerings": []
+  }
+}
+----------------------------
+creating app service
+service plan: tyrell-plan-reg-asia-004
+web app: tyrell-webapp-reg-asia-004
+service vnet: tyrell-reg-vnet-asia-004
+service sub: tyrell-reg-subnet-asia-004
+runtime: ASPNET:V4.8
+----------------------------
+deploying code from git
+from: G:\coding\envs\ps-az-setup\sites\reg-asia
+alias: az-reg-asia-004
+to: https://benjammin-deploy-76@tyrell-webapp-reg-asia-004.scm.azurewebsites.net/tyrell-webapp-reg-asia-004.git
+On branch master
+nothing to commit, working tree clean
+****************************
+Creating Traffic Manager
+----------------------------
+name: tyrell-trafficmgr-imgs-004
+----------------------------
+creating traffic endpoint
+traffic mgr: tyrell-trafficmgr-imgs-004
+name: tyrell-webapp-imgs-eastus-004
+geo-mapping: US-NY
+resId: /subscriptions/c95c0e44-d963-4aa7-8ee5-b8bd005e19f7/resourceGroups/az305-project-004/providers/Microsoft.Web/sites/tyrell-webapp-imgs-eastus-004
+----------------------------
+creating traffic endpoint
+traffic mgr: tyrell-trafficmgr-imgs-004
+name: tyrell-webapp-imgs-aus-004
+geo-mapping: AU-VIC
+resId: /subscriptions/c95c0e44-d963-4aa7-8ee5-b8bd005e19f7/resourceGroups/az305-project-004/providers/Microsoft.Web/sites/tyrell-webapp-imgs-aus-004
+----------------------------
+creating traffic endpoint
+traffic mgr: tyrell-trafficmgr-imgs-004
+name: tyrell-webapp-imgs-asia-004
+geo-mapping: SG
+resId: /subscriptions/c95c0e44-d963-4aa7-8ee5-b8bd005e19f7/resourceGroups/az305-project-004/providers/Microsoft.Web/sites/tyrell-webapp-imgs-asia-004
+****************************
+Creating Traffic Manager
+----------------------------
+name: tyrell-trafficmgr-reg-004
+----------------------------
+creating traffic endpoint
+traffic mgr: tyrell-trafficmgr-reg-004
+name: tyrell-webapp-reg-eastus-004
+geo-mapping: US-NY
+resId: /subscriptions/c95c0e44-d963-4aa7-8ee5-b8bd005e19f7/resourceGroups/az305-project-004/providers/Microsoft.Web/sites/tyrell-webapp-reg-eastus-004
+----------------------------
+creating traffic endpoint
+traffic mgr: tyrell-trafficmgr-reg-004
+name: tyrell-webapp-reg-aus-004
+geo-mapping: AU-VIC
+resId: /subscriptions/c95c0e44-d963-4aa7-8ee5-b8bd005e19f7/resourceGroups/az305-project-004/providers/Microsoft.Web/sites/tyrell-webapp-reg-aus-004
+----------------------------
+creating traffic endpoint
+traffic mgr: tyrell-trafficmgr-reg-004
+name: tyrell-webapp-reg-asia-004
+geo-mapping: SG
+resId: /subscriptions/c95c0e44-d963-4aa7-8ee5-b8bd005e19f7/resourceGroups/az305-project-004/providers/Microsoft.Web/sites/tyrell-webapp-reg-asia-004
+****************************
+Creating App Gateway
+----------------------------
+creating vnet
+----------------------------
+creating public ip
+public ip: 20.232.17.15
+----------------------------
+creating app gw

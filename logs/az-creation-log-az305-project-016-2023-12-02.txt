@@ -1,0 +1,312 @@
+********************************************************
+Creating Resource Group & Setting deployment user
+--------------------------------------------------------
+group doesn't exists
+{
+  "id": "/subscriptions/c0de6865-a88e-448b-b905-781909aee251/resourceGroups/az305-project-016",
+  "location": "eastus",
+  "managedBy": null,
+  "name": "az305-project-016",
+  "properties": {
+    "provisioningState": "Succeeded"
+  },
+  "tags": null,
+  "type": "Microsoft.Resources/resourceGroups"
+}
+********************************************************
+Creating Resource Group & Setting deployment user
+--------------------------------------------------------
+group exists: az305-project-016
+True
+********************************************************
+Creating Resource Group & Setting deployment user
+--------------------------------------------------------
+group exists: az305-project-016
+True
+deployment user doesn't exist, creating
+********************************************************
+Creating Resource Group & Setting deployment user
+--------------------------------------------------------
+group exists: az305-project-016
+True
+deployment user doesn't exist, creating
+@{id=; kind=; name=web; publishingPassword=; publishingPasswordHash=; publishingPasswordHashSalt=; publishingUserName=az305-project-016-benjammin-deploy-76; scmUri=; type=Microsoft.Web/publishingUsers/web}
+********************************************************
+Creating Resource Group & Setting deployment user
+--------------------------------------------------------
+group exists: az305-project-016
+True
+deployment user exists: az305-project-016-benjammin-deploy-76
+@{id=; kind=; name=web; publishingPassword=; publishingPasswordHash=; publishingPasswordHashSalt=; publishingUserName=az305-project-016-benjammin-deploy-76; scmUri=; type=Microsoft.Web/publishingUsers/web}
+********************************************************
+Creating Resource Group & Setting deployment user
+--------------------------------------------------------
+group exists: az305-project-016
+True
+deployment user exists: az305-project-016-benjammin-deploy-76
+@{id=; kind=; name=web; publishingPassword=; publishingPasswordHash=; publishingPasswordHashSalt=; publishingUserName=az305-project-016-benjammin-deploy-76; scmUri=; type=Microsoft.Web/publishingUsers/web}
+********************************************************
+Creating Resource Group & Setting deployment user
+--------------------------------------------------------
+group exists: az305-project-016
+True
+deployment user exists: az305-project-016-benjammin-deploy-76
+@{id=; kind=; name=web; publishingPassword=; publishingPasswordHash=; publishingPasswordHashSalt=; publishingUserName=az305-project-016-benjammin-deploy-76; scmUri=; type=Microsoft.Web/publishingUsers/web}
+********************************************************
+Creating Resource Group & Setting deployment user
+--------------------------------------------------------
+group exists: az305-project-016
+True
+deployment user exists: az305-project-016-benjammin-deploy-76
+@{id=; kind=; name=web; publishingPassword=; publishingPasswordHash=; publishingPasswordHashSalt=; publishingUserName=az305-project-016-benjammin-deploy-76; scmUri=; type=Microsoft.Web/publishingUsers/web}
+********************************************************
+Creating Resource Group & Setting deployment user
+--------------------------------------------------------
+group exists: az305-project-016
+True
+deployment user exists: az305-project-016-benjammin-deploy-76
+@{id=; kind=; name=web; publishingPassword=; publishingPasswordHash=; publishingPasswordHashSalt=; publishingUserName=az305-project-016-benjammin-deploy-76; scmUri=; type=Microsoft.Web/publishingUsers/web}
+test
+test
+test
+test
+test
+test
+test
+test
+********************************************************
+Creating Resource Group & Setting deployment user
+--------------------------------------------------------
+group exists: az305-project-016
+True
+deployment user exists: az305-project-016-benjammin-deploy-76
+@{id=; kind=; name=web; publishingPassword=; publishingPasswordHash=; publishingPasswordHashSalt=; publishingUserName=az305-project-016-benjammin-deploy-76; scmUri=; type=Microsoft.Web/publishingUsers/web}
+****************************
+Creating App Services
+----------------------------
+creating vnet & subnet
+vnet: tyrell-imgs-vnet-eastus-016, 10.0.0.0/16
+subnet: tyrell-imgs-subnet-eastus-016, 10.0.10.0/24
+location: eastus
+****************************
+Creating App Services
+----------------------------
+creating vnet & subnet
+vnet: tyrell-imgs-vnet-eastus-016, 10.0.0.0/16
+subnet: tyrell-imgs-subnet-eastus-016, 10.0.10.0/24
+location: eastus
+****************************
+Creating App Services
+----------------------------
+creating vnet & subnet
+vnet: tyrell-imgs-vnet-eastus-016, 10.0.0.0/16
+subnet: tyrell-imgs-subnet-eastus-016, 10.0.10.0/24
+location: eastus
+****************************
+Creating App Services
+----------------------------
+creating vnet & subnet
+vnet: tyrell-imgs-vnet-eastus-016, 10.0.0.0/16
+subnet: tyrell-imgs-subnet-eastus-016, 10.0.10.0/24
+location: eastus
+****************************
+Creating App Services
+----------------------------
+creating vnet & subnet
+vnet: tyrell-imgs-vnet-eastus-016, 10.0.0.0/16
+subnet: tyrell-imgs-subnet-eastus-016, 10.0.10.0/24
+location: eastus
+****************************
+Creating App Services
+----------------------------
+creating vnet & subnet
+vnet: tyrell-imgs-vnet-eastus-016, 10.0.0.0/16
+subnet: tyrell-imgs-subnet-eastus-016, 10.0.10.0/24
+location: eastus
+vnet & subnet doesn't exist, creating
+{
+  "newVNet": {
+    "addressSpace": {
+      "addressPrefixes": [
+        "10.0.0.0/16"
+      ]
+    },
+    "enableDdosProtection": false,
+    "etag": "W/\"75c35e46-9d97-486f-ad6a-752051e4abae\"",
+    "id": "/subscriptions/c0de6865-a88e-448b-b905-781909aee251/resourceGroups/az305-project-016/providers/Microsoft.Network/virtualNetworks/tyrell-imgs-vnet-eastus-016",
+    "location": "eastus",
+    "name": "tyrell-imgs-vnet-eastus-016",
+    "provisioningState": "Succeeded",
+    "resourceGroup": "az305-project-016",
+    "resourceGuid": "39a4c8c7-f49a-4908-a629-f8bcd4ccff2e",
+    "subnets": [
+      {
+        "addressPrefix": "10.0.10.0/24",
+        "delegations": [],
+        "etag": "W/\"75c35e46-9d97-486f-ad6a-752051e4abae\"",
+        "id": "/subscriptions/c0de6865-a88e-448b-b905-781909aee251/resourceGroups/az305-project-016/providers/Microsoft.Network/virtualNetworks/tyrell-imgs-vnet-eastus-016/subnets/tyrell-imgs-subnet-eastus-016",
+        "name": "tyrell-imgs-subnet-eastus-016",
+        "privateEndpointNetworkPolicies": "Disabled",
+        "privateLinkServiceNetworkPolicies": "Enabled",
+        "provisioningState": "Succeeded",
+        "resourceGroup": "az305-project-016",
+        "type": "Microsoft.Network/virtualNetworks/subnets"
+      }
+    ],
+    "type": "Microsoft.Network/virtualNetworks",
+    "virtualNetworkPeerings": []
+  }
+}
+****************************
+Creating App Services
+----------------------------
+creating vnet & subnet
+vnet: tyrell-imgs-vnet-eastus-016, 10.0.0.0/16
+subnet: tyrell-imgs-subnet-eastus-016, 10.0.10.0/24
+location: eastus
+vnet & subnet doesn't exist, creating
+@{newVNet=}
+****************************
+Creating App Services
+----------------------------
+creating vnet & subnet
+vnet: tyrell-imgs-vnet-eastus-016, 10.0.0.0/16
+subnet: tyrell-imgs-subnet-eastus-016, 10.0.10.0/24
+location: eastus
+vnet & subnet exists:  
+@{addressSpace=; enableDdosProtection=False; etag=W/"75c35e46-9d97-486f-ad6a-752051e4abae"; id=/subscriptions/c0de6865-a88e-448b-b905-781909aee251/resourceGroups/az305-project-016/providers/Microsoft.Network/virtualNetworks/tyrell-imgs-vnet-eastus-016; location=eastus; name=tyrell-imgs-vnet-eastus-016; provisioningState=Succeeded; resourceGroup=az305-project-016; resourceGuid=39a4c8c7-f49a-4908-a629-f8bcd4ccff2e; subnets=System.Object[]; type=Microsoft.Network/virtualNetworks; virtualNetworkPeerings=System.Object[]}
+@{addressSpace=; enableDdosProtection=False; encryption=; etag=W/"d062d900-a249-4c31-bac0-e42e103e4c30"; id=/subscriptions/c0de6865-a88e-448b-b905-781909aee251/resourceGroups/az305-project-016/providers/Microsoft.Network/virtualNetworks/vnet-test-01; location=eastus; name=vnet-test-01; provisioningState=Succeeded; resourceGroup=az305-project-016; resourceGuid=7098a04d-fd2c-4591-ace3-26350bb86306; subnets=System.Object[]; tags=; type=Microsoft.Network/virtualNetworks; virtualNetworkPeerings=System.Object[]}
+****************************
+Creating App Services
+----------------------------
+creating vnet & subnet
+vnet: tyrell-imgs-vnet-eastus-016, 10.0.0.0/16
+subnet: tyrell-imgs-subnet-eastus-016, 10.0.10.0/24
+location: eastus
+vnet & subnet exists: 
+[
+  {
+    "addressSpace": {
+      "addressPrefixes": [
+        "10.0.0.0/16"
+      ]
+    },
+    "enableDdosProtection": false,
+    "etag": "W/\"75c35e46-9d97-486f-ad6a-752051e4abae\"",
+    "id": "/subscriptions/c0de6865-a88e-448b-b905-781909aee251/resourceGroups/az305-project-016/providers/Microsoft.Network/virtualNetworks/tyrell-imgs-vnet-eastus-016",
+    "location": "eastus",
+    "name": "tyrell-imgs-vnet-eastus-016",
+    "provisioningState": "Succeeded",
+    "resourceGroup": "az305-project-016",
+    "resourceGuid": "39a4c8c7-f49a-4908-a629-f8bcd4ccff2e",
+    "subnets": [
+      {
+        "addressPrefix": "10.0.10.0/24",
+        "delegations": [],
+        "etag": "W/\"75c35e46-9d97-486f-ad6a-752051e4abae\"",
+        "id": "/subscriptions/c0de6865-a88e-448b-b905-781909aee251/resourceGroups/az305-project-016/providers/Microsoft.Network/virtualNetworks/tyrell-imgs-vnet-eastus-016/subnets/tyrell-imgs-subnet-eastus-016",
+        "name": "tyrell-imgs-subnet-eastus-016",
+        "privateEndpointNetworkPolicies": "Disabled",
+        "privateLinkServiceNetworkPolicies": "Enabled",
+        "provisioningState": "Succeeded",
+        "resourceGroup": "az305-project-016",
+        "type": "Microsoft.Network/virtualNetworks/subnets"
+      }
+    ],
+    "type": "Microsoft.Network/virtualNetworks",
+    "virtualNetworkPeerings": []
+  },
+  {
+    "addressSpace": {
+      "addressPrefixes": [
+        "10.0.244.0/24"
+      ]
+    },
+    "enableDdosProtection": false,
+    "encryption": {
+      "enabled": false,
+      "enforcement": "AllowUnencrypted"
+    },
+    "etag": "W/\"d062d900-a249-4c31-bac0-e42e103e4c30\"",
+    "id": "/subscriptions/c0de6865-a88e-448b-b905-781909aee251/resourceGroups/az305-project-016/providers/Microsoft.Network/virtualNetworks/vnet-test-01",
+    "location": "eastus",
+    "name": "vnet-test-01",
+    "provisioningState": "Succeeded",
+    "resourceGroup": "az305-project-016",
+    "resourceGuid": "7098a04d-fd2c-4591-ace3-26350bb86306",
+    "subnets": [
+      {
+        "addressPrefixes": [
+          "10.0.244.0/24"
+        ],
+        "delegations": [],
+        "etag": "W/\"d062d900-a249-4c31-bac0-e42e103e4c30\"",
+        "id": "/subscriptions/c0de6865-a88e-448b-b905-781909aee251/resourceGroups/az305-project-016/providers/Microsoft.Network/virtualNetworks/vnet-test-01/subnets/default",
+        "name": "default",
+        "privateEndpointNetworkPolicies": "Disabled",
+        "privateLinkServiceNetworkPolicies": "Enabled",
+        "provisioningState": "Succeeded",
+        "resourceGroup": "az305-project-016",
+        "type": "Microsoft.Network/virtualNetworks/subnets"
+      }
+    ],
+    "tags": {},
+    "type": "Microsoft.Network/virtualNetworks",
+    "virtualNetworkPeerings": []
+  }
+]
+****************************
+Creating App Services
+----------------------------
+creating vnet & subnet
+vnet: tyrell-imgs-vnet-eastus-016, 10.0.0.0/16
+subnet: tyrell-imgs-subnet-eastus-016, 10.0.10.0/24
+location: eastus
+vnet & subnet exists: 
+****************************
+Creating App Services
+----------------------------
+creating vnet & subnet
+vnet: tyrell-imgs-vnet-eastus-016, 10.0.0.0/16
+subnet: tyrell-imgs-subnet-eastus-016, 10.0.10.0/24
+location: eastus
+vnet & subnet exists: 
+{
+  "addressSpace": {
+    "addressPrefixes": [
+      "10.0.0.0/16"
+    ]
+  },
+  "enableDdosProtection": false,
+  "etag": "W/\"75c35e46-9d97-486f-ad6a-752051e4abae\"",
+  "id": "/subscriptions/c0de6865-a88e-448b-b905-781909aee251/resourceGroups/az305-project-016/providers/Microsoft.Network/virtualNetworks/tyrell-imgs-vnet-eastus-016",
+  "location": "eastus",
+  "name": "tyrell-imgs-vnet-eastus-016",
+  "provisioningState": "Succeeded",
+  "resourceGroup": "az305-project-016",
+  "resourceGuid": "39a4c8c7-f49a-4908-a629-f8bcd4ccff2e",
+  "subnets": [
+    {
+      "addressPrefix": "10.0.10.0/24",
+      "delegations": [],
+      "etag": "W/\"75c35e46-9d97-486f-ad6a-752051e4abae\"",
+      "id": "/subscriptions/c0de6865-a88e-448b-b905-781909aee251/resourceGroups/az305-project-016/providers/Microsoft.Network/virtualNetworks/tyrell-imgs-vnet-eastus-016/subnets/tyrell-imgs-subnet-eastus-016",
+      "name": "tyrell-imgs-subnet-eastus-016",
+      "privateEndpointNetworkPolicies": "Disabled",
+      "privateLinkServiceNetworkPolicies": "Enabled",
+      "provisioningState": "Succeeded",
+      "resourceGroup": "az305-project-016",
+      "type": "Microsoft.Network/virtualNetworks/subnets"
+    }
+  ],
+  "type": "Microsoft.Network/virtualNetworks",
+  "virtualNetworkPeerings": []
+}
+****************************
+Creating App Services
+----------------------------
+creating vnet & subnet
+vnet: tyrell-imgs-vnet-eastus-016, 10.0.0.0/16
+subnet: tyrell-imgs-subnet-eastus-016, 10.0.10.0/24
+location: eastus
+vnet & subnet exists: 

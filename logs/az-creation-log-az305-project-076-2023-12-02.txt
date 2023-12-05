@@ -1,0 +1,339 @@
+****************************
+Creating Machine Scale Sets
+----------------------------
+creating vnet & subnet
+vnet: tyrell-vnet-eastus-076, 10.10.0.0/16
+subnet: tyrell-subnet-eastus-076, 10.10.10.0/24
+appGW: tyrell-vmss-subnet-asia-076, 10.30.230.0/24
+location: eastus
+not instructed to create
+----------------------------
+creating machine scale set
+machine set: tyrell-vmss-imgs-eastus-076
+service vnet: tyrell-vnet-eastus-076
+service sub: tyrell-subnet-eastus-076
+runtime: Ubuntu2204
+private IP: tyrell-vmss-pip-imgs-eastus-076
+not instructed to create
+----------------------------
+creating machine scale set
+machine set: tyrell-vmss-reg-eastus-076
+service vnet: tyrell-vnet-eastus-076
+service sub: tyrell-subnet-eastus-076
+runtime: Ubuntu2204
+private IP: tyrell-vmss-pip-reg-eastus-076
+not instructed to create
+****************************
+Creating Machine Scale Sets
+----------------------------
+creating vnet & subnet
+vnet: tyrell-vnet-aus-076, 10.20.0.0/16
+subnet: tyrell-subnet-aus-076, 10.20.10.0/24
+appGW: tyrell-vmss-subnet-asia-076, 10.30.230.0/24
+location: australiasoutheast
+not instructed to create
+----------------------------
+creating machine scale set
+machine set: tyrell-vmss-imgs-aus-076
+service vnet: tyrell-vnet-aus-076
+service sub: tyrell-subnet-aus-076
+runtime: Ubuntu2204
+private IP: tyrell-vmss-pip-imgs-aus-076
+not instructed to create
+----------------------------
+creating machine scale set
+machine set: tyrell-vmss-reg-aus-076
+service vnet: tyrell-vnet-aus-076
+service sub: tyrell-subnet-aus-076
+runtime: Ubuntu2204
+private IP: tyrell-vmss-pip-reg-aus-076
+not instructed to create
+****************************
+Creating Machine Scale Sets
+----------------------------
+creating vnet & subnet
+vnet: tyrell-vnet-asia-076, 10.30.0.0/16
+subnet: tyrell-subnet-asia-076, 10.30.10.0/24
+appGW: tyrell-vmss-subnet-asia-076, 10.30.230.0/24
+location: eastasia
+not instructed to create
+----------------------------
+creating machine scale set
+machine set: tyrell-vmss-imgs-asia-076
+service vnet: tyrell-vnet-asia-076
+service sub: tyrell-subnet-asia-076
+runtime: Ubuntu2204
+private IP: tyrell-vmss-pip-imgs-asia-076
+not instructed to create
+----------------------------
+creating machine scale set
+machine set: tyrell-vmss-reg-asia-076
+service vnet: tyrell-vnet-asia-076
+service sub: tyrell-subnet-asia-076
+runtime: Ubuntu2204
+private IP: tyrell-vmss-pip-reg-asia-076
+not instructed to create
+****************************
+Creating App Gateway
+appgw: tyrell-vmss-appgw-eastus-076
+----------------------------
+creating appgw subnet
+subnet: tyrell-vmss-subnet-eastus-076, cidr: 10.10.230.0/24
+az network vnet subnet create --name tyrell-vmss-subnet-eastus-076 
+            --resource-group az305-project-076 
+            --vnet-name tyrell-vnet-eastus-076 
+            --address-prefixes 10.10.230.0/24
+----------------------------
+creating public ip
+public ip name: tyrell-vmss-pip-appgw-eastus-076
+az network public-ip create --name tyrell-vmss-pip-appgw-eastus-076 --resource-group az305-project-076 
+                    --location eastus 
+                    --allocation-method Static --sku Standard
+public ip name: 
+----------------------------
+creating app gw
+ doesn't exist, creating
+az network application-gateway create -g az305-project-076 -n tyrell-vmss-appgw-eastus-076 
+                            --vnet-name tyrell-vnet-eastus-076 
+                            --subnet tyrell-vmss-subnet-eastus-076 
+                            --http-settings-cookie-based-affinity Enabled --priority 100  --public-ip-address  --sku Standard_v2
+----------------------------
+creating back end pools
+name: appGatewayBackendPool
+servers: tyrell-vmss-pip-imgs-eastus-076
+az network application-gateway address-pool create -g az305-project-076 
+                    --gateway-name tyrell-vmss-appgw-eastus-076 
+                    --name appGatewayBackendPool 
+                    --servers tyrell-vmss-pip-imgs-eastus-076
+name: appGatewayBackendPool2
+servers: tyrell-vmss-pip-reg-eastus-076
+az network application-gateway address-pool create -g az305-project-076 
+                    --gateway-name tyrell-vmss-appgw-eastus-076 
+                    --name appGatewayBackendPool2 
+                    --servers tyrell-vmss-pip-reg-eastus-076
+----------------------------
+creating path map
+creating path map
+paths: /images/*
+pool: appGatewayBackendPool
+settings: appGatewayBackendHttpSettings
+az network application-gateway url-path-map create 
+                    --resource-group az305-project-076 
+                    --gateway-name tyrell-vmss-appgw-eastus-076 
+                    --name tyrell-appgw-pathmap-eastus 
+                    --paths /images/* 
+                    --address-pool appGatewayBackendPool 
+                    --http-settings  appGatewayBackendHttpSettings 
+                    --default-address-pool appGatewayBackendPool 
+                    --default-http-settings appGatewayBackendHttpSettings
+creating path map
+paths: /blog/*
+pool: appGatewayBackendPool2
+settings: appGatewayBackendHttpSettings
+az network application-gateway url-path-map create 
+                    --resource-group az305-project-076 
+                    --gateway-name tyrell-vmss-appgw-eastus-076 
+                    --name tyrell-appgw-pathmap-eastus 
+                    --paths /blog/* 
+                    --address-pool appGatewayBackendPool2 
+                    --http-settings  appGatewayBackendHttpSettings 
+                    --default-address-pool appGatewayBackendPool2 
+                    --default-http-settings appGatewayBackendHttpSettings
+----------------------------
+creating rule
+name: rule1
+listener: appGatewayHttpListener
+pool: appGatewayBackendPool2
+settings: appGatewayBackendPool2
+path-map: tyrell-appgw-pathmap-eastus
+az network application-gateway rule update 
+            --resource-group az305-project-076 
+            --gateway-name tyrell-vmss-appgw-eastus-076 
+            --name rule1 --priority 99 
+            --http-listener appGatewayHttpListener --rule-type PathBasedRouting 
+            --address-pool appGatewayBackendPool2 
+            --http-settings appGatewayBackendPool2 
+            --url-path-map tyrell-appgw-pathmap-eastus
+----------------------------
+creating http settings
+az network application-gateway http-settings update --gateway-name tyrell-vmss-appgw-eastus-076 
+                --name appGatewayBackendHttpSettings 
+                --resource-group az305-project-076 
+                --host-name-from-backend-pool true 
+                --path '/' --port 80
+****************************
+Creating App Gateway
+appgw: tyrell-vmss-appgw-aus-076
+----------------------------
+creating appgw subnet
+subnet: tyrell-vmss-subnet-aus-076, cidr: 10.20.230.0/24
+az network vnet subnet create --name tyrell-vmss-subnet-aus-076 
+            --resource-group az305-project-076 
+            --vnet-name tyrell-vnet-aus-076 
+            --address-prefixes 10.20.230.0/24
+----------------------------
+creating public ip
+public ip name: tyrell-vmss-pip-appgw-aus-076
+az network public-ip create --name tyrell-vmss-pip-appgw-aus-076 --resource-group az305-project-076 
+                    --location australiasoutheast 
+                    --allocation-method Static --sku Standard
+public ip name: 
+----------------------------
+creating app gw
+ doesn't exist, creating
+az network application-gateway create -g az305-project-076 -n tyrell-vmss-appgw-aus-076 
+                            --vnet-name tyrell-vnet-aus-076 
+                            --subnet tyrell-vmss-subnet-aus-076 
+                            --http-settings-cookie-based-affinity Enabled --priority 100  --public-ip-address  --sku Standard_v2
+----------------------------
+creating back end pools
+name: appGatewayBackendPool
+servers: tyrell-vmss-pip-imgs-eastus-076
+az network application-gateway address-pool create -g az305-project-076 
+                    --gateway-name tyrell-vmss-appgw-aus-076 
+                    --name appGatewayBackendPool 
+                    --servers tyrell-vmss-pip-imgs-eastus-076
+name: appGatewayBackendPool2
+servers: tyrell-vmss-pip-reg-eastus-076
+az network application-gateway address-pool create -g az305-project-076 
+                    --gateway-name tyrell-vmss-appgw-aus-076 
+                    --name appGatewayBackendPool2 
+                    --servers tyrell-vmss-pip-reg-eastus-076
+----------------------------
+creating path map
+creating path map
+paths: /images/*
+pool: appGatewayBackendPool
+settings: appGatewayBackendHttpSettings
+az network application-gateway url-path-map create 
+                    --resource-group az305-project-076 
+                    --gateway-name tyrell-vmss-appgw-aus-076 
+                    --name tyrell-appgw-pathmap-aus 
+                    --paths /images/* 
+                    --address-pool appGatewayBackendPool 
+                    --http-settings  appGatewayBackendHttpSettings 
+                    --default-address-pool appGatewayBackendPool 
+                    --default-http-settings appGatewayBackendHttpSettings
+creating path map
+paths: /blog/*
+pool: appGatewayBackendPool2
+settings: appGatewayBackendHttpSettings
+az network application-gateway url-path-map create 
+                    --resource-group az305-project-076 
+                    --gateway-name tyrell-vmss-appgw-aus-076 
+                    --name tyrell-appgw-pathmap-aus 
+                    --paths /blog/* 
+                    --address-pool appGatewayBackendPool2 
+                    --http-settings  appGatewayBackendHttpSettings 
+                    --default-address-pool appGatewayBackendPool2 
+                    --default-http-settings appGatewayBackendHttpSettings
+----------------------------
+creating rule
+name: rule1
+listener: appGatewayHttpListener
+pool: appGatewayBackendPool2
+settings: appGatewayBackendPool2
+path-map: tyrell-appgw-pathmap-aus
+az network application-gateway rule update 
+            --resource-group az305-project-076 
+            --gateway-name tyrell-vmss-appgw-aus-076 
+            --name rule1 --priority 99 
+            --http-listener appGatewayHttpListener --rule-type PathBasedRouting 
+            --address-pool appGatewayBackendPool2 
+            --http-settings appGatewayBackendPool2 
+            --url-path-map tyrell-appgw-pathmap-aus
+----------------------------
+creating http settings
+az network application-gateway http-settings update --gateway-name tyrell-vmss-appgw-aus-076 
+                --name appGatewayBackendHttpSettings 
+                --resource-group az305-project-076 
+                --host-name-from-backend-pool true 
+                --path '/' --port 80
+****************************
+Creating App Gateway
+appgw: tyrell-vmss-appgw-asia-076
+----------------------------
+creating appgw subnet
+subnet: tyrell-vmss-subnet-asia-076, cidr: 10.30.230.0/24
+az network vnet subnet create --name tyrell-vmss-subnet-asia-076 
+            --resource-group az305-project-076 
+            --vnet-name tyrell-vnet-asia-076 
+            --address-prefixes 10.30.230.0/24
+----------------------------
+creating public ip
+public ip name: tyrell-vmss-pip-appgw-asia-076
+az network public-ip create --name tyrell-vmss-pip-appgw-asia-076 --resource-group az305-project-076 
+                    --location eastasia 
+                    --allocation-method Static --sku Standard
+public ip name: 
+----------------------------
+creating app gw
+ doesn't exist, creating
+az network application-gateway create -g az305-project-076 -n tyrell-vmss-appgw-asia-076 
+                            --vnet-name tyrell-vnet-asia-076 
+                            --subnet tyrell-vmss-subnet-asia-076 
+                            --http-settings-cookie-based-affinity Enabled --priority 100  --public-ip-address  --sku Standard_v2
+----------------------------
+creating back end pools
+name: appGatewayBackendPool
+servers: tyrell-vmss-pip-imgs-eastus-076
+az network application-gateway address-pool create -g az305-project-076 
+                    --gateway-name tyrell-vmss-appgw-asia-076 
+                    --name appGatewayBackendPool 
+                    --servers tyrell-vmss-pip-imgs-eastus-076
+name: appGatewayBackendPool2
+servers: tyrell-vmss-pip-reg-eastus-076
+az network application-gateway address-pool create -g az305-project-076 
+                    --gateway-name tyrell-vmss-appgw-asia-076 
+                    --name appGatewayBackendPool2 
+                    --servers tyrell-vmss-pip-reg-eastus-076
+----------------------------
+creating path map
+creating path map
+paths: /images/*
+pool: appGatewayBackendPool
+settings: appGatewayBackendHttpSettings
+az network application-gateway url-path-map create 
+                    --resource-group az305-project-076 
+                    --gateway-name tyrell-vmss-appgw-asia-076 
+                    --name tyrell-appgw-pathmap-asia 
+                    --paths /images/* 
+                    --address-pool appGatewayBackendPool 
+                    --http-settings  appGatewayBackendHttpSettings 
+                    --default-address-pool appGatewayBackendPool 
+                    --default-http-settings appGatewayBackendHttpSettings
+creating path map
+paths: /blog/*
+pool: appGatewayBackendPool2
+settings: appGatewayBackendHttpSettings
+az network application-gateway url-path-map create 
+                    --resource-group az305-project-076 
+                    --gateway-name tyrell-vmss-appgw-asia-076 
+                    --name tyrell-appgw-pathmap-asia 
+                    --paths /blog/* 
+                    --address-pool appGatewayBackendPool2 
+                    --http-settings  appGatewayBackendHttpSettings 
+                    --default-address-pool appGatewayBackendPool2 
+                    --default-http-settings appGatewayBackendHttpSettings
+----------------------------
+creating rule
+name: rule1
+listener: appGatewayHttpListener
+pool: appGatewayBackendPool2
+settings: appGatewayBackendPool2
+path-map: tyrell-appgw-pathmap-asia
+az network application-gateway rule update 
+            --resource-group az305-project-076 
+            --gateway-name tyrell-vmss-appgw-asia-076 
+            --name rule1 --priority 99 
+            --http-listener appGatewayHttpListener --rule-type PathBasedRouting 
+            --address-pool appGatewayBackendPool2 
+            --http-settings appGatewayBackendPool2 
+            --url-path-map tyrell-appgw-pathmap-asia
+----------------------------
+creating http settings
+az network application-gateway http-settings update --gateway-name tyrell-vmss-appgw-asia-076 
+                --name appGatewayBackendHttpSettings 
+                --resource-group az305-project-076 
+                --host-name-from-backend-pool true 
+                --path '/' --port 80

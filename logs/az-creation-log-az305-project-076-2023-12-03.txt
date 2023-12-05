@@ -1,0 +1,502 @@
+****************************
+Creating Machine Scale Sets
+----------------------------
+creating vnet & subnet
+vnet: tyrell-vnet-aus-076, 10.20.0.0/16
+subnet: tyrell-subnet-aus-076, 10.20.10.0/24
+appGW: tyrell-appgw-subnet-eastus-076, 10.10.230.0/24
+location: australiasoutheast
+az network vnet create -g az305-project-076 --location australiasoutheast -n tyrell-vnet-aus-076 --address-prefix 10.20.0.0/16 --subnet-name tyrell-subnet-aus-076 --subnet-prefixes 10.20.10.0/24 | ConvertFrom-Json
+@{newVNet=}
+----------------------------
+creating machine scale set
+machine set: tyrell-imgs-aus-076
+service vnet: tyrell-vnet-aus-076
+service sub: tyrell-subnet-aus-076
+runtime: Win2022Datacenter
+private IP: tyrell-pip-imgs-aus-076
+az vmss create 
+                            --resource-group az305-project-076 
+                            --name tyrell-imgs-aus-076 
+                            --location australiasoutheast 
+                            --vnet-name tyrell-vnet-aus-076 
+                            --subnet tyrell-subnet-aus-076 
+                            --image Win2022Datacenter 
+                            --lb-sku Standard 
+                            --public-ip-address tyrell-pip-imgs-aus-076 
+                            --upgrade-policy-mode automatic 
+                            --authentication-type password 
+                            --admin-username benjamin 
+                            --admin-password benjamin_123
+{
+  "vmss": {
+    "doNotRunExtensionsOnOverprovisionedVMs": false,
+    "orchestrationMode": "Uniform",
+    "overprovision": true,
+    "provisioningState": "Succeeded",
+    "singlePlacementGroup": true,
+    "timeCreated": "2023-12-02T17:22:14.2464665+00:00",
+    "uniqueId": "b532a001-06a3-4e3d-a11d-6bc91c7ea945",
+    "upgradePolicy": {
+      "mode": "Automatic",
+      "rollingUpgradePolicy": {
+        "maxBatchInstancePercent": 20,
+        "maxSurge": false,
+        "maxUnhealthyInstancePercent": 20,
+        "maxUnhealthyUpgradedInstancePercent": 20,
+        "pauseTimeBetweenBatches": "PT0S",
+        "rollbackFailedInstancesOnPolicyBreach": false
+      }
+    },
+    "virtualMachineProfile": {
+      "networkProfile": {
+        "networkInterfaceConfigurations": [
+          {
+            "name": "tyrelc2e5Nic",
+            "properties": {
+              "disableTcpStateTracking": false,
+              "dnsSettings": {
+                "dnsServers": []
+              },
+              "enableAcceleratedNetworking": false,
+              "enableIPForwarding": false,
+              "ipConfigurations": [
+                {
+                  "name": "tyrelc2e5IPConfig",
+                  "properties": {
+                    "loadBalancerBackendAddressPools": [
+                      {
+                        "id": "/subscriptions/a5d9f35c-81e1-4f98-899b-e25bb26bfa3a/resourceGroups/az305-project-076/providers/Microsoft.Network/loadBalancers/tyrell-imgs-aus-076LB/backendAddressPools/tyrell-imgs-aus-076LBBEPool",
+                        "resourceGroup": "az305-project-076"
+                      }
+                    ],
+                    "privateIPAddressVersion": "IPv4",
+                    "subnet": {
+                      "id": "/subscriptions/a5d9f35c-81e1-4f98-899b-e25bb26bfa3a/resourceGroups/az305-project-076/providers/Microsoft.Network/virtualNetworks/tyrell-vnet-aus-076/subnets/tyrell-subnet-aus-076",
+                      "resourceGroup": "az305-project-076"
+                    }
+                  }
+                }
+              ],
+              "networkSecurityGroup": {
+                "id": "/subscriptions/a5d9f35c-81e1-4f98-899b-e25bb26bfa3a/resourceGroups/az305-project-076/providers/Microsoft.Network/networkSecurityGroups/tyrell-imgs-aus-076NSG",
+                "resourceGroup": "az305-project-076"
+              },
+              "primary": true
+            }
+          }
+        ]
+      },
+      "osProfile": {
+        "adminUsername": "benjamin",
+        "allowExtensionOperations": true,
+        "computerNamePrefix": "tyrelc2e5",
+        "requireGuestProvisionSignal": true,
+        "secrets": [],
+        "windowsConfiguration": {
+          "enableAutomaticUpdates": true,
+          "enableVMAgentPlatformUpdates": false,
+          "provisionVMAgent": true
+        }
+      },
+      "storageProfile": {
+        "diskControllerType": "SCSI",
+        "imageReference": {
+          "offer": "WindowsServer",
+          "publisher": "MicrosoftWindowsServer",
+          "sku": "2022-datacenter-g2",
+          "version": "latest"
+        },
+        "osDisk": {
+          "caching": "ReadWrite",
+          "createOption": "FromImage",
+          "diskSizeGB": 127,
+          "managedDisk": {
+            "storageAccountType": "Premium_LRS"
+          },
+          "osType": "Windows"
+        }
+      },
+      "timeCreated": "2023-12-02T17:22:14.2464665+00:00"
+    }
+  }
+}
+az vm extension set 
+                        --resource-group az305-project-076 
+                        --vm-name tyrell-imgs-aus-076 
+                        --name customScript 
+                        --publisher Microsoft.Azure.Extensions 
+                        --protected-settings {
+    "fileUris":  "[https://az305project076.blob.core.windows.net/scripts-win2022datacenter/aus-imgs.cmd]",
+    "commandToExecute":  "aus-imgs.cmd"
+}
+----------------------------
+creating machine scale set
+machine set: tyrell-reg-aus-076
+service vnet: tyrell-vnet-aus-076
+service sub: tyrell-subnet-aus-076
+runtime: Win2022Datacenter
+private IP: tyrell-pip-reg-aus-076
+az vmss create 
+                            --resource-group az305-project-076 
+                            --name tyrell-reg-aus-076 
+                            --location australiasoutheast 
+                            --vnet-name tyrell-vnet-aus-076 
+                            --subnet tyrell-subnet-aus-076 
+                            --image Win2022Datacenter 
+                            --lb-sku Standard 
+                            --public-ip-address tyrell-pip-reg-aus-076 
+                            --upgrade-policy-mode automatic 
+                            --authentication-type password 
+                            --admin-username benjamin 
+                            --admin-password benjamin_123
+az vm extension set 
+                        --resource-group az305-project-076 
+                        --vm-name tyrell-reg-aus-076 
+                        --name customScript 
+                        --publisher Microsoft.Azure.Extensions 
+                        --protected-settings {
+    "fileUris":  "[https://az305project076.blob.core.windows.net/scripts-win2022datacenter/aus-reg.cmd]",
+    "commandToExecute":  "aus-reg.cmd"
+}
+****************************
+Creating Machine Scale Sets
+----------------------------
+creating vnet & subnet
+vnet: tyrell-vnet-eastus-076, 10.10.0.0/16
+subnet: tyrell-subnet-eastus-076, 10.10.10.0/24
+appGW: tyrell-appgw-subnet-eastus-076, 10.10.230.0/24
+location: eastus
+az network vnet create -g az305-project-076 --location eastus -n tyrell-vnet-eastus-076 --address-prefix 10.10.0.0/16 --subnet-name tyrell-subnet-eastus-076 --subnet-prefixes 10.10.10.0/24 | ConvertFrom-Json
+@{newVNet=}
+----------------------------
+creating machine scale set
+machine set: tyrell-imgs-eastus-076
+service vnet: tyrell-vnet-eastus-076
+service sub: tyrell-subnet-eastus-076
+runtime: Win2022Datacenter
+private IP: tyrell-pip-imgs-eastus-076
+az vmss create 
+                            --resource-group az305-project-076 
+                            --name tyrell-imgs-eastus-076 
+                            --location eastus 
+                            --vnet-name tyrell-vnet-eastus-076 
+                            --subnet tyrell-subnet-eastus-076 
+                            --image Win2022Datacenter 
+                            --lb-sku Standard 
+                            --public-ip-address tyrell-pip-imgs-eastus-076 
+                            --upgrade-policy-mode automatic 
+                            --authentication-type password 
+                            --admin-username benjamin 
+                            --admin-password benjamin_123
+{
+  "vmss": {
+    "doNotRunExtensionsOnOverprovisionedVMs": false,
+    "orchestrationMode": "Uniform",
+    "overprovision": true,
+    "provisioningState": "Succeeded",
+    "singlePlacementGroup": true,
+    "timeCreated": "2023-12-02T17:25:51.0849405+00:00",
+    "uniqueId": "59340b55-2812-4c80-9aae-22278f2f6d0e",
+    "upgradePolicy": {
+      "mode": "Automatic",
+      "rollingUpgradePolicy": {
+        "maxBatchInstancePercent": 20,
+        "maxSurge": false,
+        "maxUnhealthyInstancePercent": 20,
+        "maxUnhealthyUpgradedInstancePercent": 20,
+        "pauseTimeBetweenBatches": "PT0S",
+        "rollbackFailedInstancesOnPolicyBreach": false
+      }
+    },
+    "virtualMachineProfile": {
+      "networkProfile": {
+        "networkInterfaceConfigurations": [
+          {
+            "name": "tyrel041dNic",
+            "properties": {
+              "disableTcpStateTracking": false,
+              "dnsSettings": {
+                "dnsServers": []
+              },
+              "enableAcceleratedNetworking": false,
+              "enableIPForwarding": false,
+              "ipConfigurations": [
+                {
+                  "name": "tyrel041dIPConfig",
+                  "properties": {
+                    "loadBalancerBackendAddressPools": [
+                      {
+                        "id": "/subscriptions/a5d9f35c-81e1-4f98-899b-e25bb26bfa3a/resourceGroups/az305-project-076/providers/Microsoft.Network/loadBalancers/tyrell-imgs-eastus-076LB/backendAddressPools/tyrell-imgs-eastus-076LBBEPool",
+                        "resourceGroup": "az305-project-076"
+                      }
+                    ],
+                    "privateIPAddressVersion": "IPv4",
+                    "subnet": {
+                      "id": "/subscriptions/a5d9f35c-81e1-4f98-899b-e25bb26bfa3a/resourceGroups/az305-project-076/providers/Microsoft.Network/virtualNetworks/tyrell-vnet-eastus-076/subnets/tyrell-subnet-eastus-076",
+                      "resourceGroup": "az305-project-076"
+                    }
+                  }
+                }
+              ],
+              "networkSecurityGroup": {
+                "id": "/subscriptions/a5d9f35c-81e1-4f98-899b-e25bb26bfa3a/resourceGroups/az305-project-076/providers/Microsoft.Network/networkSecurityGroups/tyrell-imgs-eastus-076NSG",
+                "resourceGroup": "az305-project-076"
+              },
+              "primary": true
+            }
+          }
+        ]
+      },
+      "osProfile": {
+        "adminUsername": "benjamin",
+        "allowExtensionOperations": true,
+        "computerNamePrefix": "tyrel041d",
+        "requireGuestProvisionSignal": true,
+        "secrets": [],
+        "windowsConfiguration": {
+          "enableAutomaticUpdates": true,
+          "enableVMAgentPlatformUpdates": false,
+          "provisionVMAgent": true
+        }
+      },
+      "storageProfile": {
+        "diskControllerType": "SCSI",
+        "imageReference": {
+          "offer": "WindowsServer",
+          "publisher": "MicrosoftWindowsServer",
+          "sku": "2022-datacenter-g2",
+          "version": "latest"
+        },
+        "osDisk": {
+          "caching": "ReadWrite",
+          "createOption": "FromImage",
+          "diskSizeGB": 127,
+          "managedDisk": {
+            "storageAccountType": "Premium_LRS"
+          },
+          "osType": "Windows"
+        }
+      },
+      "timeCreated": "2023-12-02T17:25:51.0849405+00:00"
+    }
+  }
+}
+az vm extension set 
+                        --resource-group az305-project-076 
+                        --vm-name tyrell-imgs-eastus-076 
+                        --name customScript 
+                        --publisher Microsoft.Azure.Extensions 
+                        --protected-settings {
+    "fileUris":  "[https://az305project076.blob.core.windows.net/scripts-win2022datacenter/eastus-imgs.cmd]",
+    "commandToExecute":  "eastus-imgs.cmd"
+}
+----------------------------
+creating machine scale set
+machine set: tyrell-reg-eastus-076
+service vnet: tyrell-vnet-eastus-076
+service sub: tyrell-subnet-eastus-076
+runtime: Win2022Datacenter
+private IP: tyrell-pip-reg-eastus-076
+az vmss create 
+                            --resource-group az305-project-076 
+                            --name tyrell-reg-eastus-076 
+                            --location eastus 
+                            --vnet-name tyrell-vnet-eastus-076 
+                            --subnet tyrell-subnet-eastus-076 
+                            --image Win2022Datacenter 
+                            --lb-sku Standard 
+                            --public-ip-address tyrell-pip-reg-eastus-076 
+                            --upgrade-policy-mode automatic 
+                            --authentication-type password 
+                            --admin-username benjamin 
+                            --admin-password benjamin_123
+az vm extension set 
+                        --resource-group az305-project-076 
+                        --vm-name tyrell-reg-eastus-076 
+                        --name customScript 
+                        --publisher Microsoft.Azure.Extensions 
+                        --protected-settings {
+    "fileUris":  "[https://az305project076.blob.core.windows.net/scripts-win2022datacenter/eastus-reg.cmd]",
+    "commandToExecute":  "eastus-reg.cmd"
+}
+****************************
+Creating App Gateway
+appgw: tyrell-appgw-aus-076
+----------------------------
+creating appgw subnet
+subnet: tyrell-appgw-subnet-aus-076, cidr: 10.20.230.0/24
+az network vnet subnet create --name tyrell-appgw-subnet-aus-076 
+            --resource-group az305-project-076 
+            --vnet-name tyrell-vnet-aus-076 
+            --address-prefixes 10.20.230.0/24
+----------------------------
+creating public ip
+public ip name: tyrell-pip-appgw-aus-076
+az network public-ip create --name tyrell-pip-appgw-aus-076 --resource-group az305-project-076 
+                    --location australiasoutheast 
+                    --allocation-method Static --sku Standard
+az network public-ip show --name tyrell-pip-appgw-aus-076 --resource-group az305-project-076 
+                --query '{address: ipAddress}' --output json | ConvertFrom-Json
+public ip name: 20.127.49.108
+----------------------------
+creating app gw
+az network application-gateway create -g az305-project-076 -n tyrell-appgw-aus-076 
+                            --location australiasoutheast 
+                            --vnet-name tyrell-vnet-aus-076 
+                            --subnet tyrell-appgw-subnet-aus-076 
+                            --http-settings-cookie-based-affinity Enabled --priority 100  --public-ip-address tyrell-pip-appgw-aus-076 --sku Standard_v2
+----------------------------
+creating back end pools
+name: appGatewayBackendPool
+servers: tyrell-pip-imgs-aus-076
+az network application-gateway address-pool create -g az305-project-076 
+                    --gateway-name tyrell-appgw-aus-076 
+                    --name appGatewayBackendPool 
+                    --servers tyrell-pip-imgs-aus-076
+name: appGatewayBackendPool2
+servers: tyrell-pip-reg-aus-076
+az network application-gateway address-pool create -g az305-project-076 
+                    --gateway-name tyrell-appgw-aus-076 
+                    --name appGatewayBackendPool2 
+                    --servers tyrell-pip-reg-aus-076
+----------------------------
+creating path map
+creating path map
+paths: /images/*
+pool: appGatewayBackendPool
+settings: appGatewayBackendHttpSettings
+az network application-gateway url-path-map create 
+                    --resource-group az305-project-076 
+                    --gateway-name tyrell-appgw-aus-076 
+                    --name tyrell-appgw-pathmap-aus 
+                    --paths /images/* 
+                    --address-pool appGatewayBackendPool 
+                    --http-settings  appGatewayBackendHttpSettings 
+                    --default-address-pool appGatewayBackendPool 
+                    --default-http-settings appGatewayBackendHttpSettings
+creating path map
+paths: /blog/*
+pool: appGatewayBackendPool2
+settings: appGatewayBackendHttpSettings
+az network application-gateway url-path-map create 
+                    --resource-group az305-project-076 
+                    --gateway-name tyrell-appgw-aus-076 
+                    --name tyrell-appgw-pathmap-aus 
+                    --paths /blog/* 
+                    --address-pool appGatewayBackendPool2 
+                    --http-settings  appGatewayBackendHttpSettings 
+                    --default-address-pool appGatewayBackendPool2 
+                    --default-http-settings appGatewayBackendHttpSettings
+----------------------------
+creating rule
+name: rule1
+listener: appGatewayHttpListener
+pool: appGatewayBackendPool2
+settings: appGatewayBackendPool2
+path-map: tyrell-appgw-pathmap-aus
+az network application-gateway rule update 
+            --resource-group az305-project-076 
+            --gateway-name tyrell-appgw-aus-076 
+            --name rule1 --priority 99 
+            --http-listener appGatewayHttpListener --rule-type PathBasedRouting 
+            --address-pool appGatewayBackendPool2 
+            --http-settings appGatewayBackendPool2 
+            --url-path-map tyrell-appgw-pathmap-aus
+----------------------------
+creating http settings
+az network application-gateway http-settings update --gateway-name tyrell-appgw-aus-076 
+                --name appGatewayBackendHttpSettings 
+                --resource-group az305-project-076 
+                --host-name-from-backend-pool true 
+                --path '/' --port 80
+****************************
+Creating App Gateway
+appgw: tyrell-appgw-eastus-076
+----------------------------
+creating appgw subnet
+subnet: tyrell-appgw-subnet-eastus-076, cidr: 10.10.230.0/24
+az network vnet subnet create --name tyrell-appgw-subnet-eastus-076 
+            --resource-group az305-project-076 
+            --vnet-name tyrell-vnet-eastus-076 
+            --address-prefixes 10.10.230.0/24
+----------------------------
+creating public ip
+public ip name: tyrell-pip-appgw-eastus-076
+az network public-ip create --name tyrell-pip-appgw-eastus-076 --resource-group az305-project-076 
+                    --location eastus 
+                    --allocation-method Static --sku Standard
+az network public-ip show --name tyrell-pip-appgw-eastus-076 --resource-group az305-project-076 
+                --query '{address: ipAddress}' --output json | ConvertFrom-Json
+public ip name: 20.127.49.108
+----------------------------
+creating app gw
+az network application-gateway create -g az305-project-076 -n tyrell-appgw-eastus-076 
+                            --location eastus 
+                            --vnet-name tyrell-vnet-eastus-076 
+                            --subnet tyrell-appgw-subnet-eastus-076 
+                            --http-settings-cookie-based-affinity Enabled --priority 100  --public-ip-address tyrell-pip-appgw-eastus-076 --sku Standard_v2
+----------------------------
+creating back end pools
+name: appGatewayBackendPool
+servers: tyrell-pip-imgs-aus-076
+az network application-gateway address-pool create -g az305-project-076 
+                    --gateway-name tyrell-appgw-eastus-076 
+                    --name appGatewayBackendPool 
+                    --servers tyrell-pip-imgs-aus-076
+name: appGatewayBackendPool2
+servers: tyrell-pip-reg-aus-076
+az network application-gateway address-pool create -g az305-project-076 
+                    --gateway-name tyrell-appgw-eastus-076 
+                    --name appGatewayBackendPool2 
+                    --servers tyrell-pip-reg-aus-076
+----------------------------
+creating path map
+creating path map
+paths: /images/*
+pool: appGatewayBackendPool
+settings: appGatewayBackendHttpSettings
+az network application-gateway url-path-map create 
+                    --resource-group az305-project-076 
+                    --gateway-name tyrell-appgw-eastus-076 
+                    --name tyrell-appgw-pathmap-eastus 
+                    --paths /images/* 
+                    --address-pool appGatewayBackendPool 
+                    --http-settings  appGatewayBackendHttpSettings 
+                    --default-address-pool appGatewayBackendPool 
+                    --default-http-settings appGatewayBackendHttpSettings
+creating path map
+paths: /blog/*
+pool: appGatewayBackendPool2
+settings: appGatewayBackendHttpSettings
+az network application-gateway url-path-map create 
+                    --resource-group az305-project-076 
+                    --gateway-name tyrell-appgw-eastus-076 
+                    --name tyrell-appgw-pathmap-eastus 
+                    --paths /blog/* 
+                    --address-pool appGatewayBackendPool2 
+                    --http-settings  appGatewayBackendHttpSettings 
+                    --default-address-pool appGatewayBackendPool2 
+                    --default-http-settings appGatewayBackendHttpSettings
+----------------------------
+creating rule
+name: rule1
+listener: appGatewayHttpListener
+pool: appGatewayBackendPool2
+settings: appGatewayBackendPool2
+path-map: tyrell-appgw-pathmap-eastus
+az network application-gateway rule update 
+            --resource-group az305-project-076 
+            --gateway-name tyrell-appgw-eastus-076 
+            --name rule1 --priority 99 
+            --http-listener appGatewayHttpListener --rule-type PathBasedRouting 
+            --address-pool appGatewayBackendPool2 
+            --http-settings appGatewayBackendPool2 
+            --url-path-map tyrell-appgw-pathmap-eastus
+----------------------------
+creating http settings
+az network application-gateway http-settings update --gateway-name tyrell-appgw-eastus-076 
+                --name appGatewayBackendHttpSettings 
+                --resource-group az305-project-076 
+                --host-name-from-backend-pool true 
+                --path '/' --port 80

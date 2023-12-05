@@ -1,0 +1,20 @@
+{
+    "status": "not started",
+    "createdVPC": true,
+    "createdSubnet": true,
+    "createdSubnetGroup": true,
+    "createdIGW": true,
+    "createdRouteTbl": true,
+    "createdSecurityGroup": true,
+    "createdRDSdb": true,
+    "vpcId": "vpc-01739d2da9839894c",
+    "subnetIds": [
+        "subnet-0eec1a5d79f6a75d5",
+        "subnet-048d07faa4ee3981e"
+    ],
+    "subnetGroupId": "arn:aws:rds:us-east-1:167240473639:subgrp:rds-subnet-grp-002",
+    "igwId": "igw-01a06a0fdb60e0ab4",
+    "routeTableId": "rtb-0e1a41f2197532ad3",
+    "securityGroup": "sg-00550ba066b34466f",
+    "rdsDBArn": "arn:aws:rds:us-east-1:167240473639:db:rds-db-script-002"
+}
