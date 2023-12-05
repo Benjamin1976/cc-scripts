@@ -34,11 +34,87 @@ Write-Host "Creating VNET"
 $cmdOut = az network vnet create -g $GRP -n $vnetName --address-prefix $vnetPrefix --subnet-name $subnetName --subnet-prefixes $subnetPrefix
 $cmdOut
 
+# create vms
+$cmdOut = az network vnet create -g $GRP -n $vnetName --address-prefix $vnetPrefix --subnet-name $subnetName --subnet-prefixes $subnetPrefix
+
+az vmss create --name
+               --resource-group
+               [--admin-password]
+               [--admin-username]
+               [--authentication-type {all, password, ssh}]
+               [--custom-data]
+               [--image]
+               [--instance-count]
+               [--lb]
+               [--lb-nat-rule-name]
+               [--lb-sku {Basic, Gateway, Standard}]
+               [--license-type {None, RHEL_BASE, RHEL_BASESAPAPPS, RHEL_BASESAPHA, RHEL_BYOS, RHEL_ELS_6, RHEL_EUS, RHEL_SAPAPPS, RHEL_SAPHA, SLES, SLES_BYOS, SLES_HPC, SLES_SAP, SLES_STANDARD, UBUNTU, UBUNTU_PRO, Windows_Client, Windows_Server}]
+               [--location]
+               [--max-batch-instance-percent]
+               [--max-price]
+               [--max-surge {false, true}]
+               [--max-unhealthy-instance-percent]
+               [--max-unhealthy-upgraded-instance-percent]
+               [--network-api-version]
+               [--no-wait]
+               [--nsg]
+               [--orchestration-mode {Flexible, Uniform}]
+               [--os-disk-caching {None, ReadOnly, ReadWrite}]
+               [--os-disk-delete-option {Delete, Detach}]
+               [--os-disk-encryption-set]
+               [--os-disk-name]
+               [--os-disk-secure-vm-disk-encryption-set]
+               [--os-disk-security-encryption-type {DiskWithVMGuestState, VMGuestStateOnly}]
+               [--os-disk-size-gb]
+               [--os-type {linux, windows}]
+               [--patch-mode {AutomaticByOS, AutomaticByPlatform, ImageDefault, Manual}]
+               [--pause-time-between-batches]
+               [--plan-name]
+               [--plan-product]
+               [--plan-promotion-code]
+               [--plan-publisher]
+               [--platform-fault-domain-count]
+               [--ppg]
+               [--prioritize-unhealthy-instances {false, true}]
+               [--priority {Low, Regular, Spot}]
+               [--public-ip-address]
+               [--public-ip-address-allocation {dynamic, static}]
+               [--public-ip-address-dns-name]
+               [--public-ip-per-vm]
+               [--regular-priority-count]
+               [--regular-priority-percentage]
+               [--role]
+               [--scale-in-policy {Default, NewestVM, OldestVM}]
+               [--scope]
+               [--secrets]
+               [--security-type {ConfidentialVM, Standard, TrustedLaunch}]
+               [--single-placement-group {false, true}]
+               [--specialized {false, true}]
+               [--spot-restore-timeout]
+               [--ssh-dest-key-path]
+               [--ssh-key-values]
+               [--storage-container-name]
+               [--storage-sku]
+               [--subnet]
+               [--subnet-address-prefix]
+               [--tags]
+               [--terminate-notification-time]
+               [--ultra-ssd-enabled {false, true}]
+               [--upgrade-policy-mode {Automatic, Manual, Rolling}]
+               [--use-unmanaged-disk]
+               [--user-data]
+               [--v-cpus-available]
+               [--v-cpus-per-core]
+               [--validate]
+               [--vm-domain-name]
+               [--vm-sku]
+               [--vnet-address-prefix]
+               [--vnet-name]
+               [--zones]
+
 Exit
 
-# create vms
-
-    # add http inbound rule
+# add http inbound rule
 
 # create load balancer
 
