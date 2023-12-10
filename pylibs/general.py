@@ -130,7 +130,87 @@ def findAWSObj (specs, rules):
     debug= False
     obj = specs['obj']
     branch = specs['branch']
-    found = False
+    checkAll = True
+    found = False if checkAll else True   # set found as false 
+
+    print(f"[{obj}] Checking {obj} for: {specs[specs['var']]}")
+
+    # execute the command to check objects
+    output = subprocess.check_output(specs['commands']) 
+    data = json.loads(output)
+    # if debug: print(data)
+    
+    if branch in data:
+      for leaf in data[branch]:
+          if debug: print (f"[{obj}] Checking data leaf:-")
+          if debug: print (leaf)
+          
+          # extra key variables
+          returnVal = specs['returnVar']
+
+          # loop through rules and exit on first match
+          ruleFound = False
+          for rule in rules:
+            # extra key variables
+            key = rule['dataVar']
+            keyExists = False
+            name=""
+
+            if key.upper() == "NAME":
+                # check if vpc has same name
+                name = getTagValue(leaf, key)
+                if name:
+                    if name == specs[rule['passedVar']]:
+                        ruleFound = True
+            else:
+              # check direct variable
+              # e.g. check if vpc has CIDRblock
+
+              if debug: print(f"[{obj}] reading", key, " in ", leaf)
+              if key in leaf:
+                if debug: print("Key exists")
+                if leaf[key] == specs[rule['passedVar']]:
+                    keyExists = True
+                    ruleFound = True
+              else:
+                  print(f"[{obj}] Cannot find key:", key)
+                  return False
+            
+            if checkAll:      # for check all, once one negative rule passed, exit with not found
+              if not ruleFound:
+                found = False
+                break
+              else:
+                found = True
+            else: 
+              if ruleFound:   # for check any, once one negative positive rule, exit with found
+                found = True
+                break
+            
+              
+
+          if found:
+            print(f'[{obj}] Found Existing', obj, "returning", returnVal)
+            if name: print("    name:", name)
+            if keyExists: print("    " + key + ":", leaf[key])          
+
+            if returnVal in leaf: 
+              print("    " + returnVal + ":", leaf[returnVal])
+              return leaf[specs['returnVar']]        
+            else:
+              return True
+    
+    print(f"[{obj}] Cannot find {obj} with: {specs[specs['var']]}")
+    return False
+
+
+def findAWSObj2 (specs, rules):
+
+    debug= False
+    obj = specs['obj']
+    branch = specs['branch']
+    checkAll = True
+    found = False if checkAll else True   # set found as false 
 
     print(f"[{obj}] Checking {obj} for: {specs[specs['var']]}")
 
@@ -139,51 +219,66 @@ def findAWSObj (specs, rules):
     data = json.loads(output)
     if debug: print(data)
 
-    # loop through each existing item (vpc, subnet etc) and see if object exists
-    for leaf in data[branch]:
-        if debug: print (f"[{obj}] Checking data leaf:-")
-        if debug: print (leaf)
-        
-        # extra key variables
-        returnVal = specs['returnVar']
+    # loop through rules and exit on first match
+    ruleFound = False
+    for rule in rules:
+      # extra key variables
+      key = rule['dataVar']
+      keyExists = False
+      name=""
 
-        # loop through rules and exit on first match
-        for rule in rules:
+      # loop through each existing item (vpc, subnet etc) and see if object exists
+      for leaf in data[branch]:
+          if debug: print (f"[{obj}] Checking data leaf:-")
+          if debug: print (leaf)
+          
           # extra key variables
-          key = rule['dataVar']
-          keyExists = False
-          name=""
+          returnVal = specs['returnVar']
 
           if key.upper() == "NAME":
               # check if vpc has same name
               name = getTagValue(leaf, key)
               if name:
                   if name == specs[rule['passedVar']]:
-                      found = True
+                      ruleFound = True
           else:
             # check direct variable
             # e.g. check if vpc has CIDRblock
+
             if debug: print(f"[{obj}] reading", key, " in ", leaf)
             if key in leaf:
               if debug: print("Key exists")
               if leaf[key] == specs[rule['passedVar']]:
                   keyExists = True
-                  found = True
+                  ruleFound = True
             else:
                 print(f"[{obj}] Cannot find key:", key)
                 return False
-          if found: break
+          
+          if checkAll:      # for check all, once one negative rule passed, exit with not found
+            if not ruleFound:
+              found = False
+              break
+            else:
+                found = True
+          else: 
+            if ruleFound:   # for check any, once one negative positive rule, exit with found
+                found = True
+                break
 
-        if found:
-          print(f'[{obj}]Found Existing', obj, "returning", returnVal)
-          if name: print("    name:", name)
-          if keyExists: print("    " + key + ":", leaf[key])          
+    if found:
+      print(f'[{obj}] Found Existing', obj, "returning", returnVal)
+      if name: print("    name:", name)
+      
+      if keyExists: print("    " + key + ":", leaf[key])          
 
-          if returnVal in leaf: 
-            print("    " + returnVal + ":", leaf[returnVal])
-            return leaf[specs['returnVar']]        
-          else:
-            return True
+      if returnVal in leaf: 
+        print("    " + returnVal + ":", leaf[returnVal])
+        return leaf[specs['returnVar']]        
+      else:
+        return True  
+
+        
     
     print(f"[{obj}] Cannot find {obj} with: {specs[specs['var']]}")
     return False

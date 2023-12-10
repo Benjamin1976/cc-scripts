@@ -1,9 +1,6 @@
-# AKIAWZWSRYDQTZLFIMXU
-# wURvYuUpFRW5iKDgNmVOQcpEXfwduxCSAoA4byLU
-
 from pylibs.general import readJSONFile, writeJSONFile, getConfig, saveConfig
 
-from pylibs.aws_vpc import createVPC
+from pylibs.aws_vpc import createVPC, createVPCs
 from pylibs.aws_subnet import createSubnets
 from pylibs.aws_subnet_group import createSubnetGroup
 from pylibs.aws_internet_gateway import createIGW
@@ -11,6 +8,9 @@ from pylibs.aws_route_table import createRouteTbl
 from pylibs.aws_security_group import createSG
 from pylibs.aws_create_rds_db import createRDSdb
 
+# AKIAWZWSRYDQTZLFIMXU
+# wURvYuUpFRW5iKDgNmVOQcpEXfwduxCSAoA4byLU
+quit()
 index = "2"
 args_vpc = {
     "vpcName": "rds-script-test-00" + index,
@@ -87,7 +87,7 @@ config = getConfig(configFile)
 
 
 actions = [
-    {"name": "VPC", "runCheck" : "createdVPC", "configVar": "vpcId", "fnc": createVPC, "arguments": {"vpcName": args_vpc["vpcName"], "vpcCidr": args_vpc["vpcCidr"]}},
+    {"name": "VPC", "runCheck" : "createdVPC", "configVar": "vpcId", "fnc": createVPCs, "arguments": {"vpcName": args_vpc["vpcName"], "vpcCidr": args_vpc["vpcCidr"]}},
     {"name": "Subnet", "runCheck" : "createdSubnet", "configVar": "subnetIds", "fnc": createSubnets, "arguments": {"vpcId": "config.vpcId", "subnets": args_sub["subnets"]}},
     {"name": "Subnet Group", "runCheck" : "createdSubnetGroup", "configVar": "subnetGroupId", "fnc": createSubnetGroup, "arguments": {"groupName": args_subgroup["subnetGroupName"], \
                 "groupDesc": args_subgroup["subnetGroupDesc"], "subnetIds": "config.subnetIds"}},

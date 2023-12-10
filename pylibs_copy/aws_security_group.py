@@ -1,36 +1,24 @@
 import subprocess
 import json
-from .general import findAWSObj
+from general import findAWSObj
 
 def createSG(args):
     
     debug = True
-    vpcId = args["vpcId"]
-    region = args["region"]
-    myIp = args["myIp"]
     sgName = args["sgName"]
     sgDesc = args["sgDesc"]
+    vpcId = args["vpcId"]
+    myIp = args["myIp"]
 
     # rules 
     obj = "Security Group"
-    specs = {"obj": obj, "branch": "SecurityGroups", "commands" :["aws", "ec2", "describe-security-groups"  , "--region", region,  "--filters", 'Name=vpc-id,Values=' + vpcId + '', "--output", "json"], 
+    specs = {"obj": obj, "branch": "SecurityGroups", "commands" :["aws", "ec2", "describe-security-groups"], 
                     "var": "sgName", "sgName": sgName, "returnVar": "GroupId"}
-    rules = [
-         {"branch": "SecurityGroups", "dataVar": "GroupName", "passedVar": "sgName"}
-    ]    
+    rules = [{"dataVar": "GroupName", "passedVar": "sgName"}]    
     
     print(f"-------Checking if {obj} exists---------")
-    groupId = findAWSObj(specs, rules)  
-    
-    # groupId = ""
-    # output = subprocess.getoutput(["aws", "ec2", "describe-security-groups", "--region", region, "--filters", 'Name=vpc-id,Values=' + vpcId + ''])
-    # data = json.loads(output)
-    # print(data)
-    # sgName = "tyrell-sg-pub-uswest2-002"
-    # for sg in data["SecurityGroups"]:
-    #     if sg['GroupName'] == sgName:
-    #         groupId = sg['GroupId']
-  
+    groupId = findAWSObj(specs, rules)       
+
     if groupId: 
         print(f"[{obj}] exists, exiting")    
     else:    
@@ -41,19 +29,14 @@ def createSG(args):
 
             # security groups
             output = subprocess.check_output(["aws", "ec2", "create-security-group", "--vpc-id", vpcId \
-                                            , "--region", region \
                                               , "--group-name", sgName, "--description", sgDesc])
             sgOutput = json.loads(output)
             groupId = sgOutput['GroupId']
 
             # security group rule
-            mIpCidr = myIp.split(".")
-            mIpCidr = ".".join(mIpCidr[0:-1]) + ".0/24"
-
             output = subprocess.check_output(["aws", "ec2", "authorize-security-group-ingress" \
-                                    , "--region", region \
                                     , "--group-id", groupId, "--protocol", "tcp" \
-                                    , "--port", "1433", "--cidr", mIpCidr])
+                                    , "--port", "1433", "--cidr", myIp])
             
             print(f"[{obj}] Created: {groupId}")
 
@@ -62,18 +45,6 @@ def createSG(args):
                 raise
 
     return groupId
-
-def createSGs(args):
-    # debug = False
-    # obj = "All Subnets"
-    for vpc in args['vpcs']:
-        for secGroup in vpc['secGroups']:
-            groupId = createSG({"vpcId": vpc["vpcId"], "region": vpc["region"], 
-                            "sgName": secGroup["name"], "sgDesc": secGroup["desc"], 
-                            "myIp": args["myIp"]})
-            secGroup["groupId"] = groupId
-
-    return args
 
 
 

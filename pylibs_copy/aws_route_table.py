@@ -1,36 +1,27 @@
 
 import subprocess
 import json
-from .general import findAWSObj
+from general import findAWSObj
 
 def createRouteTbl(args):
 
     debug = True
     vpcId = args["vpcId"]
-    region = args["region"]
-    internet = args["internet"]
-    igwId = ""
-    if internet:
-        igwId = args["igwId"]
+    igwId = args["igwId"]
     name = args["name"]
         
     # rules 
     obj = "Route Table"
-    specs = {"obj": obj, "branch": "RouteTables", "commands": ["aws", "ec2", "describe-route-tables", "--region", region, "--filters", 'Name=vpc-id,Values=' + vpcId + ''] \
-                    , "var": "RouteTableId", "RouteTableId": vpcId,  "returnVar": "RouteTableId"}
+    specs = {"obj": obj, "branch": "RouteTables", "commands": ["aws", "ec2", "describe-route-tables", "--filters", f'"Name"="vpc-id","Values"="{vpcId}"'], \
+                    "var": "RouteTableId", "RouteTableId": vpcId,  "returnVar": "RouteTableId"}
     rules = [
-        {"branch": "RouteTables", "dataVar": "Name", "passedVar": "vpcName"},
-        {"branch": "RouteTables", "dataVar": "Routes.GatewayId", "passedVar": "RouteTableId"},
-        ]
-    
-    if internet and igwId:
-        rules.append({"dataVar": "Routes.DestinationCidrBlock", "passedVar": "igwId"})
-    
-    # routeTableId = findAWSObj(specs, rules)
-  
+         {"dataVar": "Routes.GatewayId", "passedVar": "RouteTableId"},
+         {"dataVar": "Routes.DestinationCidrBlock", "passedVar": "igwId"}]    
+
+
     try:
         # check existing routes
-        output = subprocess.check_output(["aws", "ec2", "describe-route-tables", "--region", region, "--filters", 'Name=vpc-id,Values=' + vpcId + ''])
+        output = subprocess.check_output(["aws", "ec2", "describe-route-tables", "--filters", f'Name=vpc-id,Values="{vpcId}"'])
         rtOutput = json.loads(output)
         routeTableId = ""
 
@@ -41,9 +32,11 @@ def createRouteTbl(args):
                     if ass['Main']:
                         routeTableId = rt["RouteTableId"]
             
-        
+
         if routeTableId: 
-            print(f"[{obj}] route table {routeTableId} exists, skipping route table creation")        
+            print(f"[{obj}] exists, skipping route table creation")    
+            
+
         else:    
             # create route table
             print(f"[{obj}] Creating {obj}: {igwId}")
@@ -52,7 +45,6 @@ def createRouteTbl(args):
 
             tags = f"{{Key=Name, Value={name}}}"
             output = subprocess.check_output(["aws", "ec2", "create-route-table", "--vpc-id", vpcId \
-                                            , "--region", region \
                                             , "--tag-specification", f"ResourceType=route-table,Tags=[{tags}]" ])
             
             rtOutput = json.loads(output)
@@ -61,16 +53,14 @@ def createRouteTbl(args):
             
         
         # routes - igw
-        if internet and igwId:
-            obj2 = "IGW route"
-            print(f"[{obj2}] Creating: {igwId}")
-            output = subprocess.check_output(["aws", "ec2", "create-route", "--route-table-id", routeTableId \
-                                    , "--region", region \
-                                    , "--destination-cidr-block", "0.0.0.0/0"\
-                                    , "--gateway-id", igwId])
-            if (output): print("igw route created")
-            print(f"[{obj2}] Finished: {routeTableId}")
+        obj2 = "IGW route"
+        print(f"[{obj2}] Creating: {igwId}")
+        output = subprocess.check_output(["aws", "ec2", "create-route", "--route-table-id", routeTableId\
+                                , "--destination-cidr-block", "0.0.0.0/0"\
+                                , "--gateway-id", igwId])
+        if (output): print("igw route created")
 
+        print(f"[{obj2}] Finished: {routeTableId}")
         print(f"[{obj}] Finished: {routeTableId}")
 
     except Exception as err:
@@ -79,17 +69,7 @@ def createRouteTbl(args):
 
     return routeTableId
 
-
-def createRouteTbls(args):
-    # debug = False
-    # obj = "All Subnets"
-    for vpc in args['vpcs']:
-        for routeTable in vpc['routeTables']:
-            routeTableId = createRouteTbl({"vpcId": vpc["vpcId"], "region": vpc["region"], "name": routeTable["name"], "internet": routeTable["internet"], "igwId": vpc["igw"]["igwId"]})
-            routeTable["routeTableId"] = routeTableId
-
-    return args
-
+args = {"VpcId": "vpc-0f8e48ac3f31f163c", "igwId" : "igw-0bb250055cd1f500d"}
 
 # aws ec2 describe-route-tables
 

@@ -1,6 +1,6 @@
 import subprocess
 import json
-from .general import findAWSObj
+from general import findAWSObj
 
 def createRDSdb(args):
 	debug = False

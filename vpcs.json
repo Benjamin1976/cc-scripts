@@ -1,0 +1,126 @@
+{
+    "Vpcs": [
+        {
+            "CidrBlock": "16.10.0.0/16",
+            "DhcpOptionsId": "dopt-0cc6a53e0bd9a3e5f",
+            "State": "available",
+            "VpcId": "vpc-0affd075b2510a986",
+            "OwnerId": "601143796602",
+            "InstanceTenancy": "default",
+            "CidrBlockAssociationSet": [
+                {
+                    "AssociationId": "vpc-cidr-assoc-040a7f56bb5f01fa6",
+                    "CidrBlock": "16.10.0.0/16",
+                    "CidrBlockState": {
+                        "State": "associated"
+                    }
+                }
+            ],
+            "IsDefault": false,
+            "Tags": [
+                {
+                    "Key": "RG",
+                    "Value": "cc-capstone2-002"
+                },
+                {
+                    "Key": "Name",
+                    "Value": "tyrell-vpc-eastus-002"
+                }
+            ]
+        },
+        {
+            "CidrBlock": "16.20.0.0/16",
+            "DhcpOptionsId": "dopt-0cc6a53e0bd9a3e5f",
+            "State": "available",
+            "VpcId": "vpc-0a3b87cfd5c18bb9b",
+            "OwnerId": "601143796602",
+            "InstanceTenancy": "default",
+            "CidrBlockAssociationSet": [
+                {
+                    "AssociationId": "vpc-cidr-assoc-008ea9545ee550aaa",
+                    "CidrBlock": "16.20.0.0/16",
+                    "CidrBlockState": {
+                        "State": "associated"
+                    }
+                }
+            ],
+            "IsDefault": false,
+            "Tags": [
+                {
+                    "Key": "Name",
+                    "Value": "tyrell-vpc-useast1-002"
+                }
+            ]
+        },
+        {
+            "CidrBlock": "172.31.0.0/16",
+            "DhcpOptionsId": "dopt-0cc6a53e0bd9a3e5f",
+            "State": "available",
+            "VpcId": "vpc-09b4b13669a638639",
+            "OwnerId": "601143796602",
+            "InstanceTenancy": "default",
+            "CidrBlockAssociationSet": [
+                {
+                    "AssociationId": "vpc-cidr-assoc-065951c10ce60f016",
+                    "CidrBlock": "172.31.0.0/16",
+                    "CidrBlockState": {
+                        "State": "associated"
+                    }
+                }
+            ],
+            "IsDefault": true
+        },
+        {
+            "CidrBlock": "16.10.0.0/16",
+            "DhcpOptionsId": "dopt-0cc6a53e0bd9a3e5f",
+            "State": "available",
+            "VpcId": "vpc-0051a0d6383d3ddd4",
+            "OwnerId": "601143796602",
+            "InstanceTenancy": "default",
+            "CidrBlockAssociationSet": [
+                {
+                    "AssociationId": "vpc-cidr-assoc-0a6bf0a49a96d8655",
+                    "CidrBlock": "16.10.0.0/16",
+                    "CidrBlockState": {
+                        "State": "associated"
+                    }
+                }
+            ],
+            "IsDefault": false,
+            "Tags": [
+                {
+                    "Key": "Name",
+                    "Value": "tyrell-vpc-uswest2-002"
+                }
+            ]
+        },
+        {
+            "CidrBlock": "14.10.0.0/16",
+            "DhcpOptionsId": "dopt-0cc6a53e0bd9a3e5f",
+            "State": "available",
+            "VpcId": "vpc-06471d4a3958c69a8",
+            "OwnerId": "601143796602",
+            "InstanceTenancy": "default",
+            "CidrBlockAssociationSet": [
+                {
+                    "AssociationId": "vpc-cidr-assoc-0fbebaab7df137046",
+                    "CidrBlock": "14.10.0.0/16",
+                    "CidrBlockState": {
+                        "State": "associated"
+                    }
+                }
+            ],
+            "IsDefault": false,
+            "Tags": [
+                {
+                    "Key": "Name",
+                    "Value": "tyrell-vpc-eastus-002"
+                },
+                {
+                    "Key": "RG",
+                    "Value": "cc-capstone2-002"
+                }
+            ]
+        }
+    ]
+}

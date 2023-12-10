@@ -1,28 +1,27 @@
 
 import subprocess
 import json
-from .general import findAWSObj
+from general import findAWSObj
 
-def createVPC (args):
+def createVPC (vpcName, vpcCidr):
     debug = False
 
     obj = "VPC"
-    specs = {"obj": "VPC", "branch": "Vpcs", "commands" :["aws", "ec2", "describe-vpcs", "--region", args['region']], 
-                "var": "vpcName", "vpcCidr": args['vpcCidr'], "vpcName": args['vpcName'],  "returnVar": "VpcId"}
-    rules = [{"branch": "Vpcs", "dataVar": "Name", "passedVar": "vpcName"},
-              {"branch": "Vpcs", "dataVar": "CidrBlock", "passedVar": "vpcCidr"}]    
+    specs = {"obj": "VPC", "branch": "Vpcs", "commands" :["aws", "ec2", "describe-vpcs"], 
+                "var": "vpcName", "vpcCidr": vpcCidr, "vpcName": vpcName,  "returnVar": "VpcId"}
+    rules = [{"dataVar": "Name", "passedVar": "vpcName"},
+              {"dataVar": "CidrBlock", "passedVar": "vpcCidr"}]    
     
     print(f"[{obj}] Checking if {obj} exists")
     vpcId = findAWSObj(specs, rules)
 
     if vpcId: 
-      print(f"[{obj}] exists, skipping.")    
+        print(f"[{obj}] exists, skipping.")    
     else:
-      print(f"[{obj}] Creating {obj}: {args['vpcName']}")
+      print(f"[{obj}] Creating {obj}: {vpcName}")
 
-      tags = f"{{Key=Name, Value={args['vpcName']}}}"
-      output = subprocess.check_output(["aws", "ec2", "create-vpc", "--cidr-block", args['vpcCidr'] \
-                                      , "--region", args['region'] \
+      tags = f"{{Key=Name, Value={vpcName}}}"
+      output = subprocess.check_output(["aws", "ec2", "create-vpc", "--cidr-block", vpcCidr \
                                       , "--tag-specification", f"ResourceType=vpc,Tags=[{tags}]" \
                                         ]) 
       vpcData = json.loads(output)
@@ -30,25 +29,12 @@ def createVPC (args):
       print(f"[{obj}] Created vpc: {vpcId}")
 
       # Write-Output $json.Vpc.VpcId
-      print(f"[{obj}] Modifying: {args['vpcName']}")
-      output = subprocess.check_output(["aws", "ec2", "modify-vpc-attribute", "--vpc-id", vpcId \
-                                        , "--region", args['region'] \
-                                        , "--enable-dns-hostnames", '{\"Value\": true}']) 
-      print(f"[{obj}] Modified: {args['vpcName']}")
+      print(f"[{obj}] Modifying: {vpcName}")
+      output = subprocess.check_output(["aws", "ec2", "modify-vpc-attribute", "--vpc-id", vpcId, "--enable-dns-hostnames", '{\"Value\": true}']) 
+      print(f"[{obj}] Modified: {vpcName}")
 
     return vpcId
 
-
-def createVPCs (args):
-    debug = False
-    obj = "VPC"
-
-    for arg in args['vpcs']:
-      # print({"vpcName": arg["vpcName"], "vpcCidr": arg["vpcCidr"]})
-      vpcId = createVPC({"vpcName": arg["vpcName"], "vpcCidr": arg["vpcCidr"], "region": arg['region']})
-      arg["vpcId"] = vpcId
-
-    return args
 
 
 

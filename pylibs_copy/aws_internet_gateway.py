@@ -1,20 +1,19 @@
 
 import subprocess
 import json
-from .general import findAWSObj
+from general import findAWSObj
 
 def createIGW(args):
 
 	debug = True
 	igwName = args["igwName"]
 	vpcId = args["vpcId"]
-	region = args["region"]
 
 	# rules 
 	obj = "Internet Gateway"
-	specs = {"obj": obj, "branch": "InternetGateways", "commands" :["aws", "ec2", "describe-internet-gateways", "--region", region], 
+	specs = {"obj": obj, "branch": "InternetGateways", "commands" :["aws", "ec2", "describe-internet-gateways"], 
 					"var": "igwName", "igwName": igwName, "returnVar": "InternetGatewayId"}
-	rules = [{"branch": "InternetGateways", "dataVar": "Name", "passedVar": "igwName"}]    
+	rules = [{"dataVar": "Name", "passedVar": "igwName"}]    
 
 	print( f"[{obj}] Checking if", specs['obj'], "exists")
 	igwId = findAWSObj(specs, rules)        
@@ -31,7 +30,6 @@ def createIGW(args):
 			# create internet gateway
 			tags = f"{{Key=Name, Value={igwName}}}"
 			output = subprocess.check_output(["aws", "ec2", "create-internet-gateway" \
-					, "--region", region \
 					, "--tag-specifications", f"ResourceType=internet-gateway,Tags=[{tags}]" \
 					])
 
@@ -44,8 +42,7 @@ def createIGW(args):
 			output = subprocess.check_output(["aws", "ec2", "attach-internet-gateway" \
 					, "--internet-gateway-id", igwId \
 					, "--vpc-id", vpcId \
-					, "--region", region \
-					])
+					,])
 			print(f"[{obj}] Attached: {igwId} to {vpcId}")
 
 		except Exception as err:
@@ -54,15 +51,6 @@ def createIGW(args):
 
 			
 	return igwId
-
-def createIGWs(args):
-    # debug = False
-    # obj = "All Subnets"
-    for vpc in args['vpcs']:
-        igwId = createIGW({"vpcId": vpc["vpcId"], "region": vpc["region"], "igwName": vpc["igw"]["name"]})
-        vpc["igw"]['igwId'] = igwId
-
-    return args
 
 
 # aws ec2 describe-internet-gateways \
